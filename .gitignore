@@ -1,0 +1,33 @@
+# Dependencies / envs
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Build output
+.next/
+dist/
+out/
+*.tsbuildinfo
+coverage/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Uploaded files
+storage/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# docs
+#docs/
+
+# MD files
+*.md
+!README.md

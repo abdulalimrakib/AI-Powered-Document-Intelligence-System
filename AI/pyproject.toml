@@ -1,0 +1,17 @@
+[project]
+name = "document-intelligence-ai"
+version = "0.1.0"
+description = "AI-Powered Document Intelligence System: AI service that reads documents and extracts invoice data"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.0",
+    "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "pillow>=13.0.0",
+    "pymupdf>=2.0",
+    "pytesseract>=0.3.13",
+    "python-multipart>=0.0.33",
+    "uvicorn[standard]>=0.54.0",
+    "xlrd>=2.0.2",
+]
