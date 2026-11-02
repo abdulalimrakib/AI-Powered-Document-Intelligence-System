@@ -15,3 +15,12 @@ dependencies = [
     "uvicorn[standard]>=0.54.0",
     "xlrd>=2.0.2",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "tests"]   # lets the tests import the code in this folder and tests/make_files.py
+testpaths = ["tests"]
