@@ -118,3 +118,20 @@ def save_workbook(workbook: openpyxl.Workbook) -> bytes:
 def old_excel_file() -> bytes:
     """A real old-format Excel file (.xls), stored in tests/files because no installed library can write .xls."""
     return (FILES_FOLDER / "old_excel.xls").read_bytes()
+
+
+def sample_invoice(line_items=(), **values) -> dict:
+    """A finished invoice (as Task 2 gives it) with clean values, for the Task 3 checks.
+    Change any value with a keyword, e.g. sample_invoice(total="1180.00") or sample_invoice(tax=None).
+    line_items is a list of (quantity, unit price, amount)."""
+    clean = {
+        "invoice_number": "INV-001", "invoice_date": "2026-10-15", "supplier_name": "Acme Trading Ltd",
+        "customer_name": "Blue Sky Foods", "subtotal": "1000.00", "tax": "150.00", "total": "1150.00",
+        "currency": "USD",
+    }
+    clean.update(values)
+    fields = {name: {"value": value, "status": "missing" if value is None else "found", "evidence": value, "note": None}
+              for name, value in clean.items()}
+    items = [{"description": "Item", "quantity": quantity, "unit_price": unit_price, "amount": amount,
+              "evidence": None, "problems": []} for quantity, unit_price, amount in line_items]
+    return {"source": "Page 1", "fields": fields, "line_items": items}

@@ -6,6 +6,7 @@ from process_file import process_file
 from read_image import LOW_CONFIDENCE
 from split_invoices import split_into_invoices
 from spreadsheet_invoices import invoices_from_spreadsheet
+from validate_invoice import find_duplicates, problem, readable, validate_invoice
 
 # Which cleaning function from Step 4 is used for each field.
 CLEANERS = {
@@ -18,9 +19,6 @@ CLEANERS = {
     "total": clean_amount,
     "currency": clean_currency,
 }
-
-# If one of these is missing or uncertain, a person has to check the invoice.
-IMPORTANT_FIELDS = ["invoice_number", "invoice_date", "supplier_name", "total"]
 
 
 def extract_invoices_from_file(filename: str, data: bytes) -> dict:
@@ -62,7 +60,7 @@ def invoices_from_pages(pages: list[dict]) -> list[dict]:
 def invoices_from_sheets(sheets: list[dict]) -> tuple[list[dict], list[str]]:
     """Excel and CSV: read clear columns directly (Step 2a). Sheets we can't understand go to Gemini."""
     raw_invoices, unmatched_sheets, warnings = invoices_from_spreadsheet(sheets)
-    invoices = [finish_invoice(raw, raw["source"], "spreadsheet columns", evidence_problems={})
+    invoices = [finish_invoice(raw, raw["source"], "spreadsheet columns", evidence_problems={}, text=raw["source"])
                 for raw in raw_invoices]
     for sheet in unmatched_sheets:
         invoices.append(invoice_with_ai(sheet["text"], f"Sheet '{sheet['name']}'", lowest_ocr_confidence=None))
@@ -76,12 +74,13 @@ def invoice_with_ai(text: str, source: str, lowest_ocr_confidence: float | None)
     except ValueError as error:
         return failed_invoice(source, str(error))
     problems = check_evidence(raw, text)
-    return finish_invoice(raw, source, "gemini", problems, lowest_ocr_confidence)
+    return finish_invoice(raw, source, "gemini", problems, lowest_ocr_confidence, text)
 
 
 def finish_invoice(raw: dict, source: str, method: str, evidence_problems: dict[str, str],
-                   lowest_ocr_confidence: float | None = None) -> dict:
-    """Step 4 + Step 5: clean every value, give each field a status, and decide if a person must check it."""
+                   lowest_ocr_confidence: float | None = None, text: str = "") -> dict:
+    """Clean every value (Task 2), give each field a status (Task 2), check the invoice (Task 3)
+    and decide if a person must check it."""
     poor_scan = lowest_ocr_confidence is not None and lowest_ocr_confidence < LOW_CONFIDENCE
     scan_note = f"read from a poorly scanned page (OCR confidence {lowest_ocr_confidence:.0f}%)" if poor_scan else None
 
@@ -99,27 +98,41 @@ def finish_invoice(raw: dict, source: str, method: str, evidence_problems: dict[
     line_items = [finish_line_item(number, item, evidence_problems)
                   for number, item in enumerate(raw["line_items"], start=1)]
 
-    review_reasons = []
-    for name in IMPORTANT_FIELDS:
-        if fields[name]["status"] == "missing":
-            review_reasons.append(f"{readable(name)} is missing")
-        elif fields[name]["status"] == "uncertain":
-            review_reasons.append(f"{readable(name)} is uncertain: {fields[name]['note']}")
-    for number, item in enumerate(line_items, start=1):
-        for problem in item["problems"]:
-            review_reasons.append(f"line item {number}: {problem}")
-
-    return {
+    invoice = {
         "source": source,
         "method": method,
         "ai_model": raw.get("model"),  # which Gemini model read it (None for spreadsheet columns)
         "error": None,
         "fields": fields,
         "line_items": line_items,
-        "needs_review": bool(review_reasons),
-        "review_reasons": review_reasons,
         "warnings": raw.get("warnings", []),
     }
+
+    validation_errors = validate_invoice(invoice, text)  # Task 3
+    # Line items the AI's evidence or the cleaning (Task 2) was not sure about.
+    for number, item in enumerate(line_items, start=1):
+        for item_problem in item["problems"]:
+            validation_errors.append(problem(f"line item {number}", "uncertain_value",
+                                             f"line item {number}: {item_problem}"))
+    return set_validation(invoice, validation_errors)
+
+
+def set_validation(invoice: dict, validation_errors: list[dict]) -> dict:
+    """Save the problems in the invoice. Any problem at all means a person has to check it."""
+    invoice["validation_errors"] = validation_errors
+    invoice["needs_review"] = bool(validation_errors)
+    invoice["review_reasons"] = [error["message"] for error in validation_errors]  # the same, as plain sentences
+    return invoice
+
+
+def mark_duplicates(results: list[dict]) -> None:
+    """Task 3 Step 4: look for the same invoice twice in one upload, also across different files.
+    `results` are the results of extract_invoices_from_file, one per file."""
+    invoices = [(f"{result['filename']}, {invoice['source']}", invoice)
+                for result in results for invoice in result["invoices"]]
+    for (_, invoice), duplicate_problems in zip(invoices, find_duplicates(invoices)):
+        if duplicate_problems:
+            set_validation(invoice, invoice["validation_errors"] + duplicate_problems)
 
 
 def finish_field(name: str, raw: dict, evidence_problem: str | None, scan_note: str | None) -> dict:
@@ -156,10 +169,7 @@ def finish_line_item(number: int, raw: dict, evidence_problems: dict[str, str]) 
 def failed_invoice(source: str, error: str) -> dict:
     """An invoice the AI could not read: every field is missing and a person has to check it."""
     empty = {"value": None, "status": "missing", "evidence": None, "note": None}
-    return {"source": source, "method": "gemini", "ai_model": None, "error": error,
-            "fields": {name: dict(empty) for name in INVOICE_FIELDS}, "line_items": [],
-            "needs_review": True, "review_reasons": [error], "warnings": []}
-
-
-def readable(field: str) -> str:
-    return field.replace("_", " ")  # "invoice_date" -> "invoice date"
+    invoice = {"source": source, "method": "gemini", "ai_model": None, "error": error,
+               "fields": {name: dict(empty) for name in INVOICE_FIELDS}, "line_items": [], "warnings": []}
+    # field None means the problem is about the whole invoice, not one field
+    return set_validation(invoice, [problem(None, "ai_failed", error)])

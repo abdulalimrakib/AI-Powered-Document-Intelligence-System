@@ -19,6 +19,7 @@ RESULTS_FOLDER = Path(__file__).parents[2] / "test-results"
 TASKS = {
     "task1": ("Task 1 — Document Processing", "task1_document_processing.txt"),
     "task2": ("Task 2 — AI Information Extraction", "task2_ai_extraction.txt"),
+    "task3": ("Task 3 — Data Validation", "task3_validation.txt"),
 }
 
 # Every finished test is added here: (task folder, step title, description, "PASS"/"FAIL"/"SKIP", reason, seconds)

@@ -28,7 +28,7 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 
 | File | What it does |
 |---|---|
-| `main.py` | The API: `GET /health`, `POST /process` |
+| `main.py` | The API: `GET /health`, `POST /process` (text of each file), `POST /extract` (checked invoices) |
 | `process_file.py` | Checks size and type, picks the right reader, turns errors into clear messages |
 | `file_type.py` | Finds the real file type from the file's first bytes |
 | `read_pdf.py` | Reads PDFs page by page; scanned pages go to OCR |
@@ -39,6 +39,8 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 | `extract_prompt.txt` | The instructions given to Gemini |
 | `extract_invoice.py` | Asks Gemini for the invoice fields, retries on errors, checks the AI's evidence |
 | `clean_values.py` | Turns amounts, dates and currencies into one standard form |
+| `extract_invoices.py` | Puts it all together: read the file, find the invoices, extract, clean and check them |
+| `validate_invoice.py` | Checks each invoice: missing fields, wrong numbers, totals that don't add up, duplicates |
 
 ## Tests
 
@@ -55,6 +57,8 @@ To save an easy-to-read results file (a PASS/FAIL checklist in plain words) into
 uv run pytest tests/task1 --save-results
 ```
 
+A few Task 2 tests call the real Gemini and use the free daily limit, so they are skipped unless you add `--real-gemini`.
+
 | Test file | What it checks |
 |---|---|
 | `tests/task1/test_file_type.py` | Every type is recognised; Word, broken and unknown files are rejected |
@@ -62,5 +66,15 @@ uv run pytest tests/task1 --save-results
 | `tests/task1/test_read_image.py` | PNG/JPG/TIFF, small/blurry/faded/speckled images, rotated pages, phone photos, multi-page TIFF, damaged images |
 | `tests/task1/test_read_spreadsheet.py` | XLSX sheets, formulas without results, old XLS, CSV separators and encodings, empty and damaged files |
 | `tests/task1/test_process_file.py` | Same result shape, renamed/empty/unsupported/too-big files, unexpected errors, the `/process` API with many files |
+| `tests/task2/test_split_invoices.py` | Splitting pages into invoices by invoice number |
+| `tests/task2/test_spreadsheet_invoices.py` | Reading invoices from spreadsheet columns without the AI |
+| `tests/task2/test_extract_invoice.py` | Asking Gemini (with a fake Gemini), retries, model rotation, the evidence check |
+| `tests/task2/test_clean_values.py` | Cleaning amounts, dates and currencies |
+| `tests/task2/test_extract_invoices.py` | Field statuses, needs review, the `/extract` API |
+| `tests/task3/test_missing_fields.py` | Missing and uncertain important fields |
+| `tests/task3/test_wrong_numbers.py` | Negative amounts, credit notes, zero totals, tax, quantities, line math, dates |
+| `tests/task3/test_totals.py` | Line items = subtotal, subtotal + tax = total, rounding allowance |
+| `tests/task3/test_duplicates.py` | Duplicates and possible duplicates in one upload |
+| `tests/task3/test_needs_review.py` | Validation errors on each invoice, and in the `/extract` API |
 
 Sample files are made in code by `tests/make_files.py`. The only stored file is `tests/files/old_excel.xls`, because no installed library can write the old Excel format.
