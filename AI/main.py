@@ -1,6 +1,7 @@
 import pytesseract
 from fastapi import FastAPI, UploadFile
 
+from extract_invoices import extract_invoices_from_file
 from process_file import MAX_FILE_SIZE_BYTES, process_file
 
 app = FastAPI(title="AI-Powered Document Intelligence System — AI Service")
@@ -22,4 +23,15 @@ def process(files: list[UploadFile]):
         # without loading a huge file into memory.
         data = file.file.read(MAX_FILE_SIZE_BYTES + 1)
         results.append(process_file(file.filename or "unnamed", data))
+    return results
+
+
+@app.post("/extract")
+def extract(files: list[UploadFile]):
+    """Upload one or more files and get the invoices in them: invoice number, date, supplier, customer,
+    subtotal, tax, total, currency and line items. Each field says if it was found, uncertain or missing."""
+    results = []
+    for file in files:
+        data = file.file.read(MAX_FILE_SIZE_BYTES + 1)
+        results.append(extract_invoices_from_file(file.filename or "unnamed", data))
     return results

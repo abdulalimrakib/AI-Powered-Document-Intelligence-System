@@ -8,6 +8,7 @@ Needs [uv](https://docs.astral.sh/uv/) and Tesseract OCR (`sudo apt install tess
 
 ```bash
 uv sync
+cp .env.example .env    # then add your free Gemini key from https://aistudio.google.com
 uv run uvicorn main:app --reload --port 8000
 ```
 
@@ -33,6 +34,11 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 | `read_pdf.py` | Reads PDFs page by page; scanned pages go to OCR |
 | `read_image.py` | Cleans up images and reads them with OCR (also used for scanned PDF pages) |
 | `read_spreadsheet.py` | Reads XLSX, XLS and CSV files, every sheet |
+| `split_invoices.py` | Splits a document's pages into separate invoices by their invoice number |
+| `spreadsheet_invoices.py` | Turns spreadsheet rows into invoices by matching column names (no AI) |
+| `extract_prompt.txt` | The instructions given to Gemini |
+| `extract_invoice.py` | Asks Gemini for the invoice fields, retries on errors, checks the AI's evidence |
+| `clean_values.py` | Turns amounts, dates and currencies into one standard form |
 
 ## Tests
 
