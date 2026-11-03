@@ -72,7 +72,7 @@ def invoice_with_ai(text: str, source: str, lowest_ocr_confidence: float | None)
     try:
         raw = extract_invoice(text)
     except ValueError as error:
-        return failed_invoice(source, str(error))
+        return failed_invoice(source, str(error), text)
     problems = check_evidence(raw, text)
     return finish_invoice(raw, source, "gemini", problems, lowest_ocr_confidence, text)
 
@@ -106,15 +106,45 @@ def finish_invoice(raw: dict, source: str, method: str, evidence_problems: dict[
         "fields": fields,
         "line_items": line_items,
         "warnings": raw.get("warnings", []),
+        "text": text,  # the invoice's text: kept for re-checking after a correction, and for search
     }
 
-    validation_errors = validate_invoice(invoice, text)  # Task 3
-    # Line items the AI's evidence or the cleaning (Task 2) was not sure about.
+    validation_errors = validate_invoice(invoice, text) + line_item_problems(line_items)  # Task 3
+    return set_validation(invoice, validation_errors)
+
+
+def line_item_problems(line_items: list[dict]) -> list[dict]:
+    """Line items the AI's evidence or the cleaning (Task 2) was not sure about."""
+    problems = []
     for number, item in enumerate(line_items, start=1):
         for item_problem in item["problems"]:
-            validation_errors.append(problem(f"line item {number}", "uncertain_value",
-                                             f"line item {number}: {item_problem}"))
-    return set_validation(invoice, validation_errors)
+            problems.append(problem(f"line item {number}", "uncertain_value", f"line item {number}: {item_problem}"))
+    return problems
+
+
+def correct_invoice(invoice: dict, corrections: dict[str, str | None]) -> dict:
+    """Task 4: a person corrected some values by hand. Clean each one with the same rules as Task 2,
+    mark it "corrected", and check the whole invoice again (Task 3).
+    `invoice` has "fields", "line_items" and "text"; `corrections` is e.g. {"total": "1,150.00"}.
+    Raises ValueError with a clear message when a typed value can't be understood."""
+    fields = {name: dict(field) for name, field in invoice["fields"].items()}
+    for name, typed in corrections.items():
+        if name not in CLEANERS:
+            raise ValueError(f"'{name}' is not an invoice field. Fields: {', '.join(INVOICE_FIELDS)}")
+        value, clean_problem = CLEANERS[name](typed)
+        if clean_problem:
+            raise ValueError(f"{readable(name)}: {clean_problem}")
+        if value is None and typed is not None and typed.strip():
+            raise ValueError(f"{readable(name)}: '{typed}' is not a value we can read")
+        if value is None:  # the person emptied the field
+            fields[name] = {"value": None, "status": "missing", "evidence": None, "note": None}
+        else:
+            fields[name] = {"value": value, "status": "corrected", "evidence": typed, "note": "corrected by hand"}
+
+    checked = {**invoice, "fields": fields}
+    text = invoice.get("text") or ""
+    validation_errors = validate_invoice(checked, text) + line_item_problems(invoice["line_items"])
+    return set_validation(checked, validation_errors)
 
 
 def set_validation(invoice: dict, validation_errors: list[dict]) -> dict:
@@ -166,10 +196,11 @@ def finish_line_item(number: int, raw: dict, evidence_problems: dict[str, str]) 
             "evidence": raw.get("evidence"), "problems": problems}
 
 
-def failed_invoice(source: str, error: str) -> dict:
+def failed_invoice(source: str, error: str, text: str = "") -> dict:
     """An invoice the AI could not read: every field is missing and a person has to check it."""
     empty = {"value": None, "status": "missing", "evidence": None, "note": None}
     invoice = {"source": source, "method": "gemini", "ai_model": None, "error": error,
-               "fields": {name: dict(empty) for name in INVOICE_FIELDS}, "line_items": [], "warnings": []}
+               "fields": {name: dict(empty) for name in INVOICE_FIELDS}, "line_items": [], "warnings": [],
+               "text": text}
     # field None means the problem is about the whole invoice, not one field
     return set_validation(invoice, [problem(None, "ai_failed", error)])

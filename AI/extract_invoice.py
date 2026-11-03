@@ -1,3 +1,4 @@
+import logging
 import os
 import time
 from pathlib import Path
@@ -6,6 +7,9 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import errors, types
 from pydantic import BaseModel
+
+# One line in the server log for every retry and model switch, so a slow request can be explained.
+logger = logging.getLogger(__name__)
 
 # Settings come from AI/.env, so the key is never written in the code.
 load_dotenv(Path(__file__).parent / ".env")
@@ -107,8 +111,10 @@ def ask_gemini(text: str) -> tuple[InvoiceAnswer, str]:
             return ask_model(client, model, contents, config), model
         except ModelUsedUp as used_up:
             used_up_until[model] = time.time() + used_up.wait_seconds
+            logger.warning("Gemini %s: the daily free limit is used up; trying the next model", model)
         except ModelNotWorking as not_working:
             problem = str(not_working)
+            logger.warning("Gemini %s: %s; trying the next model", model, not_working)
 
     if problem:  # at least one model was busy or missing: that is the most useful message
         raise ValueError(f"AI extraction failed: {problem}")
@@ -132,7 +138,9 @@ def ask_model(client: genai.Client, model: str, contents: str, config: types.Gen
                 raise ModelNotWorking(f"the model {model} is not available")
             if error.code in TEMPORARY_ERRORS and attempt < len(RETRY_WAIT_SECONDS):
                 # Wait as long as Gemini asks for, or our own wait time if that is longer.
-                time.sleep(max(RETRY_WAIT_SECONDS[attempt], gemini_wait or 0))
+                wait = max(RETRY_WAIT_SECONDS[attempt], gemini_wait or 0)
+                logger.warning("Gemini %s: error %s, trying again in %s seconds", model, error.code, wait)
+                time.sleep(wait)
                 attempt += 1
                 continue
             if error.code == 429:

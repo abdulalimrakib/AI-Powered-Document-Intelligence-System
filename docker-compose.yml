@@ -1,0 +1,42 @@
+# The database and the job queue for the backend. Start both with:  docker compose up -d
+# Stop them with:  docker compose down   (the data is kept; add -v to delete it as well)
+#
+# Ports 5432-5434 are used by other projects on this machine, so we use 5440 and 6380.
+# Both only listen on this computer (127.0.0.1), so they can't be reached from outside.
+
+name: docintel
+
+services:
+  postgres:
+    # Postgres 17 with the pgvector extension already installed (for meaning search in Task 5)
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: docintel
+      POSTGRES_PASSWORD: docintel # only for this local computer; never use it on a real server
+      POSTGRES_DB: docintel
+    ports:
+      - "127.0.0.1:5440:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # keeps the data when the container stops
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docintel -d docintel"]
+      interval: 5s
+      retries: 10
+
+  redis:
+    # Holds the queue of background jobs (BullMQ)
+    image: redis:7.4-alpine
+    # BullMQ needs Redis to keep every job, never throw one away when memory is full
+    command: ["redis-server", "--maxmemory-policy", "noeviction"]
+    ports:
+      - "127.0.0.1:6380:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  postgres-data:
+  redis-data:

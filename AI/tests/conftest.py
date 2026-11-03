@@ -20,6 +20,7 @@ TASKS = {
     "task1": ("Task 1 — Document Processing", "task1_document_processing.txt"),
     "task2": ("Task 2 — AI Information Extraction", "task2_ai_extraction.txt"),
     "task3": ("Task 3 — Data Validation", "task3_validation.txt"),
+    "task4": ("Task 4 — Backend API (the AI service's part)", "task4_ai_service.txt"),
 }
 
 # Every finished test is added here: (task folder, step title, description, "PASS"/"FAIL"/"SKIP", reason, seconds)

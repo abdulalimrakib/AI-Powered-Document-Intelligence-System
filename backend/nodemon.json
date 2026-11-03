@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/nodemon.json",
-  "watch": ["*.ts", "config", "middleware"],
+  "watch": ["*.ts", "config", "middleware", "lib", "database", "routes", "controllers", "utils"],
   "exec": "ts-node ./server.ts",
-  "ext": "ts json",
+  "ext": "ts json sql",
   "stdin": false
 }

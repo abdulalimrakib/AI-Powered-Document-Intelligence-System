@@ -1,7 +1,7 @@
 import pytesseract
-from fastapi import FastAPI, UploadFile
+from fastapi import Body, FastAPI, HTTPException, UploadFile
 
-from extract_invoices import extract_invoices_from_file, mark_duplicates
+from extract_invoices import correct_invoice, extract_invoices_from_file, mark_duplicates
 from process_file import MAX_FILE_SIZE_BYTES, process_file
 
 app = FastAPI(title="AI-Powered Document Intelligence System — AI Service")
@@ -38,3 +38,16 @@ def extract(files: list[UploadFile]):
         results.append(extract_invoices_from_file(file.filename or "unnamed", data))
     mark_duplicates(results)  # the same invoice twice in this upload, also across files
     return results
+
+
+@app.post("/validate")
+def validate(invoice: dict = Body(...), corrections: dict = Body(...)):
+    """Check an invoice again after a person corrected some of its values (used by the backend).
+    `invoice` is {"fields", "line_items", "text"}; `corrections` is e.g. {"total": "1,150.00"}.
+    Returns the invoice with the cleaned values, its validation_errors and needs_review."""
+    try:
+        return correct_invoice(invoice, corrections)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error))
+    except (KeyError, TypeError, AttributeError):
+        raise HTTPException(status_code=400, detail="The invoice is not in the expected shape")

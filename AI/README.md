@@ -28,7 +28,7 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 
 | File | What it does |
 |---|---|
-| `main.py` | The API: `GET /health`, `POST /process` (text of each file), `POST /extract` (checked invoices) |
+| `main.py` | The API: `GET /health`, `POST /process` (text of each file), `POST /extract` (checked invoices), `POST /validate` (check again after a correction) |
 | `process_file.py` | Checks size and type, picks the right reader, turns errors into clear messages |
 | `file_type.py` | Finds the real file type from the file's first bytes |
 | `read_pdf.py` | Reads PDFs page by page; scanned pages go to OCR |
@@ -76,5 +76,6 @@ A few Task 2 tests call the real Gemini and use the free daily limit, so they ar
 | `tests/task3/test_totals.py` | Line items = subtotal, subtotal + tax = total, rounding allowance |
 | `tests/task3/test_duplicates.py` | Duplicates and possible duplicates in one upload |
 | `tests/task3/test_needs_review.py` | Validation errors on each invoice, and in the `/extract` API |
+| `tests/task4/test_correct_invoice.py` | Checking an invoice again after a manual correction (`/validate`) |
 
 Sample files are made in code by `tests/make_files.py`. The only stored file is `tests/files/old_excel.xls`, because no installed library can write the old Excel format.

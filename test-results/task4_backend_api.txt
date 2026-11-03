@@ -1,0 +1,109 @@
+Task 4 — Backend API: test results
+============================================================
+Date:    2026-11-03 21:18
+Result:  ALL 79 TESTS PASSED  (14.3 seconds)
+
+Each line below is one automatic check of the system.
+PASS means the system did the right thing; FAIL means it did not (the reason is shown).
+SKIP means the check was not run this time.
+The tests use their own database and a fake AI service, so no real data and no Gemini requests are used.
+
+Step 3 — Upload API  (13 of 13 passed)
+------------------------------------------------------------
+  PASS  Accepts several files and answers at once with the status pending
+  PASS  Answers in the shape { success, message, statusCode, data }
+  PASS  Rejects an unsupported file type, but keeps the good files of the same upload
+  PASS  Refuses an upload when none of the files can be processed
+  PASS  Rejects an empty file
+  PASS  Refuses a request without files
+  PASS  Refuses a file bigger than 50 MB, and saves nothing
+  PASS  Refuses more than 20 files at once
+  PASS  Refuses files sent in a wrongly named form field
+  PASS  Keeps file names with special letters, like Rechnung-Müller.pdf
+  PASS  Saves the file under a random name, never under the user's file name
+  PASS  Writes 'uploaded' in the document's history
+  PASS  Answers an unknown address with a clear 404 message
+
+Step 4 — Background processing  (14 of 14 passed)
+------------------------------------------------------------
+  PASS  Processes an uploaded file in the background and saves its invoices
+  PASS  Saves money and dates exactly, as text (no rounding, no time-zone shift)
+  PASS  Saves the problems the AI service found, and the invoice needs review
+  PASS  A file the AI service can't read fails with its reason, and is not tried again
+  PASS  When the AI could not read any invoice (e.g. Gemini limit used up), the document fails
+  PASS  When the AI service is down, it tries 3 times and then fails with a clear reason
+  PASS  When the AI service works again during the retries, the document is done
+  PASS  A file that is missing on the server fails with a clear reason
+  PASS  After a restart, documents that were not finished are put back in the queue
+  PASS  Finds a duplicate of an invoice uploaded earlier; both invoices point to each other
+  PASS  Finds a possible duplicate: another number, but the same supplier, date and total
+  PASS  Finds duplicates inside one file too
+  PASS  The same invoice number from two different suppliers is not a duplicate
+  PASS  Processes the documents one at a time
+
+Step 5 — Status and results API  (16 of 16 passed)
+------------------------------------------------------------
+  PASS  Lists the documents, newest first, with their invoice and review counts
+  PASS  Filters the list by status
+  PASS  Filters the list to documents that need review (or don't)
+  PASS  Splits the list into pages
+  PASS  Refuses a wrong filter with a clear message (?status=finished)
+  PASS  Refuses a wrong filter with a clear message (?needs_review=yes)
+  PASS  Refuses a wrong filter with a clear message (?page=0)
+  PASS  Refuses a wrong filter with a clear message (?page=abc)
+  PASS  Refuses a wrong filter with a clear message (?limit=500)
+  PASS  Gives one document with its invoices, fields, line items, problems and history
+  PASS  Gives a failed document with its reason
+  PASS  Answers 404 for a document that does not exist
+  PASS  Answers 400 for an id that is not a whole number (abc)
+  PASS  Answers 400 for an id that is not a whole number (-1)
+  PASS  Answers 400 for an id that is not a whole number (1.5)
+  PASS  Answers 400 for an id that is not a whole number (0)
+
+Step 6 — Manual corrections  (17 of 17 passed)
+------------------------------------------------------------
+  PASS  Saves a corrected value and marks it as corrected
+  PASS  Sends the invoice, its text and the corrections to the AI service to be checked again
+  PASS  An invoice with no problems left after the correction no longer needs review
+  PASS  An invoice that still has problems after the correction still needs review
+  PASS  Writes the change in the history, with the old and the new value
+  PASS  A value the AI service can't understand is refused with its reason, and nothing changes
+  PASS  Correcting the invoice number removes the duplicate problem from both invoices
+  PASS  Correcting a value can also find a new duplicate
+  PASS  Marks an invoice as checked by a person, and back again
+  PASS  Refuses a wrong request with a clear message ('unknown field')
+  PASS  Refuses a wrong request with a clear message ('fields is a list')
+  PASS  Refuses a wrong request with a clear message ('a number instead of text')
+  PASS  Refuses a wrong request with a clear message ('501 characters')
+  PASS  Refuses a wrong request with a clear message ('reviewed is "yes"')
+  PASS  Refuses a wrong request with a clear message ('nothing to change')
+  PASS  Answers 404 for an invoice that does not exist
+  PASS  When the AI service is down, the correction is refused (503) and nothing changes
+
+Step 7 — Re-processing failed documents  (9 of 9 passed)
+------------------------------------------------------------
+  PASS  A document that failed (AI service was down) is processed again and becomes done
+  PASS  Uses the saved file: the file does not have to be uploaded again
+  PASS  A document that is done, but has an invoice the AI could not read, can be tried again
+  PASS  A document that is done without failures is not processed again (its corrections would be lost)
+  PASS  A document that is still pending is not sent again
+  PASS  A document that is still processing is not sent again
+  PASS  A document whose saved file is gone asks for a new upload
+  PASS  Processing again removes the duplicate warnings the old results caused on other invoices
+  PASS  Answers 404 for an unknown document and 400 for a wrong id
+
+Step 8 — Search  (10 of 10 passed)
+------------------------------------------------------------
+  PASS  Finds invoices by supplier, with small or capital letters
+  PASS  Finds invoices by customer
+  PASS  Finds invoices by file name
+  PASS  Finds an invoice number written without dashes or with spaces, the exact one first
+  PASS  Treats % and _ as normal characters, not as wildcards
+  PASS  Says when nothing is found
+  PASS  Splits the results into pages
+  PASS  Refuses an empty or too long search ('empty')
+  PASS  Refuses an empty or too long search ('only spaces')
+  PASS  Refuses an empty or too long search ('201 characters')
+
+To run these checks again:
+    cd backend && npm run test:save
