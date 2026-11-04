@@ -1,7 +1,7 @@
 Task 2 — AI Information Extraction: test results
 ============================================================
-Date:    2026-11-03 12:02
-Result:  ALL 148 TESTS PASSED  (5.4 seconds)
+Date:    2026-11-04 10:08
+Result:  ALL 146 TESTS PASSED, 3 SKIPPED  (1.3 seconds)
 
 Each line below is one automatic check of the system.
 PASS means the system did the right thing; FAIL means it did not (the reason is shown).
@@ -52,7 +52,7 @@ Step 2a — Reading invoices from spreadsheet columns (no AI)  (19 of 19 passed)
   PASS  A real Excel file with an invoice sheet and a line-item sheet (read with Task 1)
   PASS  A real CSV file with a semicolon separator (read with Task 1)
 
-Step 2b and 3 — Asking Gemini for the invoice fields, and checking its evidence  (29 of 29 passed)
+Step 2b and 3 — Asking Gemini for the invoice fields, and checking its evidence  (27 of 29 passed)
 ------------------------------------------------------------
   PASS  Gives every field with its value and evidence, plus the line items
   PASS  Sends our instructions and the document, with temperature 0 and the fixed answer shape
@@ -81,8 +81,10 @@ Step 2b and 3 — Asking Gemini for the invoice fields, and checking its evidenc
   PASS  Catches a value given without any evidence
   PASS  A field the AI left empty (null) is not an evidence problem
   PASS  Checks the line items as well
-  PASS  Real Gemini: reads every field of a complete invoice, all with real evidence
-  PASS  Real Gemini: leaves missing fields empty and does not calculate a total that is not written
+  SKIP  Real Gemini: reads every field of a complete invoice, all with real evidence
+        reason: calls the real Gemini (free limit: 20 requests a day); run with --real-gemini
+  SKIP  Real Gemini: leaves missing fields empty and does not calculate a total that is not written
+        reason: calls the real Gemini (free limit: 20 requests a day); run with --real-gemini
 
 Step 4 — Cleaning amounts, dates and currencies into one standard form  (62 of 62 passed)
 ------------------------------------------------------------
@@ -149,7 +151,7 @@ Step 4 — Cleaning amounts, dates and currencies into one standard form  (62 of
   PASS  Does not see a currency code hidden inside another word (e.g. 'Tkt' is not 'Tk')
   PASS  Removes extra spaces and line breaks from names
 
-Step 5 — Putting it together: a status for every field, needs review, and the /extract API  (19 of 19 passed)
+Step 5 — Putting it together: a status for every field, needs review, and the /extract API  (19 of 20 passed)
 ------------------------------------------------------------
   PASS  A complete invoice: every field is found, values are cleaned, no review needed
   PASS  A field that is not in the document is null and marked 'missing'
@@ -169,7 +171,11 @@ Step 5 — Putting it together: a status for every field, needs review, and the 
   PASS  A sheet laid out like a printed invoice form is sent to the AI
   PASS  A broken file gives a clear error and no invoices
   PASS  The /extract API reads many files at once and returns their invoices
-  PASS  Real Gemini: a 2-page invoice PDF gives one invoice with cleaned, checked values
+  SKIP  Real Gemini: a 2-page invoice PDF gives one invoice with cleaned, checked values
+        reason: calls the real Gemini (free limit: 20 requests a day); run with --real-gemini
+  PASS  A blank PDF is not sent to Gemini (no free request wasted) and fails with a clear reason
 
 To run these checks again:
     cd AI && uv run pytest tests/task2 --save-results
+To also run the checks with the real Gemini:
+    cd AI && uv run pytest tests/task2 --real-gemini --save-results

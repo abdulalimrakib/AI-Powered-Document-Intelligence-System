@@ -236,3 +236,4 @@ one number per topic (furniture, internet, food), so the tests can predict which
 | `tests/task5/filters.test.ts` | The filters (date, total, currency, supplier, needs review), combined, and wrong filters |
 | `tests/task5/embeddings.test.ts` | Saving embeddings after processing and corrections, when Gemini is not available, catching up later |
 | `tests/task5/meaningSearch.test.ts` | Meaning search: closest first, the cut-off, filters, pages, the same model only, clear errors |
+| `tests/task7/realAiService.test.ts` | The backend with the **real** AI service (started without a Gemini key, so no requests are used): CSV, wrong total, correction, damaged PDF, Gemini not available. Needs the AI service installed (`cd ../AI && uv sync`) |

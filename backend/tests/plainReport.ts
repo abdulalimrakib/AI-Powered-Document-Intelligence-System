@@ -6,6 +6,7 @@ import type { Reporter, TestCase, TestModule } from "vitest/node";
 const TASKS: Record<string, [string, string]> = {
   task4: ["Task 4 — Backend API", "task4_backend_api.txt"],
   task5: ["Task 5 — Database and search", "task5_database_search.txt"],
+  task7: ["Task 7 — Testing: the backend with the real AI service", "task7_integration.txt"],
 };
 const RESULTS_FOLDER = path.join(__dirname, "..", "..", "test-results");
 

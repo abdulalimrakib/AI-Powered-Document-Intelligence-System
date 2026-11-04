@@ -1,0 +1,4130 @@
+{
+  "started_at": "2026-11-04T09:57:30+06:00",
+  "documents": {
+    "d01_clean_usd.pdf": {
+      "status": "done",
+      "document_id": 1,
+      "wall_seconds": 25.12,
+      "processing_seconds": "24.94",
+      "uploaded_at": "2026-11-04T03:57:31.749Z",
+      "final": {
+        "id": 1,
+        "filename": "d01_clean_usd.pdf",
+        "file_type": "pdf",
+        "file_size": 1122,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "24.94",
+        "created_at": "2026-11-04T03:57:31.749Z",
+        "started_at": "2026-11-04T03:57:31.755Z",
+        "finished_at": "2026-11-04T03:57:56.698Z",
+        "invoices": [
+          {
+            "id": 1,
+            "document_id": 1,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-101",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-101",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-01",
+                "status": "found",
+                "evidence": "Date: 2026-10-01",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Acme Office Supplies Ltd",
+                "status": "found",
+                "evidence": "Acme Office Supplies Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1100.00",
+                "status": "found",
+                "evidence": "Subtotal: 1,100.00",
+                "note": null
+              },
+              "tax": {
+                "value": "165.00",
+                "status": "found",
+                "evidence": "VAT (15%): 165.00",
+                "note": null
+              },
+              "total": {
+                "value": "1265.00",
+                "status": "found",
+                "evidence": "Total: USD 1,265.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 1,265.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Office chairs",
+                "quantity": "10",
+                "unit_price": "100.00",
+                "amount": "1000.00",
+                "evidence": "Office chairs                     10        100.00      1,000.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Desk lamps",
+                "quantity": "4",
+                "unit_price": "25.00",
+                "amount": "100.00",
+                "evidence": "Desk lamps                         4         25.00        100.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 4,
+                "field": "invoice_number",
+                "rule": "duplicate_invoice",
+                "message": "duplicate: same supplier and invoice number as d13_resent_copy.pdf, Page 1 (uploaded later)"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:42.297Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 1,
+            "step": "uploaded",
+            "message": "Uploaded \"d01_clean_usd.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:57:31.749Z"
+          },
+          {
+            "id": 2,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:57:31.757Z"
+          },
+          {
+            "id": 3,
+            "step": "done",
+            "message": "Done in 24.9 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:57:56.698Z"
+          },
+          {
+            "id": 39,
+            "step": "duplicate",
+            "message": "Invoice INV-2026-101 needs review: duplicate: same supplier and invoice number as d13_resent_copy.pdf (uploaded later)",
+            "details": null,
+            "invoice_id": 1,
+            "created_at": "2026-11-04T04:01:42.297Z"
+          }
+        ]
+      }
+    },
+    "d02_eur_written_date.pdf": {
+      "status": "done",
+      "document_id": 2,
+      "wall_seconds": 7.09,
+      "processing_seconds": "6.55",
+      "uploaded_at": "2026-11-04T03:57:56.862Z",
+      "final": {
+        "id": 2,
+        "filename": "d02_eur_written_date.pdf",
+        "file_type": "pdf",
+        "file_size": 1169,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "6.55",
+        "created_at": "2026-11-04T03:57:56.862Z",
+        "started_at": "2026-11-04T03:57:57.367Z",
+        "finished_at": "2026-11-04T03:58:03.913Z",
+        "invoices": [
+          {
+            "id": 2,
+            "document_id": 2,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-102",
+                "status": "found",
+                "evidence": "Invoice Number: INV-2026-102",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-15",
+                "status": "found",
+                "evidence": "Invoice date: 15 October 2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Northwind Traders GmbH",
+                "status": "found",
+                "evidence": "Northwind Traders GmbH",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Customer: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "564.70",
+                "status": "found",
+                "evidence": "Subtotal: 564.70",
+                "note": null
+              },
+              "tax": {
+                "value": "107.29",
+                "status": "found",
+                "evidence": "Tax 19%: 107.29",
+                "note": null
+              },
+              "total": {
+                "value": "671.99",
+                "status": "found",
+                "evidence": "Amount due: EUR 671.99",
+                "note": null
+              },
+              "currency": {
+                "value": "EUR",
+                "status": "found",
+                "evidence": "Amount due: EUR 671.99",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Printer paper A4, box",
+                "quantity": "20",
+                "unit_price": "18.50",
+                "amount": "370.00",
+                "evidence": "Printer paper A4, box             20         18.50        370.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Toner cartridge",
+                "quantity": "3",
+                "unit_price": "64.90",
+                "amount": "194.70",
+                "evidence": "Toner cartridge                    3         64.90        194.70",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:58:03.913Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 4,
+            "step": "uploaded",
+            "message": "Uploaded \"d02_eur_written_date.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:57:56.862Z"
+          },
+          {
+            "id": 5,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:57:57.369Z"
+          },
+          {
+            "id": 6,
+            "step": "done",
+            "message": "Done in 6.5 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:03.913Z"
+          }
+        ]
+      }
+    },
+    "d03_bdt.pdf": {
+      "status": "done",
+      "document_id": 3,
+      "wall_seconds": 17.39,
+      "processing_seconds": "16.67",
+      "uploaded_at": "2026-11-04T03:58:03.952Z",
+      "final": {
+        "id": 3,
+        "filename": "d03_bdt.pdf",
+        "file_type": "pdf",
+        "file_size": 1156,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "16.67",
+        "created_at": "2026-11-04T03:58:03.952Z",
+        "started_at": "2026-11-04T03:58:04.486Z",
+        "finished_at": "2026-11-04T03:58:21.154Z",
+        "invoices": [
+          {
+            "id": 3,
+            "document_id": 3,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "BD-5531",
+                "status": "found",
+                "evidence": "Tax Invoice No. BD-5531",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-21",
+                "status": "found",
+                "evidence": "Dated: 21/10/2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Dhaka Digital Services",
+                "status": "found",
+                "evidence": "Dhaka Digital Services",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Sold to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "48000.00",
+                "status": "found",
+                "evidence": "Subtotal: 48,000.00",
+                "note": null
+              },
+              "tax": {
+                "value": "7200.00",
+                "status": "found",
+                "evidence": "GST 15%: 7,200.00",
+                "note": null
+              },
+              "total": {
+                "value": "55200.00",
+                "status": "found",
+                "evidence": "Grand total: BDT 55,200.00",
+                "note": null
+              },
+              "currency": {
+                "value": "BDT",
+                "status": "found",
+                "evidence": "Grand total: BDT 55,200.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Website maintenance, October",
+                "quantity": "1",
+                "unit_price": "45000.00",
+                "amount": "45000.00",
+                "evidence": "Website maintenance, October       1     45,000.00     45,000.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Domain renewal",
+                "quantity": "2",
+                "unit_price": "1500.00",
+                "amount": "3000.00",
+                "evidence": "Domain renewal                     2      1,500.00      3,000.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:58:21.154Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 7,
+            "step": "uploaded",
+            "message": "Uploaded \"d03_bdt.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:03.952Z"
+          },
+          {
+            "id": 8,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:04.488Z"
+          },
+          {
+            "id": 9,
+            "step": "done",
+            "message": "Done in 16.7 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:21.154Z"
+          }
+        ]
+      }
+    },
+    "d04_european_numbers.pdf": {
+      "status": "done",
+      "document_id": 4,
+      "wall_seconds": 27.5,
+      "processing_seconds": "26.91",
+      "uploaded_at": "2026-11-04T03:58:21.341Z",
+      "final": {
+        "id": 4,
+        "filename": "d04_european_numbers.pdf",
+        "file_type": "pdf",
+        "file_size": 1155,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "26.91",
+        "created_at": "2026-11-04T03:58:21.341Z",
+        "started_at": "2026-11-04T03:58:21.769Z",
+        "finished_at": "2026-11-04T03:58:48.680Z",
+        "invoices": [
+          {
+            "id": 4,
+            "document_id": 4,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "2026/0457",
+                "status": "found",
+                "evidence": "Invoice No: 2026/0457",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-22",
+                "status": "found",
+                "evidence": "Date: 22.10.2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Müller & Söhne KG",
+                "status": "found",
+                "evidence": "Müller & Söhne KG",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "2856.50",
+                "status": "found",
+                "evidence": "Subtotal: 2.856,50",
+                "note": null
+              },
+              "tax": {
+                "value": "542.74",
+                "status": "found",
+                "evidence": "VAT (19%): 542,74",
+                "note": null
+              },
+              "total": {
+                "value": "3399.24",
+                "status": "found",
+                "evidence": "Total: · 3.399,24",
+                "note": null
+              },
+              "currency": {
+                "value": null,
+                "status": "missing",
+                "evidence": null,
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Industrial shelving unit",
+                "quantity": "6",
+                "unit_price": "412.75",
+                "amount": "2476.50",
+                "evidence": "Industrial shelving unit           6        412,75      2.476,50",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Assembly service",
+                "quantity": "1",
+                "unit_price": "380.00",
+                "amount": "380.00",
+                "evidence": "Assembly service                   1        380,00        380,00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:58:48.680Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 10,
+            "step": "uploaded",
+            "message": "Uploaded \"d04_european_numbers.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:21.341Z"
+          },
+          {
+            "id": 11,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:21.771Z"
+          },
+          {
+            "id": 12,
+            "step": "done",
+            "message": "Done in 26.9 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:48.680Z"
+          }
+        ]
+      }
+    },
+    "d05_gbp.pdf": {
+      "status": "done",
+      "document_id": 5,
+      "wall_seconds": 13.15,
+      "processing_seconds": "12.68",
+      "uploaded_at": "2026-11-04T03:58:48.839Z",
+      "final": {
+        "id": 5,
+        "filename": "d05_gbp.pdf",
+        "file_type": "pdf",
+        "file_size": 1146,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "12.68",
+        "created_at": "2026-11-04T03:58:48.839Z",
+        "started_at": "2026-11-04T03:58:49.261Z",
+        "finished_at": "2026-11-04T03:59:01.939Z",
+        "invoices": [
+          {
+            "id": 5,
+            "document_id": 5,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "UK-88213",
+                "status": "found",
+                "evidence": "Invoice Number: UK-88213",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-20",
+                "status": "found",
+                "evidence": "Invoice date: Oct 20, 2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Brightside Cleaning Co",
+                "status": "found",
+                "evidence": "Brightside Cleaning Co",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Customer: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "815.00",
+                "status": "found",
+                "evidence": "Subtotal: 815.00",
+                "note": null
+              },
+              "tax": {
+                "value": "163.00",
+                "status": "found",
+                "evidence": "Tax 20%: 163.00",
+                "note": null
+              },
+              "total": {
+                "value": "978.00",
+                "status": "found",
+                "evidence": "Amount due: £ 978.00",
+                "note": null
+              },
+              "currency": {
+                "value": "GBP",
+                "status": "found",
+                "evidence": "Amount due: £ 978.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Office cleaning, weekly",
+                "quantity": "4",
+                "unit_price": "180.00",
+                "amount": "720.00",
+                "evidence": "Office cleaning, weekly            4        180.00        720.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Window washing",
+                "quantity": "1",
+                "unit_price": "95.00",
+                "amount": "95.00",
+                "evidence": "Window washing                     1         95.00         95.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:59:01.939Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 13,
+            "step": "uploaded",
+            "message": "Uploaded \"d05_gbp.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:48.839Z"
+          },
+          {
+            "id": 14,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:58:49.264Z"
+          },
+          {
+            "id": 15,
+            "step": "done",
+            "message": "Done in 12.7 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:01.939Z"
+          }
+        ]
+      }
+    },
+    "d06_no_customer.pdf": {
+      "status": "done",
+      "document_id": 6,
+      "wall_seconds": 12.74,
+      "processing_seconds": "11.96",
+      "uploaded_at": "2026-11-04T03:59:01.985Z",
+      "final": {
+        "id": 6,
+        "filename": "d06_no_customer.pdf",
+        "file_type": "pdf",
+        "file_size": 1086,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "11.96",
+        "created_at": "2026-11-04T03:59:01.985Z",
+        "started_at": "2026-11-04T03:59:02.727Z",
+        "finished_at": "2026-11-04T03:59:14.686Z",
+        "invoices": [
+          {
+            "id": 6,
+            "document_id": 6,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-106",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-106",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-24",
+                "status": "found",
+                "evidence": "Date: 2026-10-24",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Cloudline Software Inc",
+                "status": "found",
+                "evidence": "Cloudline Software Inc",
+                "note": null
+              },
+              "customer_name": {
+                "value": null,
+                "status": "missing",
+                "evidence": null,
+                "note": null
+              },
+              "subtotal": {
+                "value": "1200.00",
+                "status": "found",
+                "evidence": "Subtotal: 1,200.00",
+                "note": null
+              },
+              "tax": {
+                "value": "180.00",
+                "status": "found",
+                "evidence": "VAT (15%): 180.00",
+                "note": null
+              },
+              "total": {
+                "value": "1380.00",
+                "status": "found",
+                "evidence": "Total: USD 1,380.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 1,380.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Accounting software, annual licence",
+                "quantity": "1",
+                "unit_price": "1200.00",
+                "amount": "1200.00",
+                "evidence": "Accounting software, annual licence     1      1,200.00      1,200.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:59:14.686Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 16,
+            "step": "uploaded",
+            "message": "Uploaded \"d06_no_customer.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:01.985Z"
+          },
+          {
+            "id": 17,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:02.729Z"
+          },
+          {
+            "id": 18,
+            "step": "done",
+            "message": "Done in 12.0 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:14.686Z"
+          }
+        ]
+      }
+    },
+    "d07_no_tax_dollar_sign.pdf": {
+      "status": "done",
+      "document_id": 7,
+      "wall_seconds": 9.91,
+      "processing_seconds": "9.11",
+      "uploaded_at": "2026-11-04T03:59:14.724Z",
+      "final": {
+        "id": 7,
+        "filename": "d07_no_tax_dollar_sign.pdf",
+        "file_type": "pdf",
+        "file_size": 1119,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "9.11",
+        "created_at": "2026-11-04T03:59:14.724Z",
+        "started_at": "2026-11-04T03:59:15.447Z",
+        "finished_at": "2026-11-04T03:59:24.555Z",
+        "invoices": [
+          {
+            "id": 7,
+            "document_id": 7,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "R-7710",
+                "status": "found",
+                "evidence": "Invoice No: R-7710",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-25",
+                "status": "found",
+                "evidence": "Date: 2026-10-25",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Corner Coffee Roasters",
+                "status": "found",
+                "evidence": "Corner Coffee Roasters",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "107.00",
+                "status": "found",
+                "evidence": "Subtotal: 107.00",
+                "note": null
+              },
+              "tax": {
+                "value": null,
+                "status": "missing",
+                "evidence": null,
+                "note": null
+              },
+              "total": {
+                "value": "107.00",
+                "status": "found",
+                "evidence": "Total: $ 107.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "uncertain",
+                "evidence": "Total: $ 107.00",
+                "note": "a '$' alone could also be Canadian, Australian or another dollar"
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Arabica coffee beans 1kg",
+                "quantity": "5",
+                "unit_price": "16.00",
+                "amount": "80.00",
+                "evidence": "Arabica coffee beans 1kg           5         16.00         80.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Oat milk 1L",
+                "quantity": "12",
+                "unit_price": "2.25",
+                "amount": "27.00",
+                "evidence": "Oat milk 1L                       12          2.25         27.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:59:24.555Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 19,
+            "step": "uploaded",
+            "message": "Uploaded \"d07_no_tax_dollar_sign.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:14.724Z"
+          },
+          {
+            "id": 20,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:15.448Z"
+          },
+          {
+            "id": 21,
+            "step": "done",
+            "message": "Done in 9.1 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:24.555Z"
+          }
+        ]
+      }
+    },
+    "d08_wrong_total.pdf": {
+      "status": "done",
+      "document_id": 8,
+      "wall_seconds": 12.74,
+      "processing_seconds": "12.09",
+      "uploaded_at": "2026-11-04T03:59:24.635Z",
+      "final": {
+        "id": 8,
+        "filename": "d08_wrong_total.pdf",
+        "file_type": "pdf",
+        "file_size": 1101,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "12.09",
+        "created_at": "2026-11-04T03:59:24.635Z",
+        "started_at": "2026-11-04T03:59:25.178Z",
+        "finished_at": "2026-11-04T03:59:37.265Z",
+        "invoices": [
+          {
+            "id": 8,
+            "document_id": 8,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-108",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-108",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-26",
+                "status": "found",
+                "evidence": "Date: 2026-10-26",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "FastNet Broadband",
+                "status": "found",
+                "evidence": "FastNet Broadband",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1000.00",
+                "status": "found",
+                "evidence": "Subtotal: 1,000.00",
+                "note": null
+              },
+              "tax": {
+                "value": "150.00",
+                "status": "found",
+                "evidence": "VAT (15%): 150.00",
+                "note": null
+              },
+              "total": {
+                "value": "1180.00",
+                "status": "found",
+                "evidence": "Total: USD 1,180.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 1,180.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Broadband internet, October",
+                "quantity": "1",
+                "unit_price": "1000.00",
+                "amount": "1000.00",
+                "evidence": "Broadband internet, October        1      1,000.00      1,000.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 1,
+                "field": "total",
+                "rule": "totals_match",
+                "message": "subtotal 1,000.00 + tax 150.00 = 1,150.00, but the total says 1,180.00"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:59:37.265Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 22,
+            "step": "uploaded",
+            "message": "Uploaded \"d08_wrong_total.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:24.635Z"
+          },
+          {
+            "id": 23,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:25.180Z"
+          },
+          {
+            "id": 24,
+            "step": "done",
+            "message": "Done in 12.1 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:37.265Z"
+          }
+        ]
+      }
+    },
+    "d09_wrong_line.pdf": {
+      "status": "done",
+      "document_id": 9,
+      "wall_seconds": 9.5,
+      "processing_seconds": "8.92",
+      "uploaded_at": "2026-11-04T03:59:37.375Z",
+      "final": {
+        "id": 9,
+        "filename": "d09_wrong_line.pdf",
+        "file_type": "pdf",
+        "file_size": 1133,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "8.92",
+        "created_at": "2026-11-04T03:59:37.375Z",
+        "started_at": "2026-11-04T03:59:37.848Z",
+        "finished_at": "2026-11-04T03:59:46.766Z",
+        "invoices": [
+          {
+            "id": 9,
+            "document_id": 9,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-109",
+                "status": "found",
+                "evidence": "Tax Invoice No. INV-2026-109",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-27",
+                "status": "found",
+                "evidence": "Dated: 2026-10-27",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Lumen Lighting Ltd",
+                "status": "found",
+                "evidence": "Lumen Lighting Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Sold to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "420.00",
+                "status": "found",
+                "evidence": "Subtotal: 420.00",
+                "note": null
+              },
+              "tax": {
+                "value": "63.00",
+                "status": "found",
+                "evidence": "GST 15%: 63.00",
+                "note": null
+              },
+              "total": {
+                "value": "483.00",
+                "status": "found",
+                "evidence": "Grand total: USD 483.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Grand total: USD 483.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "LED panel light",
+                "quantity": "8",
+                "unit_price": "45.00",
+                "amount": "360.00",
+                "evidence": "LED panel light                    8         45.00        360.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Desk lamp",
+                "quantity": "2",
+                "unit_price": "25.00",
+                "amount": "60.00",
+                "evidence": "Desk lamp                          2         25.00         60.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 2,
+                "field": "line item 2",
+                "rule": "line_math",
+                "message": "line item 2: 2 × 25.00 = 50.00, but the amount says 60.00"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T03:59:46.766Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 25,
+            "step": "uploaded",
+            "message": "Uploaded \"d09_wrong_line.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:37.375Z"
+          },
+          {
+            "id": 26,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:37.850Z"
+          },
+          {
+            "id": 27,
+            "step": "done",
+            "message": "Done in 8.9 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:46.766Z"
+          }
+        ]
+      }
+    },
+    "d10_credit_note.pdf": {
+      "status": "done",
+      "document_id": 10,
+      "wall_seconds": 18.8,
+      "processing_seconds": "18.32",
+      "uploaded_at": "2026-11-04T03:59:46.878Z",
+      "final": {
+        "id": 10,
+        "filename": "d10_credit_note.pdf",
+        "file_type": "pdf",
+        "file_size": 1108,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "18.32",
+        "created_at": "2026-11-04T03:59:46.878Z",
+        "started_at": "2026-11-04T03:59:47.313Z",
+        "finished_at": "2026-11-04T04:00:05.630Z",
+        "invoices": [
+          {
+            "id": 10,
+            "document_id": 10,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "CN-0042",
+                "status": "found",
+                "evidence": "Invoice No: CN-0042",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-28",
+                "status": "found",
+                "evidence": "Date: 2026-10-28",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Acme Office Supplies Ltd",
+                "status": "found",
+                "evidence": "Acme Office Supplies Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "-100.00",
+                "status": "found",
+                "evidence": "Subtotal: -100.00",
+                "note": null
+              },
+              "tax": {
+                "value": "-15.00",
+                "status": "found",
+                "evidence": "VAT (15%): -15.00",
+                "note": null
+              },
+              "total": {
+                "value": "-115.00",
+                "status": "found",
+                "evidence": "Total: USD -115.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD -115.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Return: office chair",
+                "quantity": "1",
+                "unit_price": "-100.00",
+                "amount": "-100.00",
+                "evidence": "Return: office chair               1       -100.00       -100.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:00:05.630Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 28,
+            "step": "uploaded",
+            "message": "Uploaded \"d10_credit_note.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:46.878Z"
+          },
+          {
+            "id": 29,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T03:59:47.316Z"
+          },
+          {
+            "id": 30,
+            "step": "done",
+            "message": "Done in 18.3 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:05.630Z"
+          }
+        ]
+      }
+    },
+    "d11_three_invoices.pdf": {
+      "status": "done",
+      "document_id": 11,
+      "wall_seconds": 45.46,
+      "processing_seconds": "44.82",
+      "uploaded_at": "2026-11-04T04:00:05.682Z",
+      "final": {
+        "id": 11,
+        "filename": "d11_three_invoices.pdf",
+        "file_type": "pdf",
+        "file_size": 2411,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 3,
+        "processing_seconds": "44.82",
+        "created_at": "2026-11-04T04:00:05.682Z",
+        "started_at": "2026-11-04T04:00:06.237Z",
+        "finished_at": "2026-11-04T04:00:51.056Z",
+        "invoices": [
+          {
+            "id": 11,
+            "document_id": 11,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-111",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-111",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-02",
+                "status": "found",
+                "evidence": "Date: 2026-10-02",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Greenleaf Catering",
+                "status": "found",
+                "evidence": "Greenleaf Catering",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "174.00",
+                "status": "found",
+                "evidence": "Subtotal: 174.00",
+                "note": null
+              },
+              "tax": {
+                "value": "26.10",
+                "status": "found",
+                "evidence": "VAT (15%): 26.10",
+                "note": null
+              },
+              "total": {
+                "value": "200.10",
+                "status": "found",
+                "evidence": "Total: USD 200.10",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 200.10",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Lunch for 12 people",
+                "quantity": "12",
+                "unit_price": "14.50",
+                "amount": "174.00",
+                "evidence": "Lunch for 12 people               12         14.50        174.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:00:51.056Z"
+          },
+          {
+            "id": 12,
+            "document_id": 11,
+            "source": "Page 2",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-112",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-112",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-09",
+                "status": "found",
+                "evidence": "Date: 2026-10-09",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Greenleaf Catering",
+                "status": "found",
+                "evidence": "Greenleaf Catering",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "217.50",
+                "status": "found",
+                "evidence": "Subtotal: 217.50",
+                "note": null
+              },
+              "tax": {
+                "value": "32.62",
+                "status": "found",
+                "evidence": "VAT (15%): 32.62",
+                "note": null
+              },
+              "total": {
+                "value": "250.12",
+                "status": "found",
+                "evidence": "Total: USD 250.12",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 250.12",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Lunch for 15 people",
+                "quantity": "15",
+                "unit_price": "14.50",
+                "amount": "217.50",
+                "evidence": "Lunch for 15 people               15         14.50        217.50",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:00:51.056Z"
+          },
+          {
+            "id": 13,
+            "document_id": 11,
+            "source": "Page 3",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-113",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-113",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-16",
+                "status": "found",
+                "evidence": "Date: 2026-10-16",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Greenleaf Catering",
+                "status": "found",
+                "evidence": "Greenleaf Catering",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "165.50",
+                "status": "found",
+                "evidence": "Subtotal: 165.50",
+                "note": null
+              },
+              "tax": {
+                "value": "24.82",
+                "status": "found",
+                "evidence": "VAT (15%): 24.82",
+                "note": null
+              },
+              "total": {
+                "value": "190.32",
+                "status": "found",
+                "evidence": "Total: USD 190.32",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 190.32",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Lunch for 9 people",
+                "quantity": "9",
+                "unit_price": "14.50",
+                "amount": "130.50",
+                "evidence": "Lunch for 9 people                 9         14.50        130.50",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Coffee service",
+                "quantity": "1",
+                "unit_price": "35.00",
+                "amount": "35.00",
+                "evidence": "Coffee service                     1         35.00         35.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:00:51.056Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 31,
+            "step": "uploaded",
+            "message": "Uploaded \"d11_three_invoices.pdf\" (3 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:05.682Z"
+          },
+          {
+            "id": 32,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:06.240Z"
+          },
+          {
+            "id": 33,
+            "step": "done",
+            "message": "Done in 44.8 seconds: 3 invoices found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:51.056Z"
+          }
+        ]
+      }
+    },
+    "d12_two_pages.pdf": {
+      "status": "done",
+      "document_id": 12,
+      "wall_seconds": 34.16,
+      "processing_seconds": "33.26",
+      "uploaded_at": "2026-11-04T04:00:51.146Z",
+      "final": {
+        "id": 12,
+        "filename": "d12_two_pages.pdf",
+        "file_type": "pdf",
+        "file_size": 1668,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "33.26",
+        "created_at": "2026-11-04T04:00:51.146Z",
+        "started_at": "2026-11-04T04:00:51.894Z",
+        "finished_at": "2026-11-04T04:01:25.156Z",
+        "invoices": [
+          {
+            "id": 14,
+            "document_id": 12,
+            "source": "Pages 1-2",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-114",
+                "status": "found",
+                "evidence": "Invoice Number: INV-2026-114",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-29",
+                "status": "found",
+                "evidence": "Invoice date: 2026-10-29",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Atlas Furniture Co",
+                "status": "found",
+                "evidence": "Atlas Furniture Co",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Customer: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1790.00",
+                "status": "found",
+                "evidence": "Subtotal: 1,790.00",
+                "note": null
+              },
+              "tax": {
+                "value": "268.50",
+                "status": "found",
+                "evidence": "Tax 15%: 268.50",
+                "note": null
+              },
+              "total": {
+                "value": "2058.50",
+                "status": "found",
+                "evidence": "Amount due: USD 2,058.50",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Amount due: USD 2,058.50",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Meeting table",
+                "quantity": "1",
+                "unit_price": "640.00",
+                "amount": "640.00",
+                "evidence": "Meeting table                      1        640.00        640.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Meeting chairs",
+                "quantity": "8",
+                "unit_price": "95.00",
+                "amount": "760.00",
+                "evidence": "Meeting chairs                     8         95.00        760.00",
+                "problems": []
+              },
+              {
+                "position": 3,
+                "description": "Whiteboard",
+                "quantity": "2",
+                "unit_price": "120.00",
+                "amount": "240.00",
+                "evidence": "Whiteboard                         2        120.00        240.00",
+                "problems": []
+              },
+              {
+                "position": 4,
+                "description": "Delivery and assembly",
+                "quantity": "1",
+                "unit_price": "150.00",
+                "amount": "150.00",
+                "evidence": "Delivery and assembly              1        150.00        150.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:25.156Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 34,
+            "step": "uploaded",
+            "message": "Uploaded \"d12_two_pages.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:51.146Z"
+          },
+          {
+            "id": 35,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:00:51.897Z"
+          },
+          {
+            "id": 36,
+            "step": "done",
+            "message": "Done in 33.3 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:25.156Z"
+          }
+        ]
+      }
+    },
+    "d13_resent_copy.pdf": {
+      "status": "done",
+      "document_id": 13,
+      "wall_seconds": 17.18,
+      "processing_seconds": "16.54",
+      "uploaded_at": "2026-11-04T04:01:25.302Z",
+      "final": {
+        "id": 13,
+        "filename": "d13_resent_copy.pdf",
+        "file_type": "pdf",
+        "file_size": 1122,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "16.54",
+        "created_at": "2026-11-04T04:01:25.302Z",
+        "started_at": "2026-11-04T04:01:25.754Z",
+        "finished_at": "2026-11-04T04:01:42.297Z",
+        "invoices": [
+          {
+            "id": 15,
+            "document_id": 13,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2026-101",
+                "status": "found",
+                "evidence": "Invoice No: INV-2026-101",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-01",
+                "status": "found",
+                "evidence": "Date: 2026-10-01",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Acme Office Supplies Ltd",
+                "status": "found",
+                "evidence": "Acme Office Supplies Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1100.00",
+                "status": "found",
+                "evidence": "Subtotal: 1,100.00",
+                "note": null
+              },
+              "tax": {
+                "value": "165.00",
+                "status": "found",
+                "evidence": "VAT (15%): 165.00",
+                "note": null
+              },
+              "total": {
+                "value": "1265.00",
+                "status": "found",
+                "evidence": "Total: USD 1,265.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 1,265.00",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Office chairs",
+                "quantity": "10",
+                "unit_price": "100.00",
+                "amount": "1000.00",
+                "evidence": "Office chairs                     10        100.00      1,000.00",
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Desk lamps",
+                "quantity": "4",
+                "unit_price": "25.00",
+                "amount": "100.00",
+                "evidence": "Desk lamps                         4         25.00        100.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 3,
+                "field": "invoice_number",
+                "rule": "duplicate_invoice",
+                "message": "duplicate: same supplier and invoice number as d01_clean_usd.pdf, Page 1 (uploaded earlier)"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:42.297Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 37,
+            "step": "uploaded",
+            "message": "Uploaded \"d13_resent_copy.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:25.302Z"
+          },
+          {
+            "id": 38,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:25.756Z"
+          },
+          {
+            "id": 40,
+            "step": "done",
+            "message": "Done in 16.5 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:42.297Z"
+          }
+        ]
+      }
+    },
+    "d14_future_date.pdf": {
+      "status": "done",
+      "document_id": 14,
+      "wall_seconds": 3.04,
+      "processing_seconds": "2.51",
+      "uploaded_at": "2026-11-04T04:01:42.486Z",
+      "final": {
+        "id": 14,
+        "filename": "d14_future_date.pdf",
+        "file_type": "pdf",
+        "file_size": 1098,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "2.51",
+        "created_at": "2026-11-04T04:01:42.486Z",
+        "started_at": "2026-11-04T04:01:42.903Z",
+        "finished_at": "2026-11-04T04:01:45.414Z",
+        "invoices": [
+          {
+            "id": 16,
+            "document_id": 14,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "INV-2036-115",
+                "status": "found",
+                "evidence": "Invoice No: INV-2036-115",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2036-10-30",
+                "status": "found",
+                "evidence": "Date: 2036-10-30",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Typo Printing Ltd",
+                "status": "found",
+                "evidence": "Typo Printing Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "90.00",
+                "status": "found",
+                "evidence": "Subtotal: 90.00",
+                "note": null
+              },
+              "tax": {
+                "value": "13.50",
+                "status": "found",
+                "evidence": "VAT (15%): 13.50",
+                "note": null
+              },
+              "total": {
+                "value": "103.50",
+                "status": "found",
+                "evidence": "Total: USD 103.50",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 103.50",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Business cards, 500",
+                "quantity": "2",
+                "unit_price": "45.00",
+                "amount": "90.00",
+                "evidence": "Business cards, 500                2         45.00         90.00",
+                "problems": []
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 5,
+                "field": "invoice_date",
+                "rule": "future_date",
+                "message": "invoice date 2036-10-30 is in the future"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:45.414Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 41,
+            "step": "uploaded",
+            "message": "Uploaded \"d14_future_date.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:42.486Z"
+          },
+          {
+            "id": 42,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:42.905Z"
+          },
+          {
+            "id": 43,
+            "step": "done",
+            "message": "Done in 2.5 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:45.414Z"
+          }
+        ]
+      }
+    },
+    "s01_scanned_clean.pdf": {
+      "status": "done",
+      "document_id": 15,
+      "wall_seconds": 3.44,
+      "processing_seconds": "2.73",
+      "uploaded_at": "2026-11-04T04:01:45.530Z",
+      "final": {
+        "id": 15,
+        "filename": "s01_scanned_clean.pdf",
+        "file_type": "pdf",
+        "file_size": 33717,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "2.73",
+        "created_at": "2026-11-04T04:01:45.530Z",
+        "started_at": "2026-11-04T04:01:46.163Z",
+        "finished_at": "2026-11-04T04:01:48.896Z",
+        "invoices": [
+          {
+            "id": 17,
+            "document_id": 15,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "SC-3001",
+                "status": "found",
+                "evidence": "Invoice No: SC-3001",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-05",
+                "status": "found",
+                "evidence": "Date: 2026-10-05",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Harbor Logistics Ltd",
+                "status": "found",
+                "evidence": "Harbor Logistics Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "892.50",
+                "status": "found",
+                "evidence": "Subtotal: 892.50",
+                "note": null
+              },
+              "tax": {
+                "value": "133.88",
+                "status": "found",
+                "evidence": "VAT (15%): 133.88",
+                "note": null
+              },
+              "total": {
+                "value": "1026.38",
+                "status": "found",
+                "evidence": "Total: USD 1,026.38",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 1,026.38",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Freight Chittagong to Dhaka",
+                "quantity": "1",
+                "unit_price": "850.00",
+                "amount": "850.00",
+                "evidence": "Freight Chittagong to Dhaka 1 850.00\nAmount\n850.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              },
+              {
+                "position": 2,
+                "description": "Insurance",
+                "quantity": "1",
+                "unit_price": "42.50",
+                "amount": "42.50",
+                "evidence": "Insurance 1 42.50\n42.50",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 6,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 7,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 8,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 9,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 10,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 11,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 12,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 13,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:48.896Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 44,
+            "step": "uploaded",
+            "message": "Uploaded \"s01_scanned_clean.pdf\" (33 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:45.530Z"
+          },
+          {
+            "id": 45,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:46.165Z"
+          },
+          {
+            "id": 46,
+            "step": "done",
+            "message": "Done in 2.7 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:48.896Z"
+          }
+        ]
+      }
+    },
+    "s02_scanned_dirty.pdf": {
+      "status": "done",
+      "document_id": 16,
+      "wall_seconds": 5.26,
+      "processing_seconds": "4.57",
+      "uploaded_at": "2026-11-04T04:01:48.977Z",
+      "final": {
+        "id": 16,
+        "filename": "s02_scanned_dirty.pdf",
+        "file_type": "pdf",
+        "file_size": 258164,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "4.57",
+        "created_at": "2026-11-04T04:01:48.977Z",
+        "started_at": "2026-11-04T04:01:49.632Z",
+        "finished_at": "2026-11-04T04:01:54.198Z",
+        "invoices": [
+          {
+            "id": 18,
+            "document_id": 16,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "SC-3002",
+                "status": "found",
+                "evidence": "Tax Invoice No. SC-3002",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-11-02",
+                "status": "found",
+                "evidence": "Dated: 02 Nov 2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Pioneer Security Services",
+                "status": "found",
+                "evidence": "Pioneer Security Services",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Sold to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "36600.00",
+                "status": "found",
+                "evidence": "Subtotal: 36,600.00",
+                "note": null
+              },
+              "tax": {
+                "value": "5400.00",
+                "status": "found",
+                "evidence": "GST 15%: 5,400.00",
+                "note": null
+              },
+              "total": {
+                "value": "41406.00",
+                "status": "found",
+                "evidence": "Grand total: 80T 41,406.00",
+                "note": null
+              },
+              "currency": {
+                "value": null,
+                "status": "missing",
+                "evidence": null,
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Security guard, night shift",
+                "quantity": "30",
+                "unit_price": "1260.06",
+                "amount": "36000.80",
+                "evidence": "_ Security guard, night shift 30 1,260.06 36,000.80",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 14,
+                "field": "line item 1",
+                "rule": "line_math",
+                "message": "line item 1: 30 × 1,260.06 = 37,801.80, but the amount says 36,000.80"
+              },
+              {
+                "id": 15,
+                "field": "subtotal",
+                "rule": "lines_match_subtotal",
+                "message": "the line items add up to 36,000.80, but the subtotal says 36,600.00"
+              },
+              {
+                "id": 16,
+                "field": "total",
+                "rule": "totals_match",
+                "message": "subtotal 36,600.00 + tax 5,400.00 = 42,000.00, but the total says 41,406.00"
+              },
+              {
+                "id": 17,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 18,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 19,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 20,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:54.198Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 47,
+            "step": "uploaded",
+            "message": "Uploaded \"s02_scanned_dirty.pdf\" (253 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:48.977Z"
+          },
+          {
+            "id": 48,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:49.633Z"
+          },
+          {
+            "id": 49,
+            "step": "done",
+            "message": "Done in 4.6 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:54.198Z"
+          }
+        ]
+      }
+    },
+    "i01_clean.png": {
+      "status": "done",
+      "document_id": 17,
+      "wall_seconds": 2.83,
+      "processing_seconds": "2.14",
+      "uploaded_at": "2026-11-04T04:01:54.231Z",
+      "final": {
+        "id": 17,
+        "filename": "i01_clean.png",
+        "file_type": "png",
+        "file_size": 36679,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "2.14",
+        "created_at": "2026-11-04T04:01:54.231Z",
+        "started_at": "2026-11-04T04:01:54.807Z",
+        "finished_at": "2026-11-04T04:01:56.946Z",
+        "invoices": [
+          {
+            "id": 19,
+            "document_id": 17,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "IMG-4001",
+                "status": "found",
+                "evidence": "Invoice No: IMG-4001",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-11",
+                "status": "found",
+                "evidence": "Date: 2026-10-11",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Swift Couriers",
+                "status": "found",
+                "evidence": "Swift Couriers",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "87.00",
+                "status": "found",
+                "evidence": "Subtotal: 87.00",
+                "note": null
+              },
+              "tax": {
+                "value": "13.05",
+                "status": "found",
+                "evidence": "VAT (15%): 13.05",
+                "note": null
+              },
+              "total": {
+                "value": "100.05",
+                "status": "found",
+                "evidence": "Total: USD 100.05",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 100.05",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Same-day delivery",
+                "quantity": "6",
+                "unit_price": "12.00",
+                "amount": "72.00",
+                "evidence": "Same-day delivery 6 12.00\nAmount\n72.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              },
+              {
+                "position": 2,
+                "description": "Packaging",
+                "quantity": "6",
+                "unit_price": "2.50",
+                "amount": "15.00",
+                "evidence": "Packaging 6 2.50\n15.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 21,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 22,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 23,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 24,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 25,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 26,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 27,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 28,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:56.946Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 50,
+            "step": "uploaded",
+            "message": "Uploaded \"i01_clean.png\" (36 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:54.231Z"
+          },
+          {
+            "id": 51,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:54.809Z"
+          },
+          {
+            "id": 52,
+            "step": "done",
+            "message": "Done in 2.1 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:56.946Z"
+          }
+        ]
+      }
+    },
+    "i02_phone_photo.jpg": {
+      "status": "done",
+      "document_id": 18,
+      "wall_seconds": 2.44,
+      "processing_seconds": "1.92",
+      "uploaded_at": "2026-11-04T04:01:57.066Z",
+      "final": {
+        "id": 18,
+        "filename": "i02_phone_photo.jpg",
+        "file_type": "jpg",
+        "file_size": 67911,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "1.92",
+        "created_at": "2026-11-04T04:01:57.066Z",
+        "started_at": "2026-11-04T04:01:57.514Z",
+        "finished_at": "2026-11-04T04:01:59.438Z",
+        "invoices": [
+          {
+            "id": 20,
+            "document_id": 18,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "IMG-4002",
+                "status": "found",
+                "evidence": "Invoice Number: IMG-4002",
+                "note": null
+              },
+              "invoice_date": {
+                "value": null,
+                "status": "uncertain",
+                "evidence": "Invoice date: 2026-16-12",
+                "note": "'2026-16-12' is not a date we can read"
+              },
+              "supplier_name": {
+                "value": "Metro Taxi Ltd",
+                "status": "found",
+                "evidence": "Metro Taxi Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Customer: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "192.59",
+                "status": "found",
+                "evidence": "Subtotal: 192.59",
+                "note": null
+              },
+              "tax": {
+                "value": "28.88",
+                "status": "found",
+                "evidence": "Tax 15%: 28.88",
+                "note": null
+              },
+              "total": {
+                "value": "221.38",
+                "status": "found",
+                "evidence": "Amount due: USD 221.38",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Amount due: USD 221.38",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Airport transfer",
+                "quantity": "2",
+                "unit_price": "35.66",
+                "amount": "70.00",
+                "evidence": "Airport transfer 2 35.66 70.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              },
+              {
+                "position": 2,
+                "description": "City rides, October",
+                "quantity": "14",
+                "unit_price": "8.75",
+                "amount": "122.50",
+                "evidence": "City rides, October 14 8.75 122.50",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 29,
+                "field": "invoice_date",
+                "rule": "uncertain_value",
+                "message": "invoice date is uncertain: '2026-16-12' is not a date we can read"
+              },
+              {
+                "id": 30,
+                "field": "line item 1",
+                "rule": "line_math",
+                "message": "line item 1: 2 × 35.66 = 71.32, but the amount says 70.00"
+              },
+              {
+                "id": 31,
+                "field": "subtotal",
+                "rule": "lines_match_subtotal",
+                "message": "the line items add up to 192.50, but the subtotal says 192.59"
+              },
+              {
+                "id": 32,
+                "field": "total",
+                "rule": "totals_match",
+                "message": "subtotal 192.59 + tax 28.88 = 221.47, but the total says 221.38"
+              },
+              {
+                "id": 33,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 34,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 35,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 36,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 37,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 38,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 39,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 40,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:01:59.438Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 53,
+            "step": "uploaded",
+            "message": "Uploaded \"i02_phone_photo.jpg\" (67 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:57.066Z"
+          },
+          {
+            "id": 54,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:57.516Z"
+          },
+          {
+            "id": 55,
+            "step": "done",
+            "message": "Done in 1.9 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:59.438Z"
+          }
+        ]
+      }
+    },
+    "i03_scan.tiff": {
+      "status": "done",
+      "document_id": 19,
+      "wall_seconds": 3.84,
+      "processing_seconds": "3.28",
+      "uploaded_at": "2026-11-04T04:01:59.502Z",
+      "final": {
+        "id": 19,
+        "filename": "i03_scan.tiff",
+        "file_type": "tiff",
+        "file_size": 262288,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "3.28",
+        "created_at": "2026-11-04T04:01:59.502Z",
+        "started_at": "2026-11-04T04:02:00.020Z",
+        "finished_at": "2026-11-04T04:02:03.296Z",
+        "invoices": [
+          {
+            "id": 21,
+            "document_id": 19,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "IMG-4663",
+                "status": "found",
+                "evidence": "Invoice No: IMG-4663",
+                "note": null
+              },
+              "invoice_date": {
+                "value": null,
+                "status": "uncertain",
+                "evidence": "Date: 2026-16-13",
+                "note": "'2026-16-13' is not a date we can read"
+              },
+              "supplier_name": {
+                "value": "Sunrise Stationers",
+                "status": "found",
+                "evidence": "Sunrise Stationers",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "132.00",
+                "status": "found",
+                "evidence": "Subtotal: 132.00",
+                "note": null
+              },
+              "tax": {
+                "value": "19.86",
+                "status": "found",
+                "evidence": "VAT (15%): 19.86",
+                "note": null
+              },
+              "total": {
+                "value": "151.88",
+                "status": "found",
+                "evidence": "Total: USD 151.88",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 151.88",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Notebooks: AS",
+                "quantity": "58",
+                "unit_price": "1.88",
+                "amount": "90.60",
+                "evidence": ". Notebooks: AS 58 1.88 90.60",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              },
+              {
+                "position": 2,
+                "description": "Ballpoint pens, box",
+                "quantity": "16",
+                "unit_price": "4.20",
+                "amount": "42.00",
+                "evidence": "Ballpoint pens, box 16 4.20 42.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 41,
+                "field": "invoice_date",
+                "rule": "uncertain_value",
+                "message": "invoice date is uncertain: '2026-16-13' is not a date we can read"
+              },
+              {
+                "id": 42,
+                "field": "line item 1",
+                "rule": "line_math",
+                "message": "line item 1: 58 × 1.88 = 109.04, but the amount says 90.60"
+              },
+              {
+                "id": 43,
+                "field": "line item 2",
+                "rule": "line_math",
+                "message": "line item 2: 16 × 4.20 = 67.20, but the amount says 42.00"
+              },
+              {
+                "id": 44,
+                "field": "subtotal",
+                "rule": "lines_match_subtotal",
+                "message": "the line items add up to 132.60, but the subtotal says 132.00"
+              },
+              {
+                "id": 45,
+                "field": "total",
+                "rule": "totals_match",
+                "message": "subtotal 132.00 + tax 19.86 = 151.86, but the total says 151.88"
+              },
+              {
+                "id": 46,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 47,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 48,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 49,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 50,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 51,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 52,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 53,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:03.296Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 56,
+            "step": "uploaded",
+            "message": "Uploaded \"i03_scan.tiff\" (257 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:01:59.502Z"
+          },
+          {
+            "id": 57,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:00.022Z"
+          },
+          {
+            "id": 58,
+            "step": "done",
+            "message": "Done in 3.3 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:03.296Z"
+          }
+        ]
+      }
+    },
+    "i04_low_resolution.png": {
+      "status": "done",
+      "document_id": 20,
+      "wall_seconds": 3.44,
+      "processing_seconds": "2.72",
+      "uploaded_at": "2026-11-04T04:02:03.345Z",
+      "final": {
+        "id": 20,
+        "filename": "i04_low_resolution.png",
+        "file_type": "png",
+        "file_size": 21705,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "2.72",
+        "created_at": "2026-11-04T04:02:03.345Z",
+        "started_at": "2026-11-04T04:02:03.908Z",
+        "finished_at": "2026-11-04T04:02:06.624Z",
+        "invoices": [
+          {
+            "id": 22,
+            "document_id": 20,
+            "source": "Page 1",
+            "method": "gemini",
+            "ai_model": "gemini-3.5-flash-lite",
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "IMG-4004",
+                "status": "found",
+                "evidence": "Invoice No: IMG-4004",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-14",
+                "status": "found",
+                "evidence": "Date: 2026-10-14",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Vista Travel Agency",
+                "status": "found",
+                "evidence": "Vista Travel Agency",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Bill to: Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "640.00",
+                "status": "found",
+                "evidence": "Subtotal: 640.00",
+                "note": null
+              },
+              "tax": {
+                "value": "96.60",
+                "status": "found",
+                "evidence": "VAT (15%): 96.60",
+                "note": null
+              },
+              "total": {
+                "value": "736.60",
+                "status": "found",
+                "evidence": "Total: USD 736.60",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "Total: USD 736.60",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Flight Dhaka to Singapore",
+                "quantity": "1",
+                "unit_price": "420.00",
+                "amount": "420.00",
+                "evidence": "Flight Dhaka to Singapore 1 420.00 420.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              },
+              {
+                "position": 2,
+                "description": "Hotel, 2 nights",
+                "quantity": "2",
+                "unit_price": "110.00",
+                "amount": "220.00",
+                "evidence": "Hotel, 2 nights 2 110.00 220.00",
+                "problems": [
+                  "description: the AI's evidence was not found in the document",
+                  "quantity: the AI's evidence was not found in the document",
+                  "unit price: the AI's evidence was not found in the document",
+                  "amount: the AI's evidence was not found in the document"
+                ]
+              }
+            ],
+            "validation_errors": [
+              {
+                "id": 54,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 55,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 56,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 57,
+                "field": "line item 1",
+                "rule": "uncertain_value",
+                "message": "line item 1: amount: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 58,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: description: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 59,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: quantity: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 60,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: unit price: the AI's evidence was not found in the document"
+              },
+              {
+                "id": 61,
+                "field": "line item 2",
+                "rule": "uncertain_value",
+                "message": "line item 2: amount: the AI's evidence was not found in the document"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:06.624Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 59,
+            "step": "uploaded",
+            "message": "Uploaded \"i04_low_resolution.png\" (22 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:03.345Z"
+          },
+          {
+            "id": 60,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:03.910Z"
+          },
+          {
+            "id": 61,
+            "step": "done",
+            "message": "Done in 2.7 seconds: 1 invoice found, 1 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:06.624Z"
+          }
+        ]
+      }
+    },
+    "x01_invoices.xlsx": {
+      "status": "done",
+      "document_id": 21,
+      "wall_seconds": 0.62,
+      "processing_seconds": "0.01",
+      "uploaded_at": "2026-11-04T04:02:06.786Z",
+      "final": {
+        "id": 21,
+        "filename": "x01_invoices.xlsx",
+        "file_type": "xlsx",
+        "file_size": 5857,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 3,
+        "processing_seconds": "0.01",
+        "created_at": "2026-11-04T04:02:06.786Z",
+        "started_at": "2026-11-04T04:02:07.206Z",
+        "finished_at": "2026-11-04T04:02:07.220Z",
+        "invoices": [
+          {
+            "id": 23,
+            "document_id": 21,
+            "source": "Sheet 'Invoices': XL-501 | 2026-10-03 | Acme Office Supplies Ltd | Blue Sky Foods | 400 | 60 | 460 | USD",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "XL-501",
+                "status": "found",
+                "evidence": "XL-501",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-03",
+                "status": "found",
+                "evidence": "2026-10-03",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Acme Office Supplies Ltd",
+                "status": "found",
+                "evidence": "Acme Office Supplies Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "400.00",
+                "status": "found",
+                "evidence": "400",
+                "note": null
+              },
+              "tax": {
+                "value": "60.00",
+                "status": "found",
+                "evidence": "60",
+                "note": null
+              },
+              "total": {
+                "value": "460.00",
+                "status": "found",
+                "evidence": "460",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "USD",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Office chairs",
+                "quantity": "4",
+                "unit_price": "100.00",
+                "amount": "400.00",
+                "evidence": null,
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.220Z"
+          },
+          {
+            "id": 24,
+            "document_id": 21,
+            "source": "Sheet 'Invoices': XL-502 | 2026-10-10 | FastNet Broadband | Blue Sky Foods | 1000 | 150 | 1150 | USD",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "XL-502",
+                "status": "found",
+                "evidence": "XL-502",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-10",
+                "status": "found",
+                "evidence": "2026-10-10",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "FastNet Broadband",
+                "status": "found",
+                "evidence": "FastNet Broadband",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1000.00",
+                "status": "found",
+                "evidence": "1000",
+                "note": null
+              },
+              "tax": {
+                "value": "150.00",
+                "status": "found",
+                "evidence": "150",
+                "note": null
+              },
+              "total": {
+                "value": "1150.00",
+                "status": "found",
+                "evidence": "1150",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "USD",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Broadband internet, September",
+                "quantity": "1",
+                "unit_price": "1000.00",
+                "amount": "1000.00",
+                "evidence": null,
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.220Z"
+          },
+          {
+            "id": 25,
+            "document_id": 21,
+            "source": "Sheet 'Invoices': XL-503 | 2026-10-17 | Corner Coffee Roasters | Blue Sky Foods | 214 | 40.66 | 254.66 | EUR",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "XL-503",
+                "status": "found",
+                "evidence": "XL-503",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-17",
+                "status": "found",
+                "evidence": "2026-10-17",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Corner Coffee Roasters",
+                "status": "found",
+                "evidence": "Corner Coffee Roasters",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "214.00",
+                "status": "found",
+                "evidence": "214",
+                "note": null
+              },
+              "tax": {
+                "value": "40.66",
+                "status": "found",
+                "evidence": "40.66",
+                "note": null
+              },
+              "total": {
+                "value": "254.66",
+                "status": "found",
+                "evidence": "254.66",
+                "note": null
+              },
+              "currency": {
+                "value": "EUR",
+                "status": "found",
+                "evidence": "EUR",
+                "note": null
+              }
+            },
+            "line_items": [
+              {
+                "position": 1,
+                "description": "Coffee beans",
+                "quantity": "10",
+                "unit_price": "16.00",
+                "amount": "160.00",
+                "evidence": null,
+                "problems": []
+              },
+              {
+                "position": 2,
+                "description": "Oat milk",
+                "quantity": "24",
+                "unit_price": "2.25",
+                "amount": "54.00",
+                "evidence": null,
+                "problems": []
+              }
+            ],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.220Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 62,
+            "step": "uploaded",
+            "message": "Uploaded \"x01_invoices.xlsx\" (6 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:06.786Z"
+          },
+          {
+            "id": 63,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:07.208Z"
+          },
+          {
+            "id": 64,
+            "step": "done",
+            "message": "Done in 0.0 seconds: 3 invoices found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:07.220Z"
+          }
+        ]
+      }
+    },
+    "x02_other_column_names.csv": {
+      "status": "done",
+      "document_id": 22,
+      "wall_seconds": 0.62,
+      "processing_seconds": "0.01",
+      "uploaded_at": "2026-11-04T04:02:07.407Z",
+      "final": {
+        "id": 22,
+        "filename": "x02_other_column_names.csv",
+        "file_type": "csv",
+        "file_size": 353,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 4,
+        "processing_seconds": "0.01",
+        "created_at": "2026-11-04T04:02:07.407Z",
+        "started_at": "2026-11-04T04:02:07.836Z",
+        "finished_at": "2026-11-04T04:02:07.844Z",
+        "invoices": [
+          {
+            "id": 26,
+            "document_id": 22,
+            "source": "Sheet 'CSV': B-9001 | 2026-10-04 | Harbor Logistics Ltd | Blue Sky Foods | 500.00 | 75.00 | 575.00 | USD",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "B-9001",
+                "status": "found",
+                "evidence": "B-9001",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-04",
+                "status": "found",
+                "evidence": "2026-10-04",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Harbor Logistics Ltd",
+                "status": "found",
+                "evidence": "Harbor Logistics Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "500.00",
+                "status": "found",
+                "evidence": "500.00",
+                "note": null
+              },
+              "tax": {
+                "value": "75.00",
+                "status": "found",
+                "evidence": "75.00",
+                "note": null
+              },
+              "total": {
+                "value": "575.00",
+                "status": "found",
+                "evidence": "575.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "USD",
+                "note": null
+              }
+            },
+            "line_items": [],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.844Z"
+          },
+          {
+            "id": 27,
+            "document_id": 22,
+            "source": "Sheet 'CSV': B-9002 | 2026-10-11 | Swift Couriers | Blue Sky Foods | 220.00 | 33.00 | 263.00 | USD",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "B-9002",
+                "status": "found",
+                "evidence": "B-9002",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-11",
+                "status": "found",
+                "evidence": "2026-10-11",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Swift Couriers",
+                "status": "found",
+                "evidence": "Swift Couriers",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "220.00",
+                "status": "found",
+                "evidence": "220.00",
+                "note": null
+              },
+              "tax": {
+                "value": "33.00",
+                "status": "found",
+                "evidence": "33.00",
+                "note": null
+              },
+              "total": {
+                "value": "263.00",
+                "status": "found",
+                "evidence": "263.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "USD",
+                "note": null
+              }
+            },
+            "line_items": [],
+            "validation_errors": [
+              {
+                "id": 62,
+                "field": "total",
+                "rule": "totals_match",
+                "message": "subtotal 220.00 + tax 33.00 = 253.00, but the total says 263.00"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.844Z"
+          },
+          {
+            "id": 28,
+            "document_id": 22,
+            "source": "Sheet 'CSV': B-9003 | 2026-10-18 |  | Blue Sky Foods | 80.00 | 12.00 | 92.00 | USD",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "B-9003",
+                "status": "found",
+                "evidence": "B-9003",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-18",
+                "status": "found",
+                "evidence": "2026-10-18",
+                "note": null
+              },
+              "supplier_name": {
+                "value": null,
+                "status": "missing",
+                "evidence": null,
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "80.00",
+                "status": "found",
+                "evidence": "80.00",
+                "note": null
+              },
+              "tax": {
+                "value": "12.00",
+                "status": "found",
+                "evidence": "12.00",
+                "note": null
+              },
+              "total": {
+                "value": "92.00",
+                "status": "found",
+                "evidence": "92.00",
+                "note": null
+              },
+              "currency": {
+                "value": "USD",
+                "status": "found",
+                "evidence": "USD",
+                "note": null
+              }
+            },
+            "line_items": [],
+            "validation_errors": [
+              {
+                "id": 63,
+                "field": "supplier_name",
+                "rule": "missing_field",
+                "message": "supplier name is missing"
+              }
+            ],
+            "needs_review": true,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.844Z"
+          },
+          {
+            "id": 29,
+            "document_id": 22,
+            "source": "Sheet 'CSV': B-9004 | 2026-10-25 | Metro Taxi Ltd | Blue Sky Foods | 3500.00 | 525.00 | 4025.00 | BDT",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "B-9004",
+                "status": "found",
+                "evidence": "B-9004",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-25",
+                "status": "found",
+                "evidence": "2026-10-25",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Metro Taxi Ltd",
+                "status": "found",
+                "evidence": "Metro Taxi Ltd",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "3500.00",
+                "status": "found",
+                "evidence": "3500.00",
+                "note": null
+              },
+              "tax": {
+                "value": "525.00",
+                "status": "found",
+                "evidence": "525.00",
+                "note": null
+              },
+              "total": {
+                "value": "4025.00",
+                "status": "found",
+                "evidence": "4025.00",
+                "note": null
+              },
+              "currency": {
+                "value": "BDT",
+                "status": "found",
+                "evidence": "BDT",
+                "note": null
+              }
+            },
+            "line_items": [],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:07.844Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 65,
+            "step": "uploaded",
+            "message": "Uploaded \"x02_other_column_names.csv\" (1 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:07.407Z"
+          },
+          {
+            "id": 66,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:07.839Z"
+          },
+          {
+            "id": 67,
+            "step": "done",
+            "message": "Done in 0.0 seconds: 4 invoices found, 2 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:07.844Z"
+          }
+        ]
+      }
+    },
+    "x03_semicolons_european.csv": {
+      "status": "done",
+      "document_id": 23,
+      "wall_seconds": 0.82,
+      "processing_seconds": "0.01",
+      "uploaded_at": "2026-11-04T04:02:08.023Z",
+      "final": {
+        "id": 23,
+        "filename": "x03_semicolons_european.csv",
+        "file_type": "csv",
+        "file_size": 153,
+        "status": "done",
+        "error": null,
+        "warnings": [],
+        "invoice_count": 1,
+        "processing_seconds": "0.01",
+        "created_at": "2026-11-04T04:02:08.023Z",
+        "started_at": "2026-11-04T04:02:08.696Z",
+        "finished_at": "2026-11-04T04:02:08.703Z",
+        "invoices": [
+          {
+            "id": 30,
+            "document_id": 23,
+            "source": "Sheet 'CSV': EU-77 | 19.10.2026 | Müller & Söhne KG | Blue Sky Foods | 1.234,56 | 234,57 | 1.469,13 | EUR",
+            "method": "spreadsheet columns",
+            "ai_model": null,
+            "error": null,
+            "fields": {
+              "invoice_number": {
+                "value": "EU-77",
+                "status": "found",
+                "evidence": "EU-77",
+                "note": null
+              },
+              "invoice_date": {
+                "value": "2026-10-19",
+                "status": "found",
+                "evidence": "19.10.2026",
+                "note": null
+              },
+              "supplier_name": {
+                "value": "Müller & Söhne KG",
+                "status": "found",
+                "evidence": "Müller & Söhne KG",
+                "note": null
+              },
+              "customer_name": {
+                "value": "Blue Sky Foods",
+                "status": "found",
+                "evidence": "Blue Sky Foods",
+                "note": null
+              },
+              "subtotal": {
+                "value": "1234.56",
+                "status": "found",
+                "evidence": "1.234,56",
+                "note": null
+              },
+              "tax": {
+                "value": "234.57",
+                "status": "found",
+                "evidence": "234,57",
+                "note": null
+              },
+              "total": {
+                "value": "1469.13",
+                "status": "found",
+                "evidence": "1.469,13",
+                "note": null
+              },
+              "currency": {
+                "value": "EUR",
+                "status": "found",
+                "evidence": "EUR",
+                "note": null
+              }
+            },
+            "line_items": [],
+            "validation_errors": [],
+            "needs_review": false,
+            "reviewed_at": null,
+            "warnings": [],
+            "updated_at": "2026-11-04T04:02:08.703Z"
+          }
+        ],
+        "history": [
+          {
+            "id": 68,
+            "step": "uploaded",
+            "message": "Uploaded \"x03_semicolons_european.csv\" (1 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:08.023Z"
+          },
+          {
+            "id": 69,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:08.698Z"
+          },
+          {
+            "id": 70,
+            "step": "done",
+            "message": "Done in 0.0 seconds: 1 invoice found, 0 need review",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:08.703Z"
+          }
+        ]
+      }
+    },
+    "f01_damaged.pdf": {
+      "status": "failed",
+      "document_id": 24,
+      "wall_seconds": 1.83,
+      "processing_seconds": null,
+      "uploaded_at": "2026-11-04T04:02:08.842Z",
+      "final": {
+        "id": 24,
+        "filename": "f01_damaged.pdf",
+        "file_type": "pdf",
+        "file_size": 561,
+        "status": "failed",
+        "error": "No text was found to read (blank or unreadable pages)",
+        "warnings": [
+          "Page 1: no text found (blank page?)"
+        ],
+        "invoice_count": 0,
+        "processing_seconds": null,
+        "created_at": "2026-11-04T04:02:08.842Z",
+        "started_at": "2026-11-04T04:02:09.246Z",
+        "finished_at": "2026-11-04T04:02:10.633Z",
+        "invoices": [],
+        "history": [
+          {
+            "id": 71,
+            "step": "uploaded",
+            "message": "Uploaded \"f01_damaged.pdf\" (1 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:08.842Z"
+          },
+          {
+            "id": 72,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:09.247Z"
+          },
+          {
+            "id": 73,
+            "step": "failed",
+            "message": "Failed: No text was found to read (blank or unreadable pages)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.642Z"
+          }
+        ]
+      }
+    },
+    "f02_password.pdf": {
+      "status": "failed",
+      "document_id": 25,
+      "wall_seconds": 0.21,
+      "processing_seconds": null,
+      "uploaded_at": "2026-11-04T04:02:10.669Z",
+      "final": {
+        "id": 25,
+        "filename": "f02_password.pdf",
+        "file_type": "pdf",
+        "file_size": 1730,
+        "status": "failed",
+        "error": "The PDF is password-protected",
+        "warnings": [],
+        "invoice_count": 0,
+        "processing_seconds": null,
+        "created_at": "2026-11-04T04:02:10.669Z",
+        "started_at": "2026-11-04T04:02:10.672Z",
+        "finished_at": "2026-11-04T04:02:10.694Z",
+        "invoices": [],
+        "history": [
+          {
+            "id": 74,
+            "step": "uploaded",
+            "message": "Uploaded \"f02_password.pdf\" (2 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.669Z"
+          },
+          {
+            "id": 75,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.674Z"
+          },
+          {
+            "id": 76,
+            "step": "failed",
+            "message": "Failed: The PDF is password-protected",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.696Z"
+          }
+        ]
+      }
+    },
+    "f03_blank.pdf": {
+      "status": "failed",
+      "document_id": 26,
+      "wall_seconds": 1.42,
+      "processing_seconds": null,
+      "uploaded_at": "2026-11-04T04:02:10.876Z",
+      "final": {
+        "id": 26,
+        "filename": "f03_blank.pdf",
+        "file_type": "pdf",
+        "file_size": 518,
+        "status": "failed",
+        "error": "No text was found to read (blank or unreadable pages)",
+        "warnings": [
+          "Page 1: no text found (blank page?)"
+        ],
+        "invoice_count": 0,
+        "processing_seconds": null,
+        "created_at": "2026-11-04T04:02:10.876Z",
+        "started_at": "2026-11-04T04:02:10.883Z",
+        "finished_at": "2026-11-04T04:02:12.143Z",
+        "invoices": [],
+        "history": [
+          {
+            "id": 77,
+            "step": "uploaded",
+            "message": "Uploaded \"f03_blank.pdf\" (1 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.876Z"
+          },
+          {
+            "id": 78,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:10.885Z"
+          },
+          {
+            "id": 79,
+            "step": "failed",
+            "message": "Failed: No text was found to read (blank or unreadable pages)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:12.145Z"
+          }
+        ]
+      }
+    },
+    "f04_picture_without_text.png": {
+      "status": "failed",
+      "document_id": 27,
+      "wall_seconds": 0.62,
+      "processing_seconds": null,
+      "uploaded_at": "2026-11-04T04:02:12.299Z",
+      "final": {
+        "id": 27,
+        "filename": "f04_picture_without_text.png",
+        "file_type": "png",
+        "file_size": 3918,
+        "status": "failed",
+        "error": "No text was found to read (blank or unreadable pages)",
+        "warnings": [
+          "Page 1: no text found (blank page?)"
+        ],
+        "invoice_count": 0,
+        "processing_seconds": null,
+        "created_at": "2026-11-04T04:02:12.299Z",
+        "started_at": "2026-11-04T04:02:12.308Z",
+        "finished_at": "2026-11-04T04:02:12.749Z",
+        "invoices": [],
+        "history": [
+          {
+            "id": 80,
+            "step": "uploaded",
+            "message": "Uploaded \"f04_picture_without_text.png\" (4 KB)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:12.299Z"
+          },
+          {
+            "id": 81,
+            "step": "processing",
+            "message": "Processing started",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:12.310Z"
+          },
+          {
+            "id": 82,
+            "step": "failed",
+            "message": "Failed: No text was found to read (blank or unreadable pages)",
+            "details": null,
+            "invoice_id": null,
+            "created_at": "2026-11-04T04:02:12.757Z"
+          }
+        ]
+      }
+    },
+    "f05_letter.docx": {
+      "status": "refused",
+      "reason": "This file type is not supported. Use PDF, JPG, PNG, TIFF, XLSX, XLS or CSV.",
+      "wall_seconds": 0.0,
+      "document_id": null
+    },
+    "f06_empty.csv": {
+      "status": "refused",
+      "reason": "The file is empty.",
+      "wall_seconds": 0.0,
+      "document_id": null
+    }
+  },
+  "mode": "real run",
+  "finished_at": "2026-11-04T10:02:12+06:00"
+}

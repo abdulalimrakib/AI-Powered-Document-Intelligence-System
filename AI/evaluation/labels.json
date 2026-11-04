@@ -1,0 +1,949 @@
+{
+  "about": "The answer sheet for the evaluation. Made by make_dataset.py together with the files in dataset/.",
+  "made_on": "2026-11-04",
+  "documents": [
+    {
+      "file": "d01_clean_usd.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "a clean invoice; d13 is a copy of it, so it should be marked as a duplicate",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-101",
+            "invoice_date": "2026-10-01",
+            "supplier_name": "Acme Office Supplies Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1100.00",
+            "tax": "165.00",
+            "total": "1265.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Office chairs",
+              "quantity": "10",
+              "unit_price": "100.00",
+              "amount": "1000.00"
+            },
+            {
+              "description": "Desk lamps",
+              "quantity": "4",
+              "unit_price": "25.00",
+              "amount": "100.00"
+            }
+          ],
+          "expected_problems": [
+            "duplicate_invoice"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "d02_eur_written_date.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "EUR, date written in words",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-102",
+            "invoice_date": "2026-10-15",
+            "supplier_name": "Northwind Traders GmbH",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "564.70",
+            "tax": "107.29",
+            "total": "671.99",
+            "currency": "EUR"
+          },
+          "line_items": [
+            {
+              "description": "Printer paper A4, box",
+              "quantity": "20",
+              "unit_price": "18.50",
+              "amount": "370.00"
+            },
+            {
+              "description": "Toner cartridge",
+              "quantity": "3",
+              "unit_price": "64.90",
+              "amount": "194.70"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d03_bdt.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "BDT, day/month/year date",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "BD-5531",
+            "invoice_date": "2026-10-21",
+            "supplier_name": "Dhaka Digital Services",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "48000.00",
+            "tax": "7200.00",
+            "total": "55200.00",
+            "currency": "BDT"
+          },
+          "line_items": [
+            {
+              "description": "Website maintenance, October",
+              "quantity": "1",
+              "unit_price": "45000.00",
+              "amount": "45000.00"
+            },
+            {
+              "description": "Domain renewal",
+              "quantity": "2",
+              "unit_price": "1500.00",
+              "amount": "3000.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d04_european_numbers.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "European numbers (1.234,56), accented letters; the € sign could not be drawn by the PDF font, so no currency is written",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "2026/0457",
+            "invoice_date": "2026-10-22",
+            "supplier_name": "Müller & Söhne KG",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "2856.50",
+            "tax": "542.74",
+            "total": "3399.24",
+            "currency": null
+          },
+          "line_items": [
+            {
+              "description": "Industrial shelving unit",
+              "quantity": "6",
+              "unit_price": "412.75",
+              "amount": "2476.50"
+            },
+            {
+              "description": "Assembly service",
+              "quantity": "1",
+              "unit_price": "380.00",
+              "amount": "380.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d05_gbp.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "£ sign, US-style written date",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "UK-88213",
+            "invoice_date": "2026-10-20",
+            "supplier_name": "Brightside Cleaning Co",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "815.00",
+            "tax": "163.00",
+            "total": "978.00",
+            "currency": "GBP"
+          },
+          "line_items": [
+            {
+              "description": "Office cleaning, weekly",
+              "quantity": "4",
+              "unit_price": "180.00",
+              "amount": "720.00"
+            },
+            {
+              "description": "Window washing",
+              "quantity": "1",
+              "unit_price": "95.00",
+              "amount": "95.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d06_no_customer.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "no customer written: the system must leave it empty, not invent one",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-106",
+            "invoice_date": "2026-10-24",
+            "supplier_name": "Cloudline Software Inc",
+            "customer_name": null,
+            "subtotal": "1200.00",
+            "tax": "180.00",
+            "total": "1380.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Accounting software, annual licence",
+              "quantity": "1",
+              "unit_price": "1200.00",
+              "amount": "1200.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d07_no_tax_dollar_sign.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "no tax line, and only a '$' sign (USD; the currency field is marked uncertain, but that alone needs no review)",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "R-7710",
+            "invoice_date": "2026-10-25",
+            "supplier_name": "Corner Coffee Roasters",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "107.00",
+            "tax": null,
+            "total": "107.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Arabica coffee beans 1kg",
+              "quantity": "5",
+              "unit_price": "16.00",
+              "amount": "80.00"
+            },
+            {
+              "description": "Oat milk 1L",
+              "quantity": "12",
+              "unit_price": "2.25",
+              "amount": "27.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d08_wrong_total.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "the total is wrong on purpose: subtotal + tax = 1150.00, but 1180.00 is written",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-108",
+            "invoice_date": "2026-10-26",
+            "supplier_name": "FastNet Broadband",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1000.00",
+            "tax": "150.00",
+            "total": "1180.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Broadband internet, October",
+              "quantity": "1",
+              "unit_price": "1000.00",
+              "amount": "1000.00"
+            }
+          ],
+          "expected_problems": [
+            "totals_match"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "d09_wrong_line.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "line 2 is wrong on purpose: 2 x 25.00 = 50.00, but 60.00 is written",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-109",
+            "invoice_date": "2026-10-27",
+            "supplier_name": "Lumen Lighting Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "420.00",
+            "tax": "63.00",
+            "total": "483.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "LED panel light",
+              "quantity": "8",
+              "unit_price": "45.00",
+              "amount": "360.00"
+            },
+            {
+              "description": "Desk lamp",
+              "quantity": "2",
+              "unit_price": "25.00",
+              "amount": "60.00"
+            }
+          ],
+          "expected_problems": [
+            "line_math"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "d10_credit_note.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "a credit note: negative amounts are correct here",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "CN-0042",
+            "invoice_date": "2026-10-28",
+            "supplier_name": "Acme Office Supplies Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "-100.00",
+            "tax": "-15.00",
+            "total": "-115.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Return: office chair",
+              "quantity": "1",
+              "unit_price": "-100.00",
+              "amount": "-100.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d11_three_invoices.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "three invoices in one PDF, one per page: must become three invoices",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-111",
+            "invoice_date": "2026-10-02",
+            "supplier_name": "Greenleaf Catering",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "174.00",
+            "tax": "26.10",
+            "total": "200.10",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Lunch for 12 people",
+              "quantity": "12",
+              "unit_price": "14.50",
+              "amount": "174.00"
+            }
+          ],
+          "expected_problems": []
+        },
+        {
+          "fields": {
+            "invoice_number": "INV-2026-112",
+            "invoice_date": "2026-10-09",
+            "supplier_name": "Greenleaf Catering",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "217.50",
+            "tax": "32.62",
+            "total": "250.12",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Lunch for 15 people",
+              "quantity": "15",
+              "unit_price": "14.50",
+              "amount": "217.50"
+            }
+          ],
+          "expected_problems": []
+        },
+        {
+          "fields": {
+            "invoice_number": "INV-2026-113",
+            "invoice_date": "2026-10-16",
+            "supplier_name": "Greenleaf Catering",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "165.50",
+            "tax": "24.82",
+            "total": "190.32",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Lunch for 9 people",
+              "quantity": "9",
+              "unit_price": "14.50",
+              "amount": "130.50"
+            },
+            {
+              "description": "Coffee service",
+              "quantity": "1",
+              "unit_price": "35.00",
+              "amount": "35.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d12_two_pages.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "one invoice over two pages (the number is repeated on page 2): must stay one invoice",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-114",
+            "invoice_date": "2026-10-29",
+            "supplier_name": "Atlas Furniture Co",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1790.00",
+            "tax": "268.50",
+            "total": "2058.50",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Meeting table",
+              "quantity": "1",
+              "unit_price": "640.00",
+              "amount": "640.00"
+            },
+            {
+              "description": "Meeting chairs",
+              "quantity": "8",
+              "unit_price": "95.00",
+              "amount": "760.00"
+            },
+            {
+              "description": "Whiteboard",
+              "quantity": "2",
+              "unit_price": "120.00",
+              "amount": "240.00"
+            },
+            {
+              "description": "Delivery and assembly",
+              "quantity": "1",
+              "unit_price": "150.00",
+              "amount": "150.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "d13_resent_copy.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "the same invoice as d01, sent again: should be marked as a duplicate",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2026-101",
+            "invoice_date": "2026-10-01",
+            "supplier_name": "Acme Office Supplies Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1100.00",
+            "tax": "165.00",
+            "total": "1265.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Office chairs",
+              "quantity": "10",
+              "unit_price": "100.00",
+              "amount": "1000.00"
+            },
+            {
+              "description": "Desk lamps",
+              "quantity": "4",
+              "unit_price": "25.00",
+              "amount": "100.00"
+            }
+          ],
+          "expected_problems": [
+            "duplicate_invoice"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "d14_future_date.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "dated 2036 by mistake: should be flagged as a date in the future",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "INV-2036-115",
+            "invoice_date": "2036-10-30",
+            "supplier_name": "Typo Printing Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "90.00",
+            "tax": "13.50",
+            "total": "103.50",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Business cards, 500",
+              "quantity": "2",
+              "unit_price": "45.00",
+              "amount": "90.00"
+            }
+          ],
+          "expected_problems": [
+            "future_date"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "s01_scanned_clean.pdf",
+      "kind": "scanned PDF",
+      "expected": "done",
+      "note": "a clean scan",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "SC-3001",
+            "invoice_date": "2026-10-05",
+            "supplier_name": "Harbor Logistics Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "892.50",
+            "tax": "133.88",
+            "total": "1026.38",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Freight Chittagong to Dhaka",
+              "quantity": "1",
+              "unit_price": "850.00",
+              "amount": "850.00"
+            },
+            {
+              "description": "Insurance",
+              "quantity": "1",
+              "unit_price": "42.50",
+              "amount": "42.50"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "s02_scanned_dirty.pdf",
+      "kind": "scanned PDF",
+      "expected": "done",
+      "note": "a dirty scan: dots, slightly tilted and blurred",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "SC-3002",
+            "invoice_date": "2026-11-02",
+            "supplier_name": "Pioneer Security Services",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "36000.00",
+            "tax": "5400.00",
+            "total": "41400.00",
+            "currency": "BDT"
+          },
+          "line_items": [
+            {
+              "description": "Security guard, night shift",
+              "quantity": "30",
+              "unit_price": "1200.00",
+              "amount": "36000.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "i01_clean.png",
+      "kind": "image",
+      "expected": "done",
+      "note": "a clean PNG",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "IMG-4001",
+            "invoice_date": "2026-10-11",
+            "supplier_name": "Swift Couriers",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "87.00",
+            "tax": "13.05",
+            "total": "100.05",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Same-day delivery",
+              "quantity": "6",
+              "unit_price": "12.00",
+              "amount": "72.00"
+            },
+            {
+              "description": "Packaging",
+              "quantity": "6",
+              "unit_price": "2.50",
+              "amount": "15.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "i02_phone_photo.jpg",
+      "kind": "image",
+      "expected": "done",
+      "note": "like a phone photo: grey, tilted, a little blurred, strong JPEG compression",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "IMG-4002",
+            "invoice_date": "2026-10-12",
+            "supplier_name": "Metro Taxi Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "192.50",
+            "tax": "28.88",
+            "total": "221.38",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Airport transfer",
+              "quantity": "2",
+              "unit_price": "35.00",
+              "amount": "70.00"
+            },
+            {
+              "description": "City rides, October",
+              "quantity": "14",
+              "unit_price": "8.75",
+              "amount": "122.50"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "i03_scan.tiff",
+      "kind": "image",
+      "expected": "done",
+      "note": "a TIFF scan",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "IMG-4003",
+            "invoice_date": "2026-10-13",
+            "supplier_name": "Sunrise Stationers",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "132.00",
+            "tax": "19.80",
+            "total": "151.80",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Notebooks A5",
+              "quantity": "50",
+              "unit_price": "1.80",
+              "amount": "90.00"
+            },
+            {
+              "description": "Ballpoint pens, box",
+              "quantity": "10",
+              "unit_price": "4.20",
+              "amount": "42.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "i04_low_resolution.png",
+      "kind": "image",
+      "expected": "done",
+      "note": "a low-resolution picture (45% of the normal size)",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "IMG-4004",
+            "invoice_date": "2026-10-14",
+            "supplier_name": "Vista Travel Agency",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "640.00",
+            "tax": "96.00",
+            "total": "736.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Flight Dhaka to Singapore",
+              "quantity": "1",
+              "unit_price": "420.00",
+              "amount": "420.00"
+            },
+            {
+              "description": "Hotel, 2 nights",
+              "quantity": "2",
+              "unit_price": "110.00",
+              "amount": "220.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "x01_invoices.xlsx",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "Excel: invoices on one sheet, their line items on another",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "XL-501",
+            "invoice_date": "2026-10-03",
+            "supplier_name": "Acme Office Supplies Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "400.00",
+            "tax": "60.00",
+            "total": "460.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Office chairs",
+              "quantity": "4",
+              "unit_price": "100.00",
+              "amount": "400.00"
+            }
+          ],
+          "expected_problems": []
+        },
+        {
+          "fields": {
+            "invoice_number": "XL-502",
+            "invoice_date": "2026-10-10",
+            "supplier_name": "FastNet Broadband",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1000.00",
+            "tax": "150.00",
+            "total": "1150.00",
+            "currency": "USD"
+          },
+          "line_items": [
+            {
+              "description": "Broadband internet, September",
+              "quantity": "1",
+              "unit_price": "1000.00",
+              "amount": "1000.00"
+            }
+          ],
+          "expected_problems": []
+        },
+        {
+          "fields": {
+            "invoice_number": "XL-503",
+            "invoice_date": "2026-10-17",
+            "supplier_name": "Corner Coffee Roasters",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "214.00",
+            "tax": "40.66",
+            "total": "254.66",
+            "currency": "EUR"
+          },
+          "line_items": [
+            {
+              "description": "Coffee beans",
+              "quantity": "10",
+              "unit_price": "16.00",
+              "amount": "160.00"
+            },
+            {
+              "description": "Oat milk",
+              "quantity": "24",
+              "unit_price": "2.25",
+              "amount": "54.00"
+            }
+          ],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "x02_other_column_names.csv",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "CSV with other column names (Bill No, Vendor, Grand Total); one wrong total, one supplier missing",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "B-9001",
+            "invoice_date": "2026-10-04",
+            "supplier_name": "Harbor Logistics Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "500.00",
+            "tax": "75.00",
+            "total": "575.00",
+            "currency": "USD"
+          },
+          "line_items": [],
+          "expected_problems": []
+        },
+        {
+          "fields": {
+            "invoice_number": "B-9002",
+            "invoice_date": "2026-10-11",
+            "supplier_name": "Swift Couriers",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "220.00",
+            "tax": "33.00",
+            "total": "263.00",
+            "currency": "USD"
+          },
+          "line_items": [],
+          "expected_problems": [
+            "totals_match"
+          ]
+        },
+        {
+          "fields": {
+            "invoice_number": "B-9003",
+            "invoice_date": "2026-10-18",
+            "supplier_name": null,
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "80.00",
+            "tax": "12.00",
+            "total": "92.00",
+            "currency": "USD"
+          },
+          "line_items": [],
+          "expected_problems": [
+            "missing_field"
+          ]
+        },
+        {
+          "fields": {
+            "invoice_number": "B-9004",
+            "invoice_date": "2026-10-25",
+            "supplier_name": "Metro Taxi Ltd",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "3500.00",
+            "tax": "525.00",
+            "total": "4025.00",
+            "currency": "BDT"
+          },
+          "line_items": [],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "x03_semicolons_european.csv",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "CSV as European Excel saves it: semicolons, 1.234,56, dd.mm.yyyy, Windows encoding",
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "EU-77",
+            "invoice_date": "2026-10-19",
+            "supplier_name": "Müller & Söhne KG",
+            "customer_name": "Blue Sky Foods",
+            "subtotal": "1234.56",
+            "tax": "234.57",
+            "total": "1469.13",
+            "currency": "EUR"
+          },
+          "line_items": [],
+          "expected_problems": []
+        }
+      ]
+    },
+    {
+      "file": "f01_damaged.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a PDF cut off in the middle",
+      "invoices": []
+    },
+    {
+      "file": "f02_password.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a password-protected PDF",
+      "invoices": []
+    },
+    {
+      "file": "f03_blank.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a PDF with only a blank page",
+      "invoices": []
+    },
+    {
+      "file": "f04_picture_without_text.png",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a picture with no text at all",
+      "invoices": []
+    },
+    {
+      "file": "f05_letter.docx",
+      "kind": "unsupported",
+      "expected": "refused",
+      "note": "a Word file: not supported",
+      "invoices": []
+    },
+    {
+      "file": "f06_empty.csv",
+      "kind": "unsupported",
+      "expected": "refused",
+      "note": "an empty file",
+      "invoices": []
+    }
+  ]
+}

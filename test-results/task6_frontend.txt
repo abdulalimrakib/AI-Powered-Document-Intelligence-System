@@ -1,7 +1,7 @@
 Task 6 — Frontend (the website): test results
 ============================================================
-Date:    2026-11-04 09:25
-Result:  ALL 55 TESTS PASSED  (1.8 seconds)
+Date:    2026-11-04 10:11
+Result:  ALL 55 TESTS PASSED  (1.7 seconds)
 
 Each line below is one automatic check of the system.
 PASS means the system did the right thing; FAIL means it did not (the reason is shown).

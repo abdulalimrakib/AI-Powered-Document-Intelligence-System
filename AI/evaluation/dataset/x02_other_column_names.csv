@@ -1,0 +1,5 @@
+Bill No,Bill Date,Vendor,Client,Net Amount,VAT,Grand Total,Currency Code
+B-9001,2026-10-04,Harbor Logistics Ltd,Blue Sky Foods,500.00,75.00,575.00,USD
+B-9002,2026-10-11,Swift Couriers,Blue Sky Foods,220.00,33.00,263.00,USD
+B-9003,2026-10-18,,Blue Sky Foods,80.00,12.00,92.00,USD
+B-9004,2026-10-25,Metro Taxi Ltd,Blue Sky Foods,3500.00,525.00,4025.00,BDT

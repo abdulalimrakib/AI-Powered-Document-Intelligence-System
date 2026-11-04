@@ -31,3 +31,6 @@ storage/
 # MD files
 *.md
 !README.md
+
+# Evaluation practice runs (no Gemini): only for testing the evaluation programs
+AI/evaluation/results/practice_run*.json

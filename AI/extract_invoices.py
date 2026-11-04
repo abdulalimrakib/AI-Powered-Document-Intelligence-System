@@ -1,3 +1,4 @@
+import re
 import time
 
 from clean_values import clean_amount, clean_currency, clean_date, clean_text
@@ -67,8 +68,15 @@ def invoices_from_sheets(sheets: list[dict]) -> tuple[list[dict], list[str]]:
     return invoices, warnings
 
 
+PAGE_MARKER = re.compile(r"--- Page \d+ ---")
+
+
 def invoice_with_ai(text: str, source: str, lowest_ocr_confidence: float | None) -> dict:
     """Ask Gemini (Step 2b) and check its evidence (Step 3). If Gemini fails, only this invoice fails."""
+    # Blank or unreadable pages: there is nothing to read, so don't spend a free Gemini request on them.
+    # (The "--- Page 1 ---" markers are added by us, so they don't count as text.)
+    if not any(character.isalnum() for character in PAGE_MARKER.sub("", text)):
+        return failed_invoice(source, "No text was found to read (blank or unreadable pages)", text)
     try:
         raw = extract_invoice(text)
     except ValueError as error:

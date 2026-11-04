@@ -260,3 +260,12 @@ def test_real_gemini_whole_chain_on_a_two_page_invoice():
         "currency": "USD",
     }
     assert invoice["needs_review"] is False
+
+
+def test_blank_pdf_is_not_sent_to_gemini(fake_gemini):
+    """A blank PDF is not sent to Gemini (no free request wasted) and fails with a clear reason"""
+    result = extract_invoices_from_file("blank.pdf", make_pdf([""]))  # one page without any text
+
+    assert fake_gemini == []  # Gemini was not asked
+    assert result["invoices"][0]["error"] == "No text was found to read (blank or unreadable pages)"
+    assert result["warnings"] == ["Page 1: no text found (blank page?)"]

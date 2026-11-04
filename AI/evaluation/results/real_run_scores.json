@@ -1,0 +1,2781 @@
+{
+  "mode": "real run",
+  "started_at": "2026-11-04T09:57:30+06:00",
+  "finished_at": "2026-11-04T10:02:12+06:00",
+  "documents_in_dataset": 29,
+  "documents_run": 29,
+  "outcomes": {
+    "valid_documents": 23,
+    "valid_succeeded": 23,
+    "success_rate": 100.0,
+    "failure_rate": 0.0,
+    "valid_not_succeeded": [],
+    "invalid_documents": 6,
+    "invalid_handled": 6,
+    "invalid_handled_rate": 100.0,
+    "invalid_details": [
+      {
+        "file": "f01_damaged.pdf",
+        "expected": "failed",
+        "status": "failed",
+        "reason": "No text was found to read (blank or unreadable pages)"
+      },
+      {
+        "file": "f02_password.pdf",
+        "expected": "failed",
+        "status": "failed",
+        "reason": "The PDF is password-protected"
+      },
+      {
+        "file": "f03_blank.pdf",
+        "expected": "failed",
+        "status": "failed",
+        "reason": "No text was found to read (blank or unreadable pages)"
+      },
+      {
+        "file": "f04_picture_without_text.png",
+        "expected": "failed",
+        "status": "failed",
+        "reason": "No text was found to read (blank or unreadable pages)"
+      },
+      {
+        "file": "f05_letter.docx",
+        "expected": "refused",
+        "status": "refused",
+        "reason": "This file type is not supported. Use PDF, JPG, PNG, TIFF, XLSX, XLS or CSV."
+      },
+      {
+        "file": "f06_empty.csv",
+        "expected": "refused",
+        "status": "refused",
+        "reason": "The file is empty."
+      }
+    ],
+    "all_documents": 29,
+    "all_as_expected_rate": 100.0,
+    "invoices_split_right": 23
+  },
+  "fields": {
+    "fields_judged": 240,
+    "right": 229,
+    "wrong": 8,
+    "missed": 3,
+    "made up": 0,
+    "accuracy": 95.4,
+    "invoices": 30,
+    "invoices_all_fields_right": 26,
+    "per_field": {
+      "invoice_number": {
+        "right": 29,
+        "of": 30,
+        "accuracy": 96.7
+      },
+      "invoice_date": {
+        "right": 28,
+        "of": 30,
+        "accuracy": 93.3
+      },
+      "supplier_name": {
+        "right": 30,
+        "of": 30,
+        "accuracy": 100.0
+      },
+      "customer_name": {
+        "right": 30,
+        "of": 30,
+        "accuracy": 100.0
+      },
+      "subtotal": {
+        "right": 28,
+        "of": 30,
+        "accuracy": 93.3
+      },
+      "tax": {
+        "right": 28,
+        "of": 30,
+        "accuracy": 93.3
+      },
+      "total": {
+        "right": 27,
+        "of": 30,
+        "accuracy": 90.0
+      },
+      "currency": {
+        "right": 29,
+        "of": 30,
+        "accuracy": 96.7
+      }
+    }
+  },
+  "fields_by_kind": {
+    "digital PDF": {
+      "fields_judged": 128,
+      "right": 128,
+      "wrong": 0,
+      "missed": 0,
+      "made up": 0,
+      "accuracy": 100.0,
+      "invoices": 16,
+      "invoices_all_fields_right": 16,
+      "per_field": {
+        "invoice_number": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "invoice_date": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "supplier_name": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "customer_name": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "subtotal": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "tax": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "total": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        },
+        "currency": {
+          "right": 16,
+          "of": 16,
+          "accuracy": 100.0
+        }
+      }
+    },
+    "image": {
+      "fields_judged": 32,
+      "right": 24,
+      "wrong": 6,
+      "missed": 2,
+      "made up": 0,
+      "accuracy": 75.0,
+      "invoices": 4,
+      "invoices_all_fields_right": 1,
+      "per_field": {
+        "invoice_number": {
+          "right": 3,
+          "of": 4,
+          "accuracy": 75.0
+        },
+        "invoice_date": {
+          "right": 2,
+          "of": 4,
+          "accuracy": 50.0
+        },
+        "supplier_name": {
+          "right": 4,
+          "of": 4,
+          "accuracy": 100.0
+        },
+        "customer_name": {
+          "right": 4,
+          "of": 4,
+          "accuracy": 100.0
+        },
+        "subtotal": {
+          "right": 3,
+          "of": 4,
+          "accuracy": 75.0
+        },
+        "tax": {
+          "right": 2,
+          "of": 4,
+          "accuracy": 50.0
+        },
+        "total": {
+          "right": 2,
+          "of": 4,
+          "accuracy": 50.0
+        },
+        "currency": {
+          "right": 4,
+          "of": 4,
+          "accuracy": 100.0
+        }
+      }
+    },
+    "scanned PDF": {
+      "fields_judged": 16,
+      "right": 13,
+      "wrong": 2,
+      "missed": 1,
+      "made up": 0,
+      "accuracy": 81.2,
+      "invoices": 2,
+      "invoices_all_fields_right": 1,
+      "per_field": {
+        "invoice_number": {
+          "right": 2,
+          "of": 2,
+          "accuracy": 100.0
+        },
+        "invoice_date": {
+          "right": 2,
+          "of": 2,
+          "accuracy": 100.0
+        },
+        "supplier_name": {
+          "right": 2,
+          "of": 2,
+          "accuracy": 100.0
+        },
+        "customer_name": {
+          "right": 2,
+          "of": 2,
+          "accuracy": 100.0
+        },
+        "subtotal": {
+          "right": 1,
+          "of": 2,
+          "accuracy": 50.0
+        },
+        "tax": {
+          "right": 2,
+          "of": 2,
+          "accuracy": 100.0
+        },
+        "total": {
+          "right": 1,
+          "of": 2,
+          "accuracy": 50.0
+        },
+        "currency": {
+          "right": 1,
+          "of": 2,
+          "accuracy": 50.0
+        }
+      }
+    },
+    "spreadsheet": {
+      "fields_judged": 64,
+      "right": 64,
+      "wrong": 0,
+      "missed": 0,
+      "made up": 0,
+      "accuracy": 100.0,
+      "invoices": 8,
+      "invoices_all_fields_right": 8,
+      "per_field": {
+        "invoice_number": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "invoice_date": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "supplier_name": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "customer_name": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "subtotal": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "tax": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "total": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        },
+        "currency": {
+          "right": 8,
+          "of": 8,
+          "accuracy": 100.0
+        }
+      }
+    }
+  },
+  "line_items": {
+    "lines_expected": 43,
+    "lines_right": 39,
+    "accuracy": 90.7,
+    "invoices_with_right_line_count": 25,
+    "invoices": 25
+  },
+  "problems": {
+    "invoices_read": 30,
+    "problems_expected": 7,
+    "problems_caught": 7,
+    "caught_rate": 100.0,
+    "clean_invoices": 19,
+    "clean_invoices_flagged": 2,
+    "clean_invoices_flagged_list": [
+      {
+        "invoice": "SC-3001",
+        "rules": [
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "IMG-4001",
+        "rules": [
+          "uncertain_value"
+        ]
+      }
+    ],
+    "needs_review_right": 28,
+    "needs_review_right_rate": 93.3,
+    "unexpected_problems": [
+      {
+        "invoice": "SC-3001",
+        "rules": [
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "SC-3002",
+        "rules": [
+          "line_math",
+          "lines_match_subtotal",
+          "totals_match",
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "IMG-4001",
+        "rules": [
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "IMG-4002",
+        "rules": [
+          "line_math",
+          "lines_match_subtotal",
+          "totals_match",
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "IMG-4003",
+        "rules": [
+          "line_math",
+          "lines_match_subtotal",
+          "totals_match",
+          "uncertain_value"
+        ]
+      },
+      {
+        "invoice": "IMG-4004",
+        "rules": [
+          "uncertain_value"
+        ]
+      }
+    ],
+    "invoices_with_mistakes": 4,
+    "invoices_with_mistakes_flagged": 4,
+    "invoices_with_mistakes_not_flagged": []
+  },
+  "time": {
+    "all": {
+      "documents": 27,
+      "average": 10.41,
+      "median": 5.26,
+      "fastest": 0.21,
+      "slowest": 45.46
+    },
+    "by_kind": {
+      "broken": {
+        "documents": 4,
+        "average": 1.02,
+        "median": 1.02,
+        "fastest": 0.21,
+        "slowest": 1.83
+      },
+      "digital PDF": {
+        "documents": 14,
+        "average": 18.13,
+        "median": 15.16,
+        "fastest": 3.04,
+        "slowest": 45.46
+      },
+      "image": {
+        "documents": 4,
+        "average": 3.14,
+        "median": 3.13,
+        "fastest": 2.44,
+        "slowest": 3.84
+      },
+      "scanned PDF": {
+        "documents": 2,
+        "average": 4.35,
+        "median": 4.35,
+        "fastest": 3.44,
+        "slowest": 5.26
+      },
+      "spreadsheet": {
+        "documents": 3,
+        "average": 0.69,
+        "median": 0.62,
+        "fastest": 0.62,
+        "slowest": 0.82
+      }
+    },
+    "seconds_per_invoice_read_with_ai": 12.24,
+    "slowest": [
+      {
+        "file": "d11_three_invoices.pdf",
+        "seconds": 45.46
+      },
+      {
+        "file": "d12_two_pages.pdf",
+        "seconds": 34.16
+      },
+      {
+        "file": "d04_european_numbers.pdf",
+        "seconds": 27.5
+      }
+    ]
+  },
+  "ai_models": {
+    "gemini-3.5-flash": 15,
+    "gemini-3.5-flash-lite": 7
+  },
+  "mistakes": [
+    {
+      "file": "s02_scanned_dirty.pdf",
+      "invoice": "SC-3002",
+      "field": "subtotal",
+      "result": "wrong",
+      "expected": "36000.00",
+      "got": "36600.00"
+    },
+    {
+      "file": "s02_scanned_dirty.pdf",
+      "invoice": "SC-3002",
+      "field": "total",
+      "result": "wrong",
+      "expected": "41400.00",
+      "got": "41406.00"
+    },
+    {
+      "file": "s02_scanned_dirty.pdf",
+      "invoice": "SC-3002",
+      "field": "currency",
+      "result": "missed",
+      "expected": "BDT",
+      "got": null
+    },
+    {
+      "file": "i02_phone_photo.jpg",
+      "invoice": "IMG-4002",
+      "field": "invoice_date",
+      "result": "missed",
+      "expected": "2026-10-12",
+      "got": null
+    },
+    {
+      "file": "i02_phone_photo.jpg",
+      "invoice": "IMG-4002",
+      "field": "subtotal",
+      "result": "wrong",
+      "expected": "192.50",
+      "got": "192.59"
+    },
+    {
+      "file": "i03_scan.tiff",
+      "invoice": "IMG-4003",
+      "field": "invoice_number",
+      "result": "wrong",
+      "expected": "IMG-4003",
+      "got": "IMG-4663"
+    },
+    {
+      "file": "i03_scan.tiff",
+      "invoice": "IMG-4003",
+      "field": "invoice_date",
+      "result": "missed",
+      "expected": "2026-10-13",
+      "got": null
+    },
+    {
+      "file": "i03_scan.tiff",
+      "invoice": "IMG-4003",
+      "field": "tax",
+      "result": "wrong",
+      "expected": "19.80",
+      "got": "19.86"
+    },
+    {
+      "file": "i03_scan.tiff",
+      "invoice": "IMG-4003",
+      "field": "total",
+      "result": "wrong",
+      "expected": "151.80",
+      "got": "151.88"
+    },
+    {
+      "file": "i04_low_resolution.png",
+      "invoice": "IMG-4004",
+      "field": "tax",
+      "result": "wrong",
+      "expected": "96.00",
+      "got": "96.60"
+    },
+    {
+      "file": "i04_low_resolution.png",
+      "invoice": "IMG-4004",
+      "field": "total",
+      "result": "wrong",
+      "expected": "736.00",
+      "got": "736.60"
+    }
+  ],
+  "documents": [
+    {
+      "file": "d01_clean_usd.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "a clean invoice; d13 is a copy of it, so it should be marked as a duplicate",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 25.12,
+      "processing_seconds": 24.94,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-101",
+              "got": "INV-2026-101"
+            },
+            "invoice_date": {
+              "expected": "2026-10-01",
+              "got": "2026-10-01"
+            },
+            "supplier_name": {
+              "expected": "Acme Office Supplies Ltd",
+              "got": "Acme Office Supplies Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1100.00",
+              "got": "1100.00"
+            },
+            "tax": {
+              "expected": "165.00",
+              "got": "165.00"
+            },
+            "total": {
+              "expected": "1265.00",
+              "got": "1265.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [
+            "duplicate_invoice"
+          ],
+          "problems_found": [
+            "duplicate_invoice"
+          ],
+          "problems_caught": [
+            "duplicate_invoice"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d02_eur_written_date.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "EUR, date written in words",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 7.09,
+      "processing_seconds": 6.55,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-102",
+              "got": "INV-2026-102"
+            },
+            "invoice_date": {
+              "expected": "2026-10-15",
+              "got": "2026-10-15"
+            },
+            "supplier_name": {
+              "expected": "Northwind Traders GmbH",
+              "got": "Northwind Traders GmbH"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "564.70",
+              "got": "564.70"
+            },
+            "tax": {
+              "expected": "107.29",
+              "got": "107.29"
+            },
+            "total": {
+              "expected": "671.99",
+              "got": "671.99"
+            },
+            "currency": {
+              "expected": "EUR",
+              "got": "EUR"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d03_bdt.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "BDT, day/month/year date",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 17.39,
+      "processing_seconds": 16.67,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "BD-5531",
+              "got": "BD-5531"
+            },
+            "invoice_date": {
+              "expected": "2026-10-21",
+              "got": "2026-10-21"
+            },
+            "supplier_name": {
+              "expected": "Dhaka Digital Services",
+              "got": "Dhaka Digital Services"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "48000.00",
+              "got": "48000.00"
+            },
+            "tax": {
+              "expected": "7200.00",
+              "got": "7200.00"
+            },
+            "total": {
+              "expected": "55200.00",
+              "got": "55200.00"
+            },
+            "currency": {
+              "expected": "BDT",
+              "got": "BDT"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d04_european_numbers.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "European numbers (1.234,56), accented letters; the € sign could not be drawn by the PDF font, so no currency is written",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 27.5,
+      "processing_seconds": 26.91,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "2026/0457",
+              "got": "2026/0457"
+            },
+            "invoice_date": {
+              "expected": "2026-10-22",
+              "got": "2026-10-22"
+            },
+            "supplier_name": {
+              "expected": "Müller & Söhne KG",
+              "got": "Müller & Söhne KG"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "2856.50",
+              "got": "2856.50"
+            },
+            "tax": {
+              "expected": "542.74",
+              "got": "542.74"
+            },
+            "total": {
+              "expected": "3399.24",
+              "got": "3399.24"
+            },
+            "currency": {
+              "expected": null,
+              "got": null
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d05_gbp.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "£ sign, US-style written date",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 13.15,
+      "processing_seconds": 12.68,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "UK-88213",
+              "got": "UK-88213"
+            },
+            "invoice_date": {
+              "expected": "2026-10-20",
+              "got": "2026-10-20"
+            },
+            "supplier_name": {
+              "expected": "Brightside Cleaning Co",
+              "got": "Brightside Cleaning Co"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "815.00",
+              "got": "815.00"
+            },
+            "tax": {
+              "expected": "163.00",
+              "got": "163.00"
+            },
+            "total": {
+              "expected": "978.00",
+              "got": "978.00"
+            },
+            "currency": {
+              "expected": "GBP",
+              "got": "GBP"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d06_no_customer.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "no customer written: the system must leave it empty, not invent one",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 12.74,
+      "processing_seconds": 11.96,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-106",
+              "got": "INV-2026-106"
+            },
+            "invoice_date": {
+              "expected": "2026-10-24",
+              "got": "2026-10-24"
+            },
+            "supplier_name": {
+              "expected": "Cloudline Software Inc",
+              "got": "Cloudline Software Inc"
+            },
+            "customer_name": {
+              "expected": null,
+              "got": null
+            },
+            "subtotal": {
+              "expected": "1200.00",
+              "got": "1200.00"
+            },
+            "tax": {
+              "expected": "180.00",
+              "got": "180.00"
+            },
+            "total": {
+              "expected": "1380.00",
+              "got": "1380.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d07_no_tax_dollar_sign.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "no tax line, and only a '$' sign (USD; the currency field is marked uncertain, but that alone needs no review)",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 9.91,
+      "processing_seconds": 9.11,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "R-7710",
+              "got": "R-7710"
+            },
+            "invoice_date": {
+              "expected": "2026-10-25",
+              "got": "2026-10-25"
+            },
+            "supplier_name": {
+              "expected": "Corner Coffee Roasters",
+              "got": "Corner Coffee Roasters"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "107.00",
+              "got": "107.00"
+            },
+            "tax": {
+              "expected": null,
+              "got": null
+            },
+            "total": {
+              "expected": "107.00",
+              "got": "107.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d08_wrong_total.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "the total is wrong on purpose: subtotal + tax = 1150.00, but 1180.00 is written",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 12.74,
+      "processing_seconds": 12.09,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-108",
+              "got": "INV-2026-108"
+            },
+            "invoice_date": {
+              "expected": "2026-10-26",
+              "got": "2026-10-26"
+            },
+            "supplier_name": {
+              "expected": "FastNet Broadband",
+              "got": "FastNet Broadband"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1000.00",
+              "got": "1000.00"
+            },
+            "tax": {
+              "expected": "150.00",
+              "got": "150.00"
+            },
+            "total": {
+              "expected": "1180.00",
+              "got": "1180.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [
+            "totals_match"
+          ],
+          "problems_found": [
+            "totals_match"
+          ],
+          "problems_caught": [
+            "totals_match"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d09_wrong_line.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "line 2 is wrong on purpose: 2 x 25.00 = 50.00, but 60.00 is written",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 9.5,
+      "processing_seconds": 8.92,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-109",
+              "got": "INV-2026-109"
+            },
+            "invoice_date": {
+              "expected": "2026-10-27",
+              "got": "2026-10-27"
+            },
+            "supplier_name": {
+              "expected": "Lumen Lighting Ltd",
+              "got": "Lumen Lighting Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "420.00",
+              "got": "420.00"
+            },
+            "tax": {
+              "expected": "63.00",
+              "got": "63.00"
+            },
+            "total": {
+              "expected": "483.00",
+              "got": "483.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [
+            "line_math"
+          ],
+          "problems_found": [
+            "line_math"
+          ],
+          "problems_caught": [
+            "line_math"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d10_credit_note.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "a credit note: negative amounts are correct here",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 18.8,
+      "processing_seconds": 18.32,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "CN-0042",
+              "got": "CN-0042"
+            },
+            "invoice_date": {
+              "expected": "2026-10-28",
+              "got": "2026-10-28"
+            },
+            "supplier_name": {
+              "expected": "Acme Office Supplies Ltd",
+              "got": "Acme Office Supplies Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "-100.00",
+              "got": "-100.00"
+            },
+            "tax": {
+              "expected": "-15.00",
+              "got": "-15.00"
+            },
+            "total": {
+              "expected": "-115.00",
+              "got": "-115.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d11_three_invoices.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "three invoices in one PDF, one per page: must become three invoices",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 3,
+      "invoices_got": 3,
+      "wall_seconds": 45.46,
+      "processing_seconds": 44.82,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-111",
+              "got": "INV-2026-111"
+            },
+            "invoice_date": {
+              "expected": "2026-10-02",
+              "got": "2026-10-02"
+            },
+            "supplier_name": {
+              "expected": "Greenleaf Catering",
+              "got": "Greenleaf Catering"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "174.00",
+              "got": "174.00"
+            },
+            "tax": {
+              "expected": "26.10",
+              "got": "26.10"
+            },
+            "total": {
+              "expected": "200.10",
+              "got": "200.10"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-112",
+              "got": "INV-2026-112"
+            },
+            "invoice_date": {
+              "expected": "2026-10-09",
+              "got": "2026-10-09"
+            },
+            "supplier_name": {
+              "expected": "Greenleaf Catering",
+              "got": "Greenleaf Catering"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "217.50",
+              "got": "217.50"
+            },
+            "tax": {
+              "expected": "32.62",
+              "got": "32.62"
+            },
+            "total": {
+              "expected": "250.12",
+              "got": "250.12"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-113",
+              "got": "INV-2026-113"
+            },
+            "invoice_date": {
+              "expected": "2026-10-16",
+              "got": "2026-10-16"
+            },
+            "supplier_name": {
+              "expected": "Greenleaf Catering",
+              "got": "Greenleaf Catering"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "165.50",
+              "got": "165.50"
+            },
+            "tax": {
+              "expected": "24.82",
+              "got": "24.82"
+            },
+            "total": {
+              "expected": "190.32",
+              "got": "190.32"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d12_two_pages.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "one invoice over two pages (the number is repeated on page 2): must stay one invoice",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 34.16,
+      "processing_seconds": 33.26,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-114",
+              "got": "INV-2026-114"
+            },
+            "invoice_date": {
+              "expected": "2026-10-29",
+              "got": "2026-10-29"
+            },
+            "supplier_name": {
+              "expected": "Atlas Furniture Co",
+              "got": "Atlas Furniture Co"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1790.00",
+              "got": "1790.00"
+            },
+            "tax": {
+              "expected": "268.50",
+              "got": "268.50"
+            },
+            "total": {
+              "expected": "2058.50",
+              "got": "2058.50"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 4,
+          "lines_got": 4,
+          "lines_right": 4,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d13_resent_copy.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "the same invoice as d01, sent again: should be marked as a duplicate",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 17.18,
+      "processing_seconds": 16.54,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2026-101",
+              "got": "INV-2026-101"
+            },
+            "invoice_date": {
+              "expected": "2026-10-01",
+              "got": "2026-10-01"
+            },
+            "supplier_name": {
+              "expected": "Acme Office Supplies Ltd",
+              "got": "Acme Office Supplies Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1100.00",
+              "got": "1100.00"
+            },
+            "tax": {
+              "expected": "165.00",
+              "got": "165.00"
+            },
+            "total": {
+              "expected": "1265.00",
+              "got": "1265.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [
+            "duplicate_invoice"
+          ],
+          "problems_found": [
+            "duplicate_invoice"
+          ],
+          "problems_caught": [
+            "duplicate_invoice"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "d14_future_date.pdf",
+      "kind": "digital PDF",
+      "expected": "done",
+      "note": "dated 2036 by mistake: should be flagged as a date in the future",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 3.04,
+      "processing_seconds": 2.51,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "INV-2036-115",
+              "got": "INV-2036-115"
+            },
+            "invoice_date": {
+              "expected": "2036-10-30",
+              "got": "2036-10-30"
+            },
+            "supplier_name": {
+              "expected": "Typo Printing Ltd",
+              "got": "Typo Printing Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "90.00",
+              "got": "90.00"
+            },
+            "tax": {
+              "expected": "13.50",
+              "got": "13.50"
+            },
+            "total": {
+              "expected": "103.50",
+              "got": "103.50"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [
+            "future_date"
+          ],
+          "problems_found": [
+            "future_date"
+          ],
+          "problems_caught": [
+            "future_date"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "s01_scanned_clean.pdf",
+      "kind": "scanned PDF",
+      "expected": "done",
+      "note": "a clean scan",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 3.44,
+      "processing_seconds": 2.73,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "SC-3001",
+              "got": "SC-3001"
+            },
+            "invoice_date": {
+              "expected": "2026-10-05",
+              "got": "2026-10-05"
+            },
+            "supplier_name": {
+              "expected": "Harbor Logistics Ltd",
+              "got": "Harbor Logistics Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "892.50",
+              "got": "892.50"
+            },
+            "tax": {
+              "expected": "133.88",
+              "got": "133.88"
+            },
+            "total": {
+              "expected": "1026.38",
+              "got": "1026.38"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "s02_scanned_dirty.pdf",
+      "kind": "scanned PDF",
+      "expected": "done",
+      "note": "a dirty scan: dots, slightly tilted and blurred",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 5.26,
+      "processing_seconds": 4.57,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "wrong",
+            "tax": "right",
+            "total": "wrong",
+            "currency": "missed"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "SC-3002",
+              "got": "SC-3002"
+            },
+            "invoice_date": {
+              "expected": "2026-11-02",
+              "got": "2026-11-02"
+            },
+            "supplier_name": {
+              "expected": "Pioneer Security Services",
+              "got": "Pioneer Security Services"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "36000.00",
+              "got": "36600.00"
+            },
+            "tax": {
+              "expected": "5400.00",
+              "got": "5400.00"
+            },
+            "total": {
+              "expected": "41400.00",
+              "got": "41406.00"
+            },
+            "currency": {
+              "expected": "BDT",
+              "got": null
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 0,
+          "problems_expected": [],
+          "problems_found": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "i01_clean.png",
+      "kind": "image",
+      "expected": "done",
+      "note": "a clean PNG",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 2.83,
+      "processing_seconds": 2.14,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "IMG-4001",
+              "got": "IMG-4001"
+            },
+            "invoice_date": {
+              "expected": "2026-10-11",
+              "got": "2026-10-11"
+            },
+            "supplier_name": {
+              "expected": "Swift Couriers",
+              "got": "Swift Couriers"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "87.00",
+              "got": "87.00"
+            },
+            "tax": {
+              "expected": "13.05",
+              "got": "13.05"
+            },
+            "total": {
+              "expected": "100.05",
+              "got": "100.05"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "i02_phone_photo.jpg",
+      "kind": "image",
+      "expected": "done",
+      "note": "like a phone photo: grey, tilted, a little blurred, strong JPEG compression",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 2.44,
+      "processing_seconds": 1.92,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "missed",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "wrong",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "IMG-4002",
+              "got": "IMG-4002"
+            },
+            "invoice_date": {
+              "expected": "2026-10-12",
+              "got": null
+            },
+            "supplier_name": {
+              "expected": "Metro Taxi Ltd",
+              "got": "Metro Taxi Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "192.50",
+              "got": "192.59"
+            },
+            "tax": {
+              "expected": "28.88",
+              "got": "28.88"
+            },
+            "total": {
+              "expected": "221.38",
+              "got": "221.38"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "i03_scan.tiff",
+      "kind": "image",
+      "expected": "done",
+      "note": "a TIFF scan",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 3.84,
+      "processing_seconds": 3.28,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "wrong",
+            "invoice_date": "missed",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "wrong",
+            "total": "wrong",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "IMG-4003",
+              "got": "IMG-4663"
+            },
+            "invoice_date": {
+              "expected": "2026-10-13",
+              "got": null
+            },
+            "supplier_name": {
+              "expected": "Sunrise Stationers",
+              "got": "Sunrise Stationers"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "132.00",
+              "got": "132.00"
+            },
+            "tax": {
+              "expected": "19.80",
+              "got": "19.86"
+            },
+            "total": {
+              "expected": "151.80",
+              "got": "151.88"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 0,
+          "problems_expected": [],
+          "problems_found": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "line_math",
+            "lines_match_subtotal",
+            "totals_match",
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "i04_low_resolution.png",
+      "kind": "image",
+      "expected": "done",
+      "note": "a low-resolution picture (45% of the normal size)",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 3.44,
+      "processing_seconds": 2.72,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "wrong",
+            "total": "wrong",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "IMG-4004",
+              "got": "IMG-4004"
+            },
+            "invoice_date": {
+              "expected": "2026-10-14",
+              "got": "2026-10-14"
+            },
+            "supplier_name": {
+              "expected": "Vista Travel Agency",
+              "got": "Vista Travel Agency"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "640.00",
+              "got": "640.00"
+            },
+            "tax": {
+              "expected": "96.00",
+              "got": "96.60"
+            },
+            "total": {
+              "expected": "736.00",
+              "got": "736.60"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [
+            "uncertain_value"
+          ],
+          "problems_caught": [],
+          "problems_not_expected": [
+            "uncertain_value"
+          ],
+          "should_need_review": false,
+          "needs_review": true,
+          "ai_model": "gemini-3.5-flash-lite",
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "x01_invoices.xlsx",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "Excel: invoices on one sheet, their line items on another",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 3,
+      "invoices_got": 3,
+      "wall_seconds": 0.62,
+      "processing_seconds": 0.01,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "XL-501",
+              "got": "XL-501"
+            },
+            "invoice_date": {
+              "expected": "2026-10-03",
+              "got": "2026-10-03"
+            },
+            "supplier_name": {
+              "expected": "Acme Office Supplies Ltd",
+              "got": "Acme Office Supplies Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "400.00",
+              "got": "400.00"
+            },
+            "tax": {
+              "expected": "60.00",
+              "got": "60.00"
+            },
+            "total": {
+              "expected": "460.00",
+              "got": "460.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "XL-502",
+              "got": "XL-502"
+            },
+            "invoice_date": {
+              "expected": "2026-10-10",
+              "got": "2026-10-10"
+            },
+            "supplier_name": {
+              "expected": "FastNet Broadband",
+              "got": "FastNet Broadband"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1000.00",
+              "got": "1000.00"
+            },
+            "tax": {
+              "expected": "150.00",
+              "got": "150.00"
+            },
+            "total": {
+              "expected": "1150.00",
+              "got": "1150.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 1,
+          "lines_got": 1,
+          "lines_right": 1,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "XL-503",
+              "got": "XL-503"
+            },
+            "invoice_date": {
+              "expected": "2026-10-17",
+              "got": "2026-10-17"
+            },
+            "supplier_name": {
+              "expected": "Corner Coffee Roasters",
+              "got": "Corner Coffee Roasters"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "214.00",
+              "got": "214.00"
+            },
+            "tax": {
+              "expected": "40.66",
+              "got": "40.66"
+            },
+            "total": {
+              "expected": "254.66",
+              "got": "254.66"
+            },
+            "currency": {
+              "expected": "EUR",
+              "got": "EUR"
+            }
+          },
+          "lines_expected": 2,
+          "lines_got": 2,
+          "lines_right": 2,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "x02_other_column_names.csv",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "CSV with other column names (Bill No, Vendor, Grand Total); one wrong total, one supplier missing",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 4,
+      "invoices_got": 4,
+      "wall_seconds": 0.62,
+      "processing_seconds": 0.01,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "B-9001",
+              "got": "B-9001"
+            },
+            "invoice_date": {
+              "expected": "2026-10-04",
+              "got": "2026-10-04"
+            },
+            "supplier_name": {
+              "expected": "Harbor Logistics Ltd",
+              "got": "Harbor Logistics Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "500.00",
+              "got": "500.00"
+            },
+            "tax": {
+              "expected": "75.00",
+              "got": "75.00"
+            },
+            "total": {
+              "expected": "575.00",
+              "got": "575.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 0,
+          "lines_got": 0,
+          "lines_right": 0,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "B-9002",
+              "got": "B-9002"
+            },
+            "invoice_date": {
+              "expected": "2026-10-11",
+              "got": "2026-10-11"
+            },
+            "supplier_name": {
+              "expected": "Swift Couriers",
+              "got": "Swift Couriers"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "220.00",
+              "got": "220.00"
+            },
+            "tax": {
+              "expected": "33.00",
+              "got": "33.00"
+            },
+            "total": {
+              "expected": "263.00",
+              "got": "263.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 0,
+          "lines_got": 0,
+          "lines_right": 0,
+          "problems_expected": [
+            "totals_match"
+          ],
+          "problems_found": [
+            "totals_match"
+          ],
+          "problems_caught": [
+            "totals_match"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": null,
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "B-9003",
+              "got": "B-9003"
+            },
+            "invoice_date": {
+              "expected": "2026-10-18",
+              "got": "2026-10-18"
+            },
+            "supplier_name": {
+              "expected": null,
+              "got": null
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "80.00",
+              "got": "80.00"
+            },
+            "tax": {
+              "expected": "12.00",
+              "got": "12.00"
+            },
+            "total": {
+              "expected": "92.00",
+              "got": "92.00"
+            },
+            "currency": {
+              "expected": "USD",
+              "got": "USD"
+            }
+          },
+          "lines_expected": 0,
+          "lines_got": 0,
+          "lines_right": 0,
+          "problems_expected": [
+            "missing_field"
+          ],
+          "problems_found": [
+            "missing_field"
+          ],
+          "problems_caught": [
+            "missing_field"
+          ],
+          "problems_not_expected": [],
+          "should_need_review": true,
+          "needs_review": true,
+          "ai_model": null,
+          "error": null
+        },
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "B-9004",
+              "got": "B-9004"
+            },
+            "invoice_date": {
+              "expected": "2026-10-25",
+              "got": "2026-10-25"
+            },
+            "supplier_name": {
+              "expected": "Metro Taxi Ltd",
+              "got": "Metro Taxi Ltd"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "3500.00",
+              "got": "3500.00"
+            },
+            "tax": {
+              "expected": "525.00",
+              "got": "525.00"
+            },
+            "total": {
+              "expected": "4025.00",
+              "got": "4025.00"
+            },
+            "currency": {
+              "expected": "BDT",
+              "got": "BDT"
+            }
+          },
+          "lines_expected": 0,
+          "lines_got": 0,
+          "lines_right": 0,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "x03_semicolons_european.csv",
+      "kind": "spreadsheet",
+      "expected": "done",
+      "note": "CSV as European Excel saves it: semicolons, 1.234,56, dd.mm.yyyy, Windows encoding",
+      "status": "done",
+      "reason": null,
+      "invoice_errors": [],
+      "invoices_expected": 1,
+      "invoices_got": 1,
+      "wall_seconds": 0.82,
+      "processing_seconds": 0.01,
+      "invoices": [
+        {
+          "fields": {
+            "invoice_number": "right",
+            "invoice_date": "right",
+            "supplier_name": "right",
+            "customer_name": "right",
+            "subtotal": "right",
+            "tax": "right",
+            "total": "right",
+            "currency": "right"
+          },
+          "values": {
+            "invoice_number": {
+              "expected": "EU-77",
+              "got": "EU-77"
+            },
+            "invoice_date": {
+              "expected": "2026-10-19",
+              "got": "2026-10-19"
+            },
+            "supplier_name": {
+              "expected": "Müller & Söhne KG",
+              "got": "Müller & Söhne KG"
+            },
+            "customer_name": {
+              "expected": "Blue Sky Foods",
+              "got": "Blue Sky Foods"
+            },
+            "subtotal": {
+              "expected": "1234.56",
+              "got": "1234.56"
+            },
+            "tax": {
+              "expected": "234.57",
+              "got": "234.57"
+            },
+            "total": {
+              "expected": "1469.13",
+              "got": "1469.13"
+            },
+            "currency": {
+              "expected": "EUR",
+              "got": "EUR"
+            }
+          },
+          "lines_expected": 0,
+          "lines_got": 0,
+          "lines_right": 0,
+          "problems_expected": [],
+          "problems_found": [],
+          "problems_caught": [],
+          "problems_not_expected": [],
+          "should_need_review": false,
+          "needs_review": false,
+          "ai_model": null,
+          "error": null
+        }
+      ]
+    },
+    {
+      "file": "f01_damaged.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a PDF cut off in the middle",
+      "status": "failed",
+      "reason": "No text was found to read (blank or unreadable pages)",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 1.83,
+      "processing_seconds": null,
+      "invoices": []
+    },
+    {
+      "file": "f02_password.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a password-protected PDF",
+      "status": "failed",
+      "reason": "The PDF is password-protected",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 0.21,
+      "processing_seconds": null,
+      "invoices": []
+    },
+    {
+      "file": "f03_blank.pdf",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a PDF with only a blank page",
+      "status": "failed",
+      "reason": "No text was found to read (blank or unreadable pages)",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 1.42,
+      "processing_seconds": null,
+      "invoices": []
+    },
+    {
+      "file": "f04_picture_without_text.png",
+      "kind": "broken",
+      "expected": "failed",
+      "note": "a picture with no text at all",
+      "status": "failed",
+      "reason": "No text was found to read (blank or unreadable pages)",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 0.62,
+      "processing_seconds": null,
+      "invoices": []
+    },
+    {
+      "file": "f05_letter.docx",
+      "kind": "unsupported",
+      "expected": "refused",
+      "note": "a Word file: not supported",
+      "status": "refused",
+      "reason": "This file type is not supported. Use PDF, JPG, PNG, TIFF, XLSX, XLS or CSV.",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 0.0,
+      "processing_seconds": null,
+      "invoices": []
+    },
+    {
+      "file": "f06_empty.csv",
+      "kind": "unsupported",
+      "expected": "refused",
+      "note": "an empty file",
+      "status": "refused",
+      "reason": "The file is empty.",
+      "invoice_errors": [],
+      "invoices_expected": 0,
+      "invoices_got": 0,
+      "wall_seconds": 0.0,
+      "processing_seconds": null,
+      "invoices": []
+    }
+  ]
+}

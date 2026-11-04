@@ -80,5 +80,27 @@ A few Task 2 and Task 5 tests call the real Gemini and use the free daily limit,
 | `tests/task3/test_needs_review.py` | Validation errors on each invoice, and in the `/extract` API |
 | `tests/task4/test_correct_invoice.py` | Checking an invoice again after a manual correction (`/validate`) |
 | `tests/task5/test_embed_text.py` | Making embeddings (`/embed`): one request for many texts, retries, daily limit, broken answers, wrong input |
+| `tests/task7/test_dataset.py` | The evaluation dataset: every file labeled, labels match the checks and can be read in the files, spreadsheets and broken files behave as labeled (no Gemini) |
+| `tests/task7/test_run_evaluation.py` | The evaluation runner with a fake backend: waiting, failed, refused, stopping at the daily Gemini limit, continuing later |
+| `tests/task7/test_score.py` | The scoring: right / wrong / missed / made up, success and failure rates, problems caught, times |
+| `tests/task7/test_write_report.py` | The report shows the measured numbers and every mistake, and the saved report is up to date |
 
 Sample files are made in code by `tests/make_files.py`. The only stored file is `tests/files/old_excel.xls`, because no installed library can write the old Excel format.
+
+## Evaluation (Task 7)
+
+The system was measured on a labeled dataset: made-up invoice files and an answer sheet with the right values.
+The result, with real measured numbers, is in [`../test-results/evaluation_report.txt`](../test-results/evaluation_report.txt).
+
+| File | What it does |
+|---|---|
+| `evaluation/make_dataset.py` | Makes the 29 sample documents (`evaluation/dataset/`) and their answer sheet (`evaluation/labels.json`) from one description per invoice. `--labels-only` changes only the answer sheet |
+| `evaluation/run_evaluation.py` | Starts its own AI service (port 8100) and backend (port 3100) with their own database (`docintel_eval`), uploads every file through the backend API, and saves the results in `evaluation/results/raw_results.json`. Stops at the daily Gemini limit and continues later. `--no-gemini` is a free practice run |
+| `evaluation/score.py` | Compares the results with the answer sheet: accuracy, success and failure rate, problems caught, times (`evaluation/results/real_run_scores.json`) |
+| `evaluation/write_report.py` | Writes `test-results/evaluation_report.txt` from the scores (no number is typed by hand) |
+
+```bash
+uv run python evaluation/run_evaluation.py    # the real run: about 22 Gemini requests (Postgres and Redis must run)
+uv run python evaluation/score.py             # no Gemini
+uv run python evaluation/write_report.py      # no Gemini
+```
