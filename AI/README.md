@@ -42,7 +42,7 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 | `extract_invoices.py` | Puts it all together: read the file, find the invoices, extract, clean and check them |
 | `validate_invoice.py` | Checks each invoice: missing fields, wrong numbers, totals that don't add up, duplicates |
 | `embed_text.py` | Turns texts into embeddings (768 numbers each) with Gemini's embedding model, for meaning search |
-| `measure_meaning_search.py` | Measures meaning search with the real Gemini (12 sample invoices, 12 searches); the meaning-search cut-off was chosen from its results (`../test-results/task5_meaning_search_scores.txt`) |
+| `measure_meaning_search.py` | Measures meaning search with the real Gemini (12 sample invoices, 12 searches); the meaning-search cut-off was chosen from its results (`evaluation/results/meaning_search_scores.txt`) |
 
 ## Tests
 
@@ -53,7 +53,7 @@ uv run pytest                  # all tests
 uv run pytest tests/task1 -v   # only Task 1
 ```
 
-To save an easy-to-read results file (a PASS/FAIL checklist in plain words) into `../test-results/`:
+To save an easy-to-read results file (a PASS/FAIL checklist in plain words) into `../test-results/` (a local folder, not in git; the summary is in `../deliverables/TEST_RESULTS.md`):
 
 ```bash
 uv run pytest tests/task1 --save-results
@@ -90,14 +90,14 @@ Sample files are made in code by `tests/make_files.py`. The only stored file is 
 ## Evaluation (Task 7)
 
 The system was measured on a labeled dataset: made-up invoice files and an answer sheet with the right values.
-The result, with real measured numbers, is in [`../test-results/evaluation_report.txt`](../test-results/evaluation_report.txt).
+The result, with real measured numbers, is in [`../deliverables/EVALUATION_REPORT.md`](../deliverables/EVALUATION_REPORT.md).
 
 | File | What it does |
 |---|---|
 | `evaluation/make_dataset.py` | Makes the 29 sample documents (`evaluation/dataset/`) and their answer sheet (`evaluation/labels.json`) from one description per invoice. `--labels-only` changes only the answer sheet |
 | `evaluation/run_evaluation.py` | Starts its own AI service (port 8100) and backend (port 3100) with their own database (`docintel_eval`), uploads every file through the backend API, and saves the results in `evaluation/results/raw_results.json`. Stops at the daily Gemini limit and continues later. `--no-gemini` is a free practice run |
 | `evaluation/score.py` | Compares the results with the answer sheet: accuracy, success and failure rate, problems caught, times (`evaluation/results/real_run_scores.json`) |
-| `evaluation/write_report.py` | Writes `test-results/evaluation_report.txt` from the scores (no number is typed by hand) |
+| `evaluation/write_report.py` | Writes `deliverables/EVALUATION_REPORT.md` from the scores (no number is typed by hand) |
 
 ```bash
 uv run python evaluation/run_evaluation.py    # the real run: about 22 Gemini requests (Postgres and Redis must run)

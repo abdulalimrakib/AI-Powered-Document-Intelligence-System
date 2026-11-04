@@ -31,8 +31,8 @@ def test_the_report_shows_the_measured_main_numbers():
 
 def test_the_report_lists_every_mistake():
     """Every field that was not right is listed in the report, with what was expected and what was given"""
-    # The table under "Every field that was not right:", without its two heading lines, until the empty line after it
-    after = REPORT.split("Every field that was not right:\n")[1]
+    # The table under "Every field that was not right", without its two heading lines, until the empty line after it
+    after = REPORT.split("### Every field that was not right\n\n")[1]
     rows = after.split("\n\n")[0].splitlines()[2:]
     assert len(rows) == len(SCORES["mistakes"])
     for mistake in SCORES["mistakes"]:
@@ -47,10 +47,10 @@ def test_the_report_shows_every_broken_file_with_its_reason():
 
 def test_the_report_explains_its_corrections_and_limits():
     """The report says openly what was corrected after the run, and the limits of the evaluation"""
-    assert "CORRECTIONS MADE AFTER THE RUN" in REPORT
-    assert "LIMITS OF THIS EVALUATION" in REPORT
+    assert "Corrections made after the run" in REPORT
+    assert "Limits of this evaluation" in REPORT
 
 
 def test_the_saved_report_is_up_to_date():
-    """The report in test-results/ is exactly what the saved results give (nobody changed it by hand)"""
+    """The report in deliverables/EVALUATION_REPORT.md is exactly what the saved results give (nobody changed it by hand)"""
     assert write_report.REPORT.read_text(encoding="utf-8") == REPORT

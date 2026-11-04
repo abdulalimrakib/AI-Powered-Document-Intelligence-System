@@ -1,0 +1,174 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="architecture" name="Architecture">
+    <mxGraphModel dx="1542" dy="1470" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="700" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=left;verticalAlign=middle;" value="AI-Powered Document Intelligence System: architecture" vertex="1">
+          <mxGeometry height="30" width="540" x="310" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;" value="User" vertex="1">
+          <mxGeometry height="60" width="30" x="40" y="198" as="geometry" />
+        </mxCell>
+        <mxCell id="website" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Website&lt;/b&gt; (client/)&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;Next.js 15 · port 3000&lt;br&gt;Upload, Documents, Search pages&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="240" x="120" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="backend" parent="1" style="swimlane;startSize=90;html=1;fontSize=14;fontStyle=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=1;" value="&lt;div&gt;Backend (backend/) ·&lt;/div&gt;&lt;div&gt;&amp;nbsp;Express + TypeScript&lt;/div&gt;&lt;div&gt;&amp;nbsp;· port 3002&lt;/div&gt;" vertex="1">
+          <mxGeometry height="440" width="220" x="430" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="api" parent="backend" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;REST API&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;upload, list, details,&lt;br&gt;correct, process again&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="170" x="25" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="worker" parent="backend" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Background worker&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;BullMQ, one file at a time;&lt;br&gt;saves results + history&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="170" x="25" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="search" parent="backend" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;Search&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;keyword + filters;&lt;br&gt;meaning (pgvector)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="170" x="25" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Sofb_3Yh0SfpXby2F8AB-2" edge="1" parent="backend" source="worker" style="rounded=1;html=1;" target="search" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="251" y="318" as="sourcePoint" />
+            <mxPoint x="380" y="725" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="uploads" parent="1" style="shape=folder;tabWidth=40;tabHeight=14;tabPosition=left;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Uploaded files&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;backend/storage/uploads&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="170" x="900" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Redis&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;job queue · port 6380&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="150" x="910" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;PostgreSQL 17 + pgvector&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;port 5440 · 6 tables&lt;br&gt;(diagram in backend/README.md)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="890" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="ai" parent="1" style="swimlane;startSize=30;html=1;fontSize=14;fontStyle=1;fillColor=#f5f5f5;strokeColor=#666666;rounded=1;" value="AI service (AI/) · FastAPI · port 8000" vertex="1">
+          <mxGeometry height="290" width="600" x="160" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="read" parent="ai" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;1. Read the file&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;PDF text (PyMuPDF), OCR (Tesseract),&lt;br&gt;Excel / CSV&lt;/font&gt;" vertex="1">
+          <mxGeometry height="64" width="260" x="20" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="extract" parent="ai" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;2. Extract the invoice&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;Gemini + prompt; evidence is checked&lt;/font&gt;" vertex="1">
+          <mxGeometry height="64" width="260" x="20" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="check" parent="ai" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;3. Check the numbers&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;totals, line maths, dates, duplicates&lt;/font&gt;" vertex="1">
+          <mxGeometry height="64" width="260" x="20" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="e_r_x" edge="1" parent="ai" source="read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;" target="extract" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_x_c" edge="1" parent="ai" source="extract" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;" target="check" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="embed" parent="ai" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Embed (/embed)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;768 numbers per text, for meaning search&lt;/font&gt;" vertex="1">
+          <mxGeometry height="64" width="260" x="305" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Sofb_3Yh0SfpXby2F8AB-3" edge="1" parent="ai" source="extract" style="rounded=1;html=1;" target="embed" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="77" as="sourcePoint" />
+            <mxPoint x="1120" y="-50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gemini" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;b&gt;Google Gemini&lt;/b&gt; (free tier)&lt;br&gt;&lt;font style=&quot;font-size:12px&quot;&gt;gemini-3.5-flash, then flash-lite, …&lt;br&gt;gemini-embedding-001&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="220" x="900" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=14;align=left;verticalAlign=middle;spacingLeft=10;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;" value="&lt;b&gt;Solid arrow:&lt;/b&gt; a request (HTTP or SQL). &lt;b&gt;Dashed arrow:&lt;/b&gt; a background job through the queue.&lt;br&gt;Only the AI service talks to Gemini and holds the API key. Spreadsheets are read without Gemini.&lt;br&gt;After processing (and after a correction) the backend asks /embed for each invoice&#39;s summary." vertex="1">
+          <mxGeometry height="80" width="1070" x="50" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="e_user" edge="1" parent="1" source="user" style="rounded=1;html=1;" target="website" value="uses">
+          <mxGeometry relative="1" x="-0.6471" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_web" edge="1" parent="1" source="website" style="rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="api" value="HTTP · JSON">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="228" />
+              <mxPoint x="380" y="126" />
+            </Array>
+            <mxPoint x="340" y="150" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_web_search" edge="1" parent="1" source="website" style="rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="search" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="228" />
+              <mxPoint x="380" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_save_file" edge="1" parent="1" source="api" style="rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=7;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="uploads" value="saves file">
+          <mxGeometry relative="1" x="0.5349" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_api_db" edge="1" parent="1" source="api" style="rounded=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="postgres" value="reads, corrects">
+          <mxGeometry relative="1" x="0.1026" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_add_job" edge="1" parent="1" source="api" style="rounded=1;html=1;dashed=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="redis" value="adds job">
+          <mxGeometry relative="1" x="0.4649" y="5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="800" y="151" />
+              <mxPoint x="800" y="165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_next_job" edge="1" parent="1" source="redis" style="rounded=1;html=1;dashed=1;exitX=0;exitY=0.75;exitDx=0;exitDy=-6;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="worker" value="next job">
+          <mxGeometry relative="1" x="-0.5577" y="-1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="800" y="181.5" />
+              <mxPoint x="800" y="213" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_results" edge="1" parent="1" source="worker" style="rounded=1;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="postgres" value="saves results">
+          <mxGeometry relative="1" x="-0.5548" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sql" edge="1" parent="1" source="search" style="rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="postgres" value="SQL + vectors">
+          <mxGeometry relative="1" x="-0.5385" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_process" edge="1" parent="1" source="search" style="rounded=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="read" value="POST /process">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="440" />
+              <mxPoint x="310" y="440" />
+            </Array>
+            <mxPoint x="530" y="400" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_embed" edge="1" parent="1" source="search" style="rounded=1;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="embed" value="POST /embed">
+          <mxGeometry relative="1" x="-0.2653" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="540" y="440" />
+              <mxPoint x="595" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gemini" edge="1" parent="1" source="embed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;" target="gemini" value="1 request per invoice">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="870" y="640" />
+              <mxPoint x="870" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gemini_embed" edge="1" parent="1" source="embed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;" target="gemini" value="embeddings">
+          <mxGeometry relative="1" x="0.0057" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="810" y="600" />
+              <mxPoint x="810" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

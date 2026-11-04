@@ -1,6 +1,6 @@
 """pytest loads this file automatically. It adds two options:
 
-    --save-results   writes an easy-to-read results file for each Task into the test-results/ folder
+    --save-results   writes an easy-to-read results file for each Task into the local test-results/ folder (not in git)
     --real-gemini    also runs the few tests that call the real Gemini (the free tier allows only
                      20 requests a day, so these are skipped unless you ask for them)
 
@@ -30,7 +30,7 @@ results = []
 
 
 def pytest_addoption(parser):
-    parser.addoption("--save-results", action="store_true", help="save easy-to-read results in test-results/")
+    parser.addoption("--save-results", action="store_true", help="save easy-to-read results in test-results/ (local, not in git)")
     parser.addoption("--real-gemini", action="store_true", help="also run the tests that call the real Gemini")
 
 

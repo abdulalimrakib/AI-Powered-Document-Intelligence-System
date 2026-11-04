@@ -25,12 +25,17 @@ storage/
 .vscode/
 *.log
 
-# docs
-#docs/
+# Assignment brief and private notes (not part of the code)
+senior-ai-enginner.pdf
+docs/
 
 # MD files
 *.md
 !README.md
+!deliverables/*.md
 
 # Evaluation practice runs (no Gemini): only for testing the evaluation programs
 AI/evaluation/results/practice_run*.json
+
+# Detailed per-check test lists (summary is in deliverables/TEST_RESULTS.md)
+test-results/
