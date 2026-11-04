@@ -1,0 +1,85 @@
+Task 6 — Frontend (the website): test results
+============================================================
+Date:    2026-11-04 09:25
+Result:  ALL 55 TESTS PASSED  (1.8 seconds)
+
+Each line below is one automatic check of the system.
+PASS means the system did the right thing; FAIL means it did not (the reason is shown).
+SKIP means the check was not run this time.
+Each page is shown in a pretend browser and used like a person would, with a fake backend, so no real data and no Gemini requests are used.
+
+Step 1 — Talking to the backend (src/lib/api.ts)  (6 of 6 passed)
+------------------------------------------------------------
+  PASS  Gives back the data of a good answer
+  PASS  Turns a refused request into an error with the backend's message
+  PASS  Explains clearly when the backend is not running
+  PASS  Explains an answer that is not JSON instead of crashing
+  PASS  Leaves empty filters out of the address
+  PASS  Sends uploaded files in the form field 'files'
+
+Step 2 — Upload page  (13 of 13 passed)
+------------------------------------------------------------
+  PASS  Accepts the supported file types, with small or capital letters
+  PASS  Refuses a file the server would refuse, and says why (Word file)
+  PASS  Refuses a file the server would refuse, and says why (no extension)
+  PASS  Refuses a file the server would refuse, and says why (empty file)
+  PASS  Refuses a file the server would refuse, and says why (bigger than 50 MB)
+  PASS  Refuses a file the server would refuse, and says why (the same file twice)
+  PASS  Allows at most 20 files in one upload
+  PASS  Lists the chosen files and shows why others were not added
+  PASS  Adds dropped files
+  PASS  Removes a chosen file
+  PASS  Uploads the files and links to each document's progress
+  PASS  Shows the server's reason for each refused file
+  PASS  Keeps the chosen files and explains it when the backend is not running
+
+Step 3 — Documents list with live progress  (7 of 7 passed)
+------------------------------------------------------------
+  PASS  Shows every document with its status, invoices and review count
+  PASS  Updates by itself every 2 seconds while a document is processing, and stops when all are finished
+  PASS  Does not ask again when every document is finished
+  PASS  Filters by status and by needs review, starting again on page 1
+  PASS  Says when there are no documents yet, or none that match the filters
+  PASS  Explains when the backend can't be reached, and loads again with Try again
+  PASS  Shows the backend's message when it refuses the request
+
+Step 4 — Document page: what was found  (11 of 11 passed)
+------------------------------------------------------------
+  PASS  Shows each field with its value, status and the evidence from the document
+  PASS  Shows missing, uncertain and corrected fields with their own label
+  PASS  Shows the problems found, marks the field with a problem, and says it needs review
+  PASS  Shows the line items, with the problem of a wrong line
+  PASS  Shows the history of the document
+  PASS  Shows document text as plain text, never as HTML
+  PASS  Shows why a document failed, and processes it again on request
+  PASS  Offers Process again only when something failed
+  PASS  Does not offer Process again for a document without failures
+  PASS  Updates by itself while the document is being processed
+  PASS  Shows the backend's message for a document that doesn't exist
+
+Step 5 — Correcting values and marking invoices as checked  (7 of 7 passed)
+------------------------------------------------------------
+  PASS  Corrects a value, and shows the result of the new check
+  PASS  Starts with the current value in the box, and Cancel or Esc changes nothing
+  PASS  Removes a value when the box is left empty
+  PASS  Shows the backend's reason under the field when a value is refused, so it can be fixed there
+  PASS  Marks an invoice as checked by a person, and can undo it
+  PASS  Shows a pop-up message when marking as checked fails
+  PASS  Does not offer Mark as checked for an invoice without problems
+
+Step 6 — Search page  (11 of 11 passed)
+------------------------------------------------------------
+  PASS  Puts the search in the page address when Search is pressed
+  PASS  Leaves keyword (the default) and empty filters out of the address
+  PASS  Asks nothing and shows a hint when there is no search yet
+  PASS  Shows keyword results with where the words were found
+  PASS  Says 'filters only' when there were no search words
+  PASS  Shows meaning results with their closeness, closest first
+  PASS  Fills the form from the address (e.g. after pressing Back)
+  PASS  Offers keyword search when meaning search can't be used right now
+  PASS  Shows the backend's message for a wrong filter
+  PASS  Goes to the next page of results, keeping the search
+  PASS  Clears the search with Clear all
+
+To run these checks again:
+    cd client && npm run test:save

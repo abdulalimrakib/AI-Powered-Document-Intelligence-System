@@ -41,6 +41,7 @@ export const withDetails = async (invoiceRows: any[]) => {
       .filter((error) => error.invoice_id === row.id)
       .map(({ invoice_id, ...error }) => error),
     needs_review: row.needs_review,
+    reviewed_at: row.reviewed_at, // when a person marked it as checked (null = not checked)
     warnings: row.warnings,
     updated_at: row.updated_at,
   }));

@@ -114,9 +114,11 @@ describe("Step 6 — Manual corrections", () => {
     const checked = await correct(invoiceId, { reviewed: true });
     expect(checked.body.data.needs_review).toBe(false);
     expect(checked.body.data.validation_errors).toHaveLength(1); // the problem is still shown
+    expect(checked.body.data.reviewed_at).not.toBeNull(); // the website shows "checked by a person"
 
     const unchecked = await correct(invoiceId, { reviewed: false });
     expect(unchecked.body.data.needs_review).toBe(true);
+    expect(unchecked.body.data.reviewed_at).toBeNull();
   });
 
   it.each([
