@@ -53,7 +53,17 @@ export const fakeAi = {
   rejectCorrection: null as string | null, // e.g. "total: 'abc' is not an amount" -> answers 400
   files: [] as string[], // the names of the files sent to /extract
   validateRequests: [] as any[], // the bodies sent to /validate
+  // POST /embed (Task 5): null = works; a text = answers 503 with that reason (e.g. "the limit is used up")
+  embedUnavailable: null as string | null,
+  embedRequests: [] as { texts: string[]; purpose: string }[], // the bodies sent to /embed
+  whileEmbedding: null as null | (() => Promise<unknown>), // something to do while /embed is "thinking"
 };
+
+/*--Fake meaning numbers: one number per topic, so tests can predict what is close--*/
+// e.g. "Office chairs" -> [1, 0, 0, 0.1, 0, 0 ...]: furniture. The last 0.1 makes sure it's never all zeros.
+const TOPICS = [/chair|desk|table|furniture/i, /broadband|internet|wifi/i, /coffee|milk|bread/i];
+export const fakeEmbedding = (text: string) =>
+  Array.from({ length: 768 }, (_, i) => (i < TOPICS.length ? (TOPICS[i].test(text) ? 1 : 0) : i === TOPICS.length ? 0.1 : 0));
 
 const resetFakeAi = () => {
   fakeAi.extract = (filename) => fileResult(filename, [aiInvoice()]);
@@ -61,6 +71,9 @@ const resetFakeAi = () => {
   fakeAi.rejectCorrection = null;
   fakeAi.files = [];
   fakeAi.validateRequests = [];
+  fakeAi.embedUnavailable = null;
+  fakeAi.embedRequests = [];
+  fakeAi.whileEmbedding = null;
 };
 
 let fakeServer: http.Server | null = null;
@@ -95,6 +108,15 @@ export const startFakeAi = () =>
       }
       const problems = fakeAi.problemsAfterCorrection;
       res.json({ ...invoice, fields, validation_errors: problems, needs_review: problems.length > 0 });
+    });
+    fake.post("/embed", async (req, res) => {
+      fakeAi.embedRequests.push(req.body);
+      if (fakeAi.whileEmbedding) await fakeAi.whileEmbedding();
+      if (fakeAi.embedUnavailable) {
+        res.status(503).json({ detail: fakeAi.embedUnavailable });
+        return;
+      }
+      res.json({ model: "fake-embedding", embeddings: req.body.texts.map(fakeEmbedding) });
     });
     fakeServer = fake.listen(8999, () => resolve());
   });
@@ -162,7 +184,10 @@ export const waitUntilFinished = async (documentId: number): Promise<string> => 
   for (let i = 0; i < 200; i++) {
     const found = await query("SELECT status FROM documents WHERE id = $1", [documentId]);
     const status = found.rows[0]?.status;
-    if (status === "done" || status === "failed") return status;
+    // Also wait until the worker has finished the whole job: after "done" it still adds the
+    // invoices to meaning search (Task 5)
+    const busy = (await documentQueue.getActiveCount()) + (await documentQueue.getWaitingCount());
+    if ((status === "done" || status === "failed") && busy === 0) return status;
     await new Promise((resolve) => setTimeout(resolve, 50));
   }
   throw new Error(`Document ${documentId} was not finished after 10 seconds`);

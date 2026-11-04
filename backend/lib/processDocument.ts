@@ -5,11 +5,13 @@ import envConfig from "../config/env.config";
 import { query, transaction } from "./db";
 import { AiFileResult, AiInvoice, extractWithAi } from "./aiService";
 import { addValidationError, invoicesPointingTo, isDuplicateRule, markDuplicates, refreshNeedsReview } from "./duplicates";
+import { embeddingFailedMessage, fillMissingEmbeddings } from "./embeddings";
 import { addHistory } from "./history";
 
 /*--The background work for one uploaded document--*/
 // 1. status "processing"   2. send the file to the AI service   3. save the invoices and their problems
 // 4. look for duplicates in all saved invoices   5. status "done" (or "failed" with the reason)
+// 6. add the invoices to meaning search (embeddings). If that fails, the document is still "done".
 // `attempt` and `attempts` come from the queue: e.g. attempt 2 of 3.
 export const processDocument = async (documentId: number, attempt: number, attempts: number) => {
   const found = await query("SELECT * FROM documents WHERE id = $1", [documentId]);
@@ -54,17 +56,26 @@ export const processDocument = async (documentId: number, attempt: number, attem
     return markFailed(documentId, failedInvoices[0].error as string, result);
   }
 
-  await saveResults(documentId, result, seconds);
+  const invoiceIds = await saveResults(documentId, result, seconds);
+
+  // Meaning search. This runs after "done" on purpose: a problem here must not undo good results.
+  const embedded = await fillMissingEmbeddings(invoiceIds);
+  if (embedded.error && invoiceIds.length > 0) {
+    await addHistory(documentId, "meaning search", embeddingFailedMessage(embedded.error));
+  }
 };
 
 /*--Save everything in one transaction, so a crash never leaves half-saved results--*/
-const saveResults = async (documentId: number, result: AiFileResult, seconds: number) => {
-  await transaction(async (client) => {
+// Returns the ids of the saved invoices.
+const saveResults = async (documentId: number, result: AiFileResult, seconds: number) =>
+  transaction(async (client) => {
     await removeOldResults(client, documentId);
 
     let needReview = 0;
+    const invoiceIds: number[] = [];
     for (const invoice of result.invoices) {
       const { invoiceId, hasProblems } = await saveInvoice(client, documentId, invoice);
+      invoiceIds.push(invoiceId);
       const hasDuplicates = await markDuplicates(client, invoiceId);
       if (hasProblems || hasDuplicates) needReview += 1;
     }
@@ -79,8 +90,8 @@ const saveResults = async (documentId: number, result: AiFileResult, seconds: nu
     await addHistory(documentId, "done",
       `Done in ${seconds.toFixed(1)} seconds: ${count} ${count === 1 ? "invoice" : "invoices"} found, ${needReview} need review`,
       client);
+    return invoiceIds;
   });
-};
 
 /*--Results of an earlier run (when a document is processed again)--*/
 // Deleting them also deletes the duplicate problems they caused on other invoices;

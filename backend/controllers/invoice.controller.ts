@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { CorrectionRejected, validateWithAi, AiInvoice } from "../lib/aiService";
 import { query, transaction } from "../lib/db";
 import { addValidationError, invoicesPointingTo, isDuplicateRule, markDuplicates, refreshNeedsReview } from "../lib/duplicates";
+import { embeddingFailedMessage, fillMissingEmbeddings } from "../lib/embeddings";
 import { addHistory } from "../lib/history";
 import { INVOICE_FIELDS, withDetails } from "../lib/invoiceDetails";
 import { positiveNumber } from "../utils/positiveNumber";
@@ -71,6 +72,8 @@ export const correctInvoice = async (req: Request, res: Response) => {
       changes = Object.keys(corrections).map((name) => ({
         field: name, old: invoice.fields[name].value, new: result.fields[name].value,
       }));
+      // The meaning numbers describe the old values: remove them (they are made again below)
+      await client.query("DELETE FROM invoice_embeddings WHERE invoice_id = $1", [id]);
       // The old problems (also duplicates in both directions) are replaced by the new check
       const others = await invoicesPointingTo(client, [id]);
       await client.query("DELETE FROM validation_errors WHERE invoice_id = $1 OR related_invoice_id = $1", [id]);
@@ -112,6 +115,14 @@ export const correctInvoice = async (req: Request, res: Response) => {
     await addHistory(row.document_id, checked ? "corrected" : "reviewed", `Invoice ${name}: ${notes.join(". ")}`,
       client, id, { changes, reviewed: reviewed ?? null });
   });
+
+  // Meaning search, with the new values. If it fails, the correction is still saved.
+  if (checked) {
+    const embedded = await fillMissingEmbeddings([id]);
+    if (embedded.error) {
+      await addHistory(row.document_id, "meaning search", embeddingFailedMessage(embedded.error), undefined, id);
+    }
+  }
 
   const updated = await query("SELECT * FROM invoices WHERE id = $1", [id]);
   const [result] = await withDetails(updated.rows);

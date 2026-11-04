@@ -66,8 +66,8 @@ describe("Step 8 — Search", () => {
   });
 
   it.each([
-    { example: "empty", q: "", message: "Type something to search for, e.g. ?q=acme" },
-    { example: "only spaces", q: "   ", message: "Type something to search for, e.g. ?q=acme" },
+    { example: "empty", q: "", message: "Type something to search for, or use a filter, e.g. ?q=acme or ?currency=USD" },
+    { example: "only spaces", q: "   ", message: "Type something to search for, or use a filter, e.g. ?q=acme or ?currency=USD" },
     { example: "201 characters", q: "x".repeat(201), message: "The search text is too long (at most 200 characters)" },
   ])("Refuses an empty or too long search ($example)", async ({ q, message }) => {
     const response = await request(app).get(`/api/v1/search?q=${encodeURIComponent(q)}`);

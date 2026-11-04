@@ -5,6 +5,7 @@ import type { Reporter, TestCase, TestModule } from "vitest/node";
 // Test folder -> (title of the report, file name). The same idea as TASKS in AI/tests/conftest.py.
 const TASKS: Record<string, [string, string]> = {
   task4: ["Task 4 — Backend API", "task4_backend_api.txt"],
+  task5: ["Task 5 — Database and search", "task5_database_search.txt"],
 };
 const RESULTS_FOLDER = path.join(__dirname, "..", "..", "test-results");
 
@@ -29,6 +30,10 @@ export default class PlainReport implements Reporter {
   }
 }
 
+/*--vitest writes the $example of a test in quotes: "... ('doesn\'t exist')". We show "... (doesn't exist)".--*/
+const plainName = (name: string) =>
+  name.replace(/\('((?:[^'\\]|\\.)*)'\)$/, (_, example: string) => `(${example.replace(/\\'/g, "'")})`);
+
 const toResult = (test: TestCase, testModule: TestModule): Result => {
   // The step is the outer describe(), e.g. "Step 3 — Upload API"
   let suite = test.parent;
@@ -44,7 +49,7 @@ const toResult = (test: TestCase, testModule: TestModule): Result => {
       ? "the result was not what the test expected"
       : `the code stopped with an error: ${error?.name ?? "Error"}: ${(error?.message ?? "").split("\n")[0]}`;
   }
-  return { step, description: test.name, outcome, reason, seconds: (test.diagnostic()?.duration ?? 0) / 1000 };
+  return { step, description: plainName(test.name), outcome, reason, seconds: (test.diagnostic()?.duration ?? 0) / 1000 };
 };
 
 const writeReport = (task: string, title: string, results: Result[], file: string) => {

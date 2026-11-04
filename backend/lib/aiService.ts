@@ -91,3 +91,33 @@ export const validateWithAi = async (
   }
   return response.json();
 };
+
+/*--Turn texts into embeddings (768 numbers each) for meaning search (AI service: POST /embed)--*/
+// purpose: "document" for invoices we store, "search" for the words a person searches for.
+// Throws with a clear message when it can't be done (e.g. the free Gemini limit is used up).
+export const embedWithAi = async (
+  texts: string[],
+  purpose: "document" | "search"
+): Promise<{ model: string; embeddings: number[][] }> => {
+  let response: Response;
+  try {
+    response = await fetch(`${envConfig.AI_API_URL}/embed`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ texts, purpose }),
+      signal: AbortSignal.timeout(2 * 60 * 1000), // includes the waits when Gemini is busy
+    });
+  } catch {
+    throw new Error(`the AI service is not running at ${envConfig.AI_API_URL}`);
+  }
+  if (response.status === 400 || response.status === 503) {
+    // The AI service explains the problem in "detail", e.g. "Meaning search is not available: the free
+    // Gemini limit ... is used up". We keep only the reason, because our own messages already say what failed.
+    const answer = await response.json();
+    throw new Error(String(answer.detail).replace(/^Meaning search is not available: /, ""));
+  }
+  if (!response.ok) {
+    throw new Error(`the AI service answered with error ${response.status}`);
+  }
+  return response.json();
+};

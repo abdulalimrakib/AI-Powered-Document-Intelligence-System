@@ -1,0 +1,24 @@
+Model: gemini-embedding-001
+
+The 4 closest invoices for each search (* = a right answer):
+  office furniture      furniture=0.677*  rent=0.615  cleaning=0.591  laptops=0.585
+  chairs                furniture=0.618*  rent=0.549  software=0.549  electricity=0.544
+  internet bill         internet=0.679*  phone=0.639  software=0.637  electricity=0.623
+  telecom               phone=0.610*  internet=0.593*  laptops=0.573  legal=0.570
+  utilities             electricity=0.607*  internet=0.590*  legal=0.567  rent=0.566
+  coffee                coffee=0.657*  cleaning=0.580  printing=0.579  furniture=0.575
+  food and drinks       coffee=0.614*  travel=0.569  printing=0.555  furniture=0.547
+  computers             laptops=0.617*  internet=0.604  software=0.594  furniture=0.593
+  business trip         travel=0.629*  laptops=0.608  phone=0.596  furniture=0.596
+  marketing materials   printing=0.652*  internet=0.584  cleaning=0.579  legal=0.573
+  lawyer                legal=0.626*  rent=0.574  software=0.564  travel=0.562
+  cleaning services     cleaning=0.655*  legal=0.556  furniture=0.545  printing=0.542
+
+The right invoice was first in 12 of 12 searches.
+Right answers score 0.590 to 0.679; the best wrong answer scores 0.639.
+
+Rule                                                   right answers kept  wrong answers shown
+score >= 0.58                                                       14/14               22/130
+score >= 0.60                                                       12/14                8/130
+within 0.03 of the best                                             14/14                4/130
+score >= 0.58 AND within 0.03 of the best (used)                    14/14                4/130

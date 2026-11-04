@@ -2,13 +2,14 @@
 -- "IF NOT EXISTS" means: create it the first time, and leave it alone after that (no data is lost).
 --
 -- documents ──< invoices ──< line_items
---     │             └──────< validation_errors
+--     │             ├──────< validation_errors
+--     │             └────── invoice_embeddings (one per invoice)
 --     └──< processing_history
 -- (──< means "one has many". Deleting a document also deletes everything that belongs to it.)
 --
 -- Money is "numeric": exact, never rounded like a float. Postgres sends it to the backend as text ("1150.00").
 
-CREATE EXTENSION IF NOT EXISTS vector; -- for meaning search in Task 5
+CREATE EXTENSION IF NOT EXISTS vector; -- pgvector: stores embeddings and finds the closest ones (meaning search)
 
 /*--One row per uploaded file--*/
 CREATE TABLE IF NOT EXISTS documents (
@@ -94,10 +95,22 @@ CREATE TABLE IF NOT EXISTS processing_history (
   id          serial PRIMARY KEY,
   document_id integer NOT NULL REFERENCES documents (id) ON DELETE CASCADE,
   invoice_id  integer REFERENCES invoices (id) ON DELETE SET NULL, -- set for corrections of one invoice
-  step        text NOT NULL,                        -- uploaded, processing, retry, done, failed, duplicate, corrected, reprocess
+  step        text NOT NULL,                        -- uploaded, processing, retry, done, failed, duplicate, corrected, reprocess, meaning search
   message     text NOT NULL,                        -- e.g. "Done in 4.2 seconds: 2 invoices found"
   details     jsonb,                                -- e.g. {"field": "total", "old": "1180.00", "new": "1150.00"}
   created_at  timestamptz NOT NULL DEFAULT now()
+);
+
+/*--The meaning of an invoice, for meaning search (Task 5)--*/
+-- An AI model turns a short text about the invoice (supplier, customer, what was bought) into 768 numbers,
+-- called an "embedding". Invoices with similar meanings get similar numbers, so "office furniture" can find "chairs".
+-- It has its own table, so the invoice API doesn't send 768 numbers to the website every time.
+-- No row here = this invoice is not in meaning search yet (keyword search still finds it).
+CREATE TABLE IF NOT EXISTS invoice_embeddings (
+  invoice_id integer PRIMARY KEY REFERENCES invoices (id) ON DELETE CASCADE, -- one embedding per invoice
+  embedding  vector(768) NOT NULL,
+  model      text NOT NULL,                         -- which AI model made it, e.g. "gemini-embedding-001"
+  created_at timestamptz NOT NULL DEFAULT now()
 );
 
 /*--Indexes: they make the common look-ups fast (like the index at the back of a book)--*/
@@ -109,3 +122,6 @@ CREATE INDEX IF NOT EXISTS line_items_invoice_idx ON line_items (invoice_id);
 CREATE INDEX IF NOT EXISTS validation_errors_invoice_idx ON validation_errors (invoice_id);
 CREATE INDEX IF NOT EXISTS validation_errors_related_idx ON validation_errors (related_invoice_id);
 CREATE INDEX IF NOT EXISTS processing_history_document_idx ON processing_history (document_id);
+-- HNSW is a special index for embeddings: it finds the closest ones fast, even with many invoices.
+-- "cosine" means "closest" = pointing in the most similar direction (the usual choice for text).
+CREATE INDEX IF NOT EXISTS invoice_embeddings_idx ON invoice_embeddings USING hnsw (embedding vector_cosine_ops);

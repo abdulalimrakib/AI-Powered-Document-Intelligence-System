@@ -28,7 +28,7 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 
 | File | What it does |
 |---|---|
-| `main.py` | The API: `GET /health`, `POST /process` (text of each file), `POST /extract` (checked invoices), `POST /validate` (check again after a correction) |
+| `main.py` | The API: `GET /health`, `POST /process` (text of each file), `POST /extract` (checked invoices), `POST /validate` (check again after a correction), `POST /embed` (meaning numbers for meaning search) |
 | `process_file.py` | Checks size and type, picks the right reader, turns errors into clear messages |
 | `file_type.py` | Finds the real file type from the file's first bytes |
 | `read_pdf.py` | Reads PDFs page by page; scanned pages go to OCR |
@@ -41,6 +41,8 @@ curl -F files=@invoice.pdf -F files=@prices.xlsx http://localhost:8000/process
 | `clean_values.py` | Turns amounts, dates and currencies into one standard form |
 | `extract_invoices.py` | Puts it all together: read the file, find the invoices, extract, clean and check them |
 | `validate_invoice.py` | Checks each invoice: missing fields, wrong numbers, totals that don't add up, duplicates |
+| `embed_text.py` | Turns texts into embeddings (768 numbers each) with Gemini's embedding model, for meaning search |
+| `measure_meaning_search.py` | Measures meaning search with the real Gemini (12 sample invoices, 12 searches); the meaning-search cut-off was chosen from its results (`../test-results/task5_meaning_search_scores.txt`) |
 
 ## Tests
 
@@ -57,7 +59,7 @@ To save an easy-to-read results file (a PASS/FAIL checklist in plain words) into
 uv run pytest tests/task1 --save-results
 ```
 
-A few Task 2 tests call the real Gemini and use the free daily limit, so they are skipped unless you add `--real-gemini`.
+A few Task 2 and Task 5 tests call the real Gemini and use the free daily limit, so they are skipped unless you add `--real-gemini`.
 
 | Test file | What it checks |
 |---|---|
@@ -77,5 +79,6 @@ A few Task 2 tests call the real Gemini and use the free daily limit, so they ar
 | `tests/task3/test_duplicates.py` | Duplicates and possible duplicates in one upload |
 | `tests/task3/test_needs_review.py` | Validation errors on each invoice, and in the `/extract` API |
 | `tests/task4/test_correct_invoice.py` | Checking an invoice again after a manual correction (`/validate`) |
+| `tests/task5/test_embed_text.py` | Making embeddings (`/embed`): one request for many texts, retries, daily limit, broken answers, wrong input |
 
 Sample files are made in code by `tests/make_files.py`. The only stored file is `tests/files/old_excel.xls`, because no installed library can write the old Excel format.

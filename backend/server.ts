@@ -1,6 +1,7 @@
 import app from "./app";
 import envConfig from "./config/env.config";
 import { setupDatabase } from "./lib/db";
+import { fillMissingEmbeddings } from "./lib/embeddings";
 import { checkQueue, queueUnfinishedDocuments, startWorker } from "./lib/queue";
 
 /*--Create Server--*/
@@ -18,6 +19,12 @@ const start = async () => {
   const worker = startWorker();
   const waiting = await queueUnfinishedDocuments();
   if (waiting) console.log(`${waiting} unfinished document(s) put back in the queue`);
+
+  // Invoices that are not in meaning search yet (an earlier try failed): add them now
+  fillMissingEmbeddings().then(({ saved, error }) => {
+    if (saved) console.log(`${saved} invoice(s) added to meaning search`);
+    if (error) console.log(`Meaning search: could not add invoices yet (${error})`);
+  });
 
   app.listen(envConfig.PORT, () => {
     console.log(`Server running on port ${envConfig.PORT}!`);

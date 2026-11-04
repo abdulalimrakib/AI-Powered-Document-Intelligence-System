@@ -1,6 +1,7 @@
 import pytesseract
 from fastapi import Body, FastAPI, HTTPException, UploadFile
 
+from embed_text import EmbeddingNotAvailable, embed_texts
 from extract_invoices import correct_invoice, extract_invoices_from_file, mark_duplicates
 from process_file import MAX_FILE_SIZE_BYTES, process_file
 
@@ -51,3 +52,16 @@ def validate(invoice: dict = Body(...), corrections: dict = Body(...)):
         raise HTTPException(status_code=400, detail=str(error))
     except (KeyError, TypeError, AttributeError):
         raise HTTPException(status_code=400, detail="The invoice is not in the expected shape")
+
+
+@app.post("/embed")
+def embed(texts: list = Body(...), purpose: str = Body("document")):
+    """Turn texts into embeddings (768 numbers each) for meaning search (used by the backend).
+    `texts` is e.g. ["Acme Ltd, office chairs"]; `purpose` is "document" (an invoice to store) or
+    "search" (the words a person searches for). Returns {"model", "embeddings": [[...], ...]}."""
+    try:
+        return embed_texts(texts, purpose)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error))
+    except EmbeddingNotAvailable as error:  # not our fault, and trying later can work
+        raise HTTPException(status_code=503, detail=str(error))

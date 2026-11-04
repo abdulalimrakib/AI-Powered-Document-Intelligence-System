@@ -1,7 +1,7 @@
 Task 4 — Backend API: test results
 ============================================================
-Date:    2026-11-03 21:18
-Result:  ALL 79 TESTS PASSED  (14.3 seconds)
+Date:    2026-11-04 08:41
+Result:  ALL 79 TESTS PASSED  (14.8 seconds)
 
 Each line below is one automatic check of the system.
 PASS means the system did the right thing; FAIL means it did not (the reason is shown).
@@ -71,12 +71,12 @@ Step 6 — Manual corrections  (17 of 17 passed)
   PASS  Correcting the invoice number removes the duplicate problem from both invoices
   PASS  Correcting a value can also find a new duplicate
   PASS  Marks an invoice as checked by a person, and back again
-  PASS  Refuses a wrong request with a clear message ('unknown field')
-  PASS  Refuses a wrong request with a clear message ('fields is a list')
-  PASS  Refuses a wrong request with a clear message ('a number instead of text')
-  PASS  Refuses a wrong request with a clear message ('501 characters')
-  PASS  Refuses a wrong request with a clear message ('reviewed is "yes"')
-  PASS  Refuses a wrong request with a clear message ('nothing to change')
+  PASS  Refuses a wrong request with a clear message (unknown field)
+  PASS  Refuses a wrong request with a clear message (fields is a list)
+  PASS  Refuses a wrong request with a clear message (a number instead of text)
+  PASS  Refuses a wrong request with a clear message (501 characters)
+  PASS  Refuses a wrong request with a clear message (reviewed is "yes")
+  PASS  Refuses a wrong request with a clear message (nothing to change)
   PASS  Answers 404 for an invoice that does not exist
   PASS  When the AI service is down, the correction is refused (503) and nothing changes
 
@@ -101,9 +101,9 @@ Step 8 — Search  (10 of 10 passed)
   PASS  Treats % and _ as normal characters, not as wildcards
   PASS  Says when nothing is found
   PASS  Splits the results into pages
-  PASS  Refuses an empty or too long search ('empty')
-  PASS  Refuses an empty or too long search ('only spaces')
-  PASS  Refuses an empty or too long search ('201 characters')
+  PASS  Refuses an empty or too long search (empty)
+  PASS  Refuses an empty or too long search (only spaces)
+  PASS  Refuses an empty or too long search (201 characters)
 
 To run these checks again:
     cd backend && npm run test:save
