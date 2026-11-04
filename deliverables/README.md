@@ -8,8 +8,8 @@
 | 2 | README and setup instructions | [`../README.md`](../README.md) |
 | 3 | Architecture diagram | [`architecture.png`](architecture.png) (source: [`architecture.drawio`](architecture.drawio)) |
 | 3 | Database schema | [`DATABASE_SCHEMA.md`](DATABASE_SCHEMA.md) |
-| 4 | Working backend API and frontend | [`../backend/`](../backend/README.md) (API routes listed there) and [`../client/`](../client/README.md) |
-| 5 | PDF, image, Excel and CSV processing | [`../AI/`](../AI/README.md) |
+| 4 | Working backend API and frontend | [`BACKEND_API_AND_FRONTEND.md`](BACKEND_API_AND_FRONTEND.md) |
+| 5 | PDF, image, Excel and CSV processing pipelines | [`PROCESSING_PIPELINES.md`](PROCESSING_PIPELINES.md) |
 | 6 | Automated tests and test results | [`TEST_RESULTS.md`](TEST_RESULTS.md): 574 tests, 0 failed |
 | 7 | Evaluation report with measured metrics | [`EVALUATION_REPORT.md`](EVALUATION_REPORT.md) |
 | 8 | Recorded walkthrough | *Video link: to be added* |
