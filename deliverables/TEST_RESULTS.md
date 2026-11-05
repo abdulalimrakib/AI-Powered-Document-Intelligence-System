@@ -1,6 +1,6 @@
 # Test results
 
-**574 automated tests: 570 passed, 0 failed, 4 skipped.** Last run: 2026-11-04.
+**575 automated tests: 571 passed, 0 failed, 4 skipped.** Last run: 2026-11-05.
 
 The 4 skipped tests call the real Gemini API. They are switched off by default to save the free daily limit and only
 run with `--real-gemini`; all 4 passed when run.
@@ -9,7 +9,7 @@ run with `--real-gemini`; all 4 passed when run.
 |---|---|---|---|
 | AI service (`AI/`) | pytest | 359 | 355 passed, 4 skipped |
 | Backend API (`backend/`) | vitest + supertest | 160 | 160 passed |
-| Website (`client/`) | vitest + Testing Library | 55 | 55 passed |
+| Website (`client/`) | vitest + Testing Library | 56 | 56 passed |
 
 ## What is tested
 
@@ -21,7 +21,7 @@ run with `--real-gemini`; all 4 passed when run.
 | Validation (Task 3) | 61 | Missing fields, wrong numbers, line maths, subtotal + tax = total, duplicates, future dates, "needs review" |
 | Backend API and background jobs (Task 4) | 79 + 15 | Upload, status, results, manual corrections, reprocessing failed jobs, retries when the AI service is down |
 | Database and search (Task 5) | 74 + 26 | Keyword search, filters (date, amount, currency, supplier), semantic search with pgvector |
-| Website (Task 6) | 55 | Every page used like a real user would: upload rules, live progress, fields with evidence, corrections, search |
+| Website (Task 6) | 56 | Every page used like a real user would: upload rules, live progress, fields with evidence, corrections, search |
 | Integration and evaluation tools (Task 7) | 7 + 63 | The backend with the real AI service; the labeled dataset and the scoring that produce the [evaluation report](EVALUATION_REPORT.md) |
 
 ## Failure scenarios

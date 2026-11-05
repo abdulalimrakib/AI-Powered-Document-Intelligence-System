@@ -123,7 +123,10 @@ export default function InvoiceCard({ invoice, number, onChanged }: { invoice: I
                 <li key={error.id} className="flex items-start gap-2">
                   <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden />
                   <span>
-                    {error.field && <span className="font-medium">{fieldLabel(error.field)}: </span>}
+                    {/* No label when the message already starts with it ("line item 1: line item 1: ...") */}
+                    {error.field && !error.message.toLowerCase().startsWith(fieldLabel(error.field).toLowerCase()) && (
+                      <span className="font-medium">{fieldLabel(error.field)}: </span>
+                    )}
                     {error.message}
                   </span>
                 </li>

@@ -55,6 +55,18 @@ describe("Step 4 — Document page: what was found", () => {
     expect(screen.getByText(/1 needs review/)).toBeTruthy();
   });
 
+  it("Does not repeat the field name when the problem already starts with it", async () => {
+    startFakeBackend(() => ok(sampleDocument({ invoices: [sampleInvoice({
+      needs_review: true,
+      validation_errors: [{ id: 1, field: "line item 1", rule: "line_math", message: "line item 1: 2 × 35.66 = 71.32, but the amount says 70.00" }],
+    })] })));
+    render(<DocumentDetails id="5" />);
+    await screen.findByText("october.pdf");
+
+    const problem = screen.getByText(/2 × 35.66 = 71.32/).closest("li") as HTMLElement;
+    expect(problem.textContent).toBe("line item 1: 2 × 35.66 = 71.32, but the amount says 70.00");
+  });
+
   it("Shows the line items, with the problem of a wrong line", async () => {
     startFakeBackend(() => ok(sampleDocument({ invoices: [sampleInvoice({ line_items: [
       { position: 1, description: "Office chairs", quantity: "10", unit_price: "100.00", amount: "1000.00", evidence: null, problems: [] },

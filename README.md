@@ -145,7 +145,7 @@ when to try again, and the document can be processed again later.
 |---|---|---|
 | AI service | `cd AI && uv run pytest` | 359 |
 | Backend | `cd backend && npm run typecheck && npm test` (Postgres and Redis must run) | 160 |
-| Website | `cd client && npm run lint && npm run build && npm test` | 55 |
+| Website | `cd client && npm run lint && npm run build && npm test` | 56 |
 
 The tests use their own database, a fake Gemini, a fake AI service or a fake backend, so they never touch your
 data or use Gemini requests (the few real-Gemini checks only run with `--real-gemini`).

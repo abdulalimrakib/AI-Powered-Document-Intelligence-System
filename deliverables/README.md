@@ -10,9 +10,9 @@
 | 3 | Database schema | [`DATABASE_SCHEMA.md`](DATABASE_SCHEMA.md) |
 | 4 | Working backend API and frontend | [`BACKEND_API_AND_FRONTEND.md`](BACKEND_API_AND_FRONTEND.md) |
 | 5 | PDF, image, Excel and CSV processing pipelines | [`PROCESSING_PIPELINES.md`](PROCESSING_PIPELINES.md) |
-| 6 | Automated tests and test results | [`TEST_RESULTS.md`](TEST_RESULTS.md): 574 tests, 0 failed |
+| 6 | Automated tests and test results | [`TEST_RESULTS.md`](TEST_RESULTS.md): 575 tests, 0 failed |
 | 7 | Evaluation report with measured metrics | [`EVALUATION_REPORT.md`](EVALUATION_REPORT.md) |
-| 8 | Recorded walkthrough | *Video link: to be added* |
+| 8 | Recorded walkthrough | [Video on Google Drive](https://drive.google.com/file/d/1uj-YCQ-abPvpRhygm1Fz_WkEbqq11ycy/view?usp=sharing) |
 | 9 | AI prompts and AI-use disclosure | [`AI_PROMPTS_AND_AI_USE.md`](AI_PROMPTS_AND_AI_USE.md) |
 
 ## Results at a glance

@@ -91,7 +91,7 @@ from 2026-11-02 to 2026-11-04.
 
 **How the AI's work was checked**
 
-- Tests for every task: 574 in total, all passing ([test results](TEST_RESULTS.md)).
+- Tests for every task: 575 in total, all passing ([test results](TEST_RESULTS.md)).
 - The tests were tested: the code was broken on purpose (in memory only) and the tests had to fail. Weak tests were
   made stronger.
 - No number is typed by hand: the evaluation report is written by a script from the saved results.
